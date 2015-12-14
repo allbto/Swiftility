@@ -12,9 +12,8 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => "0.1"}
 
-  s.source_files  = "Classes", "Classes/**/*.{m,swift}"
-
-  s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "Swiftility/Swiftility/**/*.h"
+  s.source_files  = "Swiftility/Swiftility/Classes/**/*.{h,m,swift}"
 
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
