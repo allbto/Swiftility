@@ -13,11 +13,11 @@
 		9D1CEE801C1ECCB2006A88C8 /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5B1C1ECCB2006A88C8 /* Closure.swift */; };
 		9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */; };
 		9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */; };
-		9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */; };
+		9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEE861C1ECCB2006A88C8 /* CALayer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE631C1ECCB2006A88C8 /* CALayer+Extensions.m */; };
-		9D1CEE871C1ECCB2006A88C8 /* UIStoryboard+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE641C1ECCB2006A88C8 /* UIStoryboard+Extensions.h */; };
+		9D1CEE871C1ECCB2006A88C8 /* UIStoryboard+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE641C1ECCB2006A88C8 /* UIStoryboard+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEE881C1ECCB2006A88C8 /* UIStoryboard+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE651C1ECCB2006A88C8 /* UIStoryboard+Extensions.m */; };
-		9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */; };
+		9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEE8A1C1ECCB2006A88C8 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE671C1ECCB2006A88C8 /* UIView+Extensions.m */; };
 		9D1CEE8C1C1ECCB2006A88C8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */; };
 		9D1CEE9D1C1ECCB2006A88C8 /* ModelViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */; };
@@ -38,10 +38,9 @@
 		9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */; };
 		9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */; };
 		9D1CEEBF1C1ECD64006A88C8 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */; };
-		9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */; };
+		9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */; };
 		9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */; };
-		9D1CEEC81C1ED05C006A88C8 /* Swiftility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC71C1ED05C006A88C8 /* Swiftility.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,9 +91,6 @@
 		9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffectsExtension.swift; sourceTree = "<group>"; };
-		9D1CEEC71C1ED05C006A88C8 /* Swiftility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swiftility.h; sourceTree = "<group>"; };
-		9D1CEECF1C1ED820006A88C8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		9D1CEED01C1ED820006A88C8 /* Objc.private.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = Objc.private.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,14 +152,11 @@
 		9D1CEE5A1C1ECCB2006A88C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9D1CEECE1C1ED820006A88C8 /* ObjcPrivate */,
-				9D1CEED01C1ED820006A88C8 /* Objc.private.modulemap */,
 				9D1CEE5D1C1ECCB2006A88C8 /* Extensions */,
 				9D1CEE7C1C1ECCB2006A88C8 /* Types */,
 				9D1CEE5B1C1ECCB2006A88C8 /* Closure.swift */,
 				9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */,
 				9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */,
-				9D1CEEC71C1ED05C006A88C8 /* Swiftility.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -242,14 +235,6 @@
 			path = UIImageEffects;
 			sourceTree = "<group>";
 		};
-		9D1CEECE1C1ED820006A88C8 /* ObjcPrivate */ = {
-			isa = PBXGroup;
-			children = (
-				9D1CEECF1C1ED820006A88C8 /* module.modulemap */,
-			);
-			path = ObjcPrivate;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -257,7 +242,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D1CEEC81C1ED05C006A88C8 /* Swiftility.h in Headers */,
 				9D1CEE871C1ECCB2006A88C8 /* UIStoryboard+Extensions.h in Headers */,
 				9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */,
 				9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */,
