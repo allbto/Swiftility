@@ -125,7 +125,7 @@ public struct DeviceInfo {
     
     // MARK: - Device Size Checks
     
-    enum Heights: CGFloat {
+    public enum Heights: CGFloat {
         case Inches_3_5 = 480
         case Inches_4 = 568
         case Inches_4_7 = 667
