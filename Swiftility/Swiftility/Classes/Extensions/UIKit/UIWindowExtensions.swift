@@ -10,7 +10,7 @@ import Foundation
 
 extension UIWindow
 {
-    func setRootViewControllerAnimated(vc: UIViewController?, options: UIViewAnimationOptions = .TransitionCrossDissolve, duration: NSTimeInterval = 0.3)
+    public func setRootViewControllerAnimated(vc: UIViewController?, options: UIViewAnimationOptions = .TransitionCrossDissolve, duration: NSTimeInterval = 0.3)
     {
         guard let vc = vc else {
             self.rootViewController = nil

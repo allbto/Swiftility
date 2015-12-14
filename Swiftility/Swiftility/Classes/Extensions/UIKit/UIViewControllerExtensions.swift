@@ -16,10 +16,10 @@ extension UIViewController
 {
     // MARK: - Alert
     
-    typealias UIAlertControllerButtonHandler = ((UIAlertAction) -> Void)
-    typealias UIAlertControllerCompletion = (() -> Void)
+    public typealias UIAlertControllerButtonHandler = ((UIAlertAction) -> Void)
+    public typealias UIAlertControllerCompletion = (() -> Void)
     
-    func alert(message: String, title: String? = nil, handler: UIAlertControllerButtonHandler? = nil)
+    public func alert(message: String, title: String? = nil, handler: UIAlertControllerButtonHandler? = nil)
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         

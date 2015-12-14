@@ -17,7 +17,7 @@ extension Array
     
     :returns: Element of Array or nil if out of bounds
     */
-    func get(index: Int?) -> Element?
+    public func get(index: Int?) -> Element?
     {
         if let index = index where index < self.count && index >= 0 {
             return self[index]
@@ -33,7 +33,7 @@ extension Array
     
     :returns: index of the removed element
     */
-    mutating func remove<U: Equatable>(object: U) -> Int?
+    public mutating func remove<U: Equatable>(object: U) -> Int?
     {
         for (index, objectToCompare) in enumerate() {
             if let to = objectToCompare as? U {

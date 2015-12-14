@@ -11,19 +11,9 @@ import UIKit
 
 extension UIColor
 {
-    // MARK: - PuraScents
+    // MARK: - Better RGBA inits
     
-    static func psGreenColor() -> UIColor {
-        return UIColor("#00CC99")
-    }
-    
-    static func psSoftGreyTextColor() -> UIColor {
-        return UIColor("#ACACAC")
-    }
-    
-    // MARK: - Better RGBA inits 
-    
-    convenience init(_ rgba: String, var alpha: CGFloat=1.0) {
+    public convenience init(_ rgba: String, var alpha: CGFloat=1.0) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
@@ -61,13 +51,13 @@ extension UIColor
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
     
-	class func rgb(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
+	public class func rgb(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
 		return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
 	}
     
-    typealias RGBComponents = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+    public typealias RGBComponents = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
     
-    var rgbComponents:RGBComponents {
+    public var rgbComponents:RGBComponents {
         var c:RGBComponents = (0,0,0,0)
         
         if getRed(&c.red, green: &c.green, blue: &c.blue, alpha: &c.alpha) {
@@ -77,31 +67,31 @@ extension UIColor
         return (0,0,0,0)
     }
     
-    var rgbValue: String {
+    public var rgbValue: String {
         return String(format: "#%02x%02x%02x", Int(rgbComponents.red * 255), Int(rgbComponents.green * 255), Int(rgbComponents.blue * 255))
     }
     
-    var rgbaValue: String {
+    public var rgbaValue: String {
         return String(format: "#%02x%02x%02x%02x", Int(rgbComponents.red * 255), Int(rgbComponents.green * 255), Int(rgbComponents.blue * 255), Int(rgbComponents.alpha * 255) )
     }
     
     
     // HUE
     
-    func lighter(amount : CGFloat = 0.25) -> UIColor {
+    public func lighter(amount : CGFloat = 0.25) -> UIColor {
         if amount < 0 { return self }
         
         return self.adjust(red: amount, green: amount, blue: amount, alpha: 0)
     }
     
-    func darker(amount : CGFloat = 0.25) -> UIColor {
+    public func darker(amount : CGFloat = 0.25) -> UIColor {
         if amount < 0 { return self }
 
         let amount = 0 - amount
         return self.adjust(red: amount, green: amount, blue: amount, alpha: 0)
     }
     
-    func adjust(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
+    public func adjust(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         return UIColor(red: r+red, green: g+green, blue: b+blue, alpha: a+alpha)
@@ -109,7 +99,7 @@ extension UIColor
     
     // Random
     
-    static func randomColor(opaque isOpaque: Bool = true) -> UIColor!
+    public static func randomColor(opaque isOpaque: Bool = true) -> UIColor!
     {
         let hue: CGFloat = ( CGFloat(arc4random()) % 256 / 256.0 );  //  0.0 to 1.0
         let saturation: CGFloat = ( CGFloat(arc4random()) % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white

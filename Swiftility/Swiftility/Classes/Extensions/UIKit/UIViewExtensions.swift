@@ -10,32 +10,16 @@ import UIKit
 
 extension UIView
 {
-    // MARK: - PuraScents
-    
-    class func psTableViewHeaderView(title title: String) -> UIView
-    {
-        let titleLabel = UILabel()
-        
-        titleLabel.text = title.uppercaseString
-        titleLabel.textColor = UIColor("#3F2B21", alpha: 0.3)
-        titleLabel.backgroundColor = UIColor("#F4F2F1")
-        titleLabel.font = .psRegular(13)
-        titleLabel.textAlignment = .Center
-        titleLabel.alpha = 0.7
-        
-        return titleLabel
-    }
-    
     // MARK: - Constraints
     
-    func addConstraintsWithVisualFormat(format: String, views: [String : UIView] = [:], options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: [String : AnyObject]? = nil)
+    public func addConstraintsWithVisualFormat(format: String, views: [String : UIView] = [:], options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: [String : AnyObject]? = nil)
     {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: metrics, views: views))
     }
     
     // MARK: - Animations
     
-    func fadeTransition(duration: CFTimeInterval)
+    public func fadeTransition(duration: CFTimeInterval)
     {
         let animation:CATransition = CATransition()
         
@@ -48,7 +32,7 @@ extension UIView
     
     // MARK: - Frame convinience
     
-    var size : CGSize {
+    public var size : CGSize {
         get {
             return self.frame.size
         }
@@ -62,7 +46,7 @@ extension UIView
         }
     }
     
-    var left : CGFloat {
+    public var left : CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -74,7 +58,7 @@ extension UIView
         }
     }
     
-    var top : CGFloat {
+    public var top : CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -86,7 +70,7 @@ extension UIView
         }
     }
     
-    var right : CGFloat {
+    public var right : CGFloat {
         get {
             return self.frame.origin.x + self.frame.size.width
         }
@@ -98,7 +82,7 @@ extension UIView
         }
     }
     
-    var bottom : CGFloat {
+    public var bottom : CGFloat {
         get {
             return self.frame.origin.y + self.frame.size.height
         }
@@ -111,7 +95,7 @@ extension UIView
     }
     
     
-    var width : CGFloat {
+    public var width : CGFloat {
         get {
             return self.frame.size.width
         }
@@ -123,7 +107,7 @@ extension UIView
         }
     }
     
-    var height : CGFloat {
+    public var height : CGFloat {
         get {
             return self.frame.size.height
         }
@@ -135,7 +119,7 @@ extension UIView
         }
     }
     
-    var centerY : CGFloat {
+    public var centerY : CGFloat {
         get {
             return self.center.y
         }
@@ -145,7 +129,7 @@ extension UIView
         }
     }
     
-    var centerX : CGFloat {
+    public var centerX : CGFloat {
         get {
             return self.center.x
         }
@@ -155,7 +139,7 @@ extension UIView
         }
     }
     
-    var bottomMargin : CGFloat {
+    public var bottomMargin : CGFloat {
         get {
             if let unwrappedSuperview = self.superview {
                 return unwrappedSuperview.height - self.bottom;
@@ -176,7 +160,7 @@ extension UIView
     }
     
     
-    var rightMargin : CGFloat {
+    public var rightMargin : CGFloat {
         get {
             if let unwrappedSuperview = self.superview {
                 return unwrappedSuperview.width - self.right;
@@ -197,7 +181,7 @@ extension UIView
     }
     
     
-    func centerInSuperview() {
+    public func centerInSuperview() {
         
         if let u = self.superview {
             self.center = CGPointMake(CGRectGetMidX(u.bounds), CGRectGetMidY(u.bounds));
@@ -206,20 +190,20 @@ extension UIView
         
     }
     
-    func centerVertically() {
+    public func centerVertically() {
         if let unwrappedOptional = self.superview {
             self.center = CGPointMake(self.center.x, CGRectGetMidY(unwrappedOptional.bounds));
         }
     }
     
-    func centerHorizontally() {
+    public func centerHorizontally() {
         if let unwrappedOptional = self.superview {
             self.center = CGPointMake(CGRectGetMidX(unwrappedOptional.bounds), self.center.y);
         }
     }
     
     
-    func removeAllSubviews() {
+    public func removeAllSubviews() {
         while(self.subviews.count > 0) {
             if let view: AnyObject =  self.subviews.last {
                 view.removeFromSuperview()
@@ -228,7 +212,7 @@ extension UIView
         
     }
     
-    func makeFrameIntegral() {
+    public func makeFrameIntegral() {
         self.frame = CGRectIntegral(self.frame)
         //    self.bounds = CGRectIntegral(self.bounds)
         
