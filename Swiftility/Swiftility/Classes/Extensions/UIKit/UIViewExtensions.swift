@@ -10,22 +10,6 @@ import UIKit
 
 extension UIView
 {
-    // MARK: - PuraScents
-    
-    class func psTableViewHeaderView(title title: String) -> UIView
-    {
-        let titleLabel = UILabel()
-        
-        titleLabel.text = title.uppercaseString
-        titleLabel.textColor = UIColor("#3F2B21", alpha: 0.3)
-        titleLabel.backgroundColor = UIColor("#F4F2F1")
-        titleLabel.font = .psRegular(13)
-        titleLabel.textAlignment = .Center
-        titleLabel.alpha = 0.7
-        
-        return titleLabel
-    }
-    
     // MARK: - Constraints
     
     func addConstraintsWithVisualFormat(format: String, views: [String : UIView] = [:], options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: [String : AnyObject]? = nil)

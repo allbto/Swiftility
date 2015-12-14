@@ -11,15 +11,7 @@ import UIKit
 
 extension UIColor
 {
-    // MARK: - PuraScents
-    
-    static func psGreenColor() -> UIColor {
-        return UIColor("#00CC99")
-    }
-    
-    static func psSoftGreyTextColor() -> UIColor {
-        return UIColor("#ACACAC")
-    }
+    // MARK: - Better RGBA inits
     
     // MARK: - Better RGBA inits 
     
