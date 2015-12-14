@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol FromStoryboard
+public protocol FromStoryboard
 {
     static var storyboard: String { get }
 }
 
-protocol ViewController: FromStoryboard
+public protocol ViewController: FromStoryboard
 {
     typealias VM
     var viewModel: VM! { get set }
@@ -22,7 +22,7 @@ protocol ViewController: FromStoryboard
 extension UIStoryboard
 {
     
-    func instantiateViewController<T where T: UIViewController, T: ViewController>(type: T.Type, vm: T.VM) -> T
+    public func instantiateViewController<T where T: UIViewController, T: ViewController>(type: T.Type, vm: T.VM) -> T
     {
         var vc = self.instantiateViewController(type)
 
@@ -31,7 +31,7 @@ extension UIStoryboard
         return vc
     }
 
-    func instantiateViewController<T where T: UIViewController>(type: T.Type) -> T
+    public func instantiateViewController<T where T: UIViewController>(type: T.Type) -> T
     {
         guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(type)) as? T else {
             fatalError("\(String(type)) could not be instanciated because it was not found in storyboard: \(self)")
@@ -45,7 +45,7 @@ extension UIStoryboard
 extension UIViewController
 {
     
-    func instantiateViewController<T where T: UIViewController, T: ViewController>(type: T.Type, vm: T.VM, storyboard: String? = T.storyboard) -> T
+    public func instantiateViewController<T where T: UIViewController, T: ViewController>(type: T.Type, vm: T.VM, storyboard: String? = T.storyboard) -> T
     {
         var vc = self.instantiateViewController(type, storyboard: storyboard)
         
@@ -53,7 +53,7 @@ extension UIViewController
         return vc
     }
     
-    func instantiateViewController<T where T: UIViewController, T: FromStoryboard>(type: T.Type, storyboard: String? = T.storyboard) -> T
+    public func instantiateViewController<T where T: UIViewController, T: FromStoryboard>(type: T.Type, storyboard: String? = T.storyboard) -> T
     {
         let storyboardContainer: UIStoryboard
         
@@ -82,7 +82,7 @@ extension UIView
         return view
     }
 
-    func instantiateFromNib<T: UIView>(viewType: T.Type) -> T
+    public func instantiateFromNib<T: UIView>(viewType: T.Type) -> T
     {
         return UIView.instantiateFromNib(viewType)
     }

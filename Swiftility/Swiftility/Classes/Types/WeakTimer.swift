@@ -9,8 +9,8 @@
 import Foundation
 
 /// A factory for NSTimer instances that invoke closures, thereby allowing a weak reference to its context.
-struct WeakTimerFactory {
-    class WeakTimer: NSObject {
+public struct WeakTimerFactory {
+    public class WeakTimer: NSObject {
         private var timer: NSTimer!
         private let callback: () -> Void
         
@@ -26,7 +26,7 @@ struct WeakTimerFactory {
     }
     
     /// Returns a new timer that has not yet executed, and is not scheduled for execution.
-    static func timerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject?, repeats: Bool, callback: () -> Void) -> NSTimer {
+    public static func timerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject?, repeats: Bool, callback: () -> Void) -> NSTimer {
         return WeakTimer(timeInterval: timeInterval, userInfo: userInfo, repeats: repeats, callback: callback).timer
     }
 }

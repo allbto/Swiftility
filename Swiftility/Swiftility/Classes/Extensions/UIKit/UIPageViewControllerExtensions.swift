@@ -10,7 +10,7 @@ import UIKit
 
 extension UIPageViewController
 {
-    var scrollView: UIScrollView? {
+    public var scrollView: UIScrollView? {
         for view in self.view.subviews {
             if let scrollView = view as? UIScrollView {
                 return scrollView

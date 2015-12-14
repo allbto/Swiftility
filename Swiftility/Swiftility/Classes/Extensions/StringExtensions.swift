@@ -12,11 +12,11 @@ extension String
 {
     // MARK: - Length
 
-    var length: Int { return self.characters.count }
+    public var length: Int { return self.characters.count }
     
     // MARK: - Subscript
     
-    subscript (r: Range<Int>) -> String {
+    public subscript (r: Range<Int>) -> String {
         get {
             let startIndex = self.startIndex.advancedBy(r.startIndex)
             let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
@@ -27,21 +27,21 @@ extension String
     
     // MARK: - Localized
 
-    var localized: String { return String.localized(self) }
+    public var localized: String { return String.localized(self) }
     
-    func localized(comment: String) -> String
+    public func localized(comment: String) -> String
     {
         return String.localized(self, comment: comment)
     }
     
-    static func localized(key: String, comment: String? = nil) -> String
+    public static func localized(key: String, comment: String? = nil) -> String
     {
         return NSLocalizedString(key, comment: comment ?? key)
     }
     
     // MARK: - Size
     
-    func sizeWithFont(font: UIFont, constraintWidth: CGFloat = CGFloat(MAXFLOAT), constraintHeight: CGFloat = CGFloat(MAXFLOAT)) -> CGSize
+    public func sizeWithFont(font: UIFont, constraintWidth: CGFloat = CGFloat(MAXFLOAT), constraintHeight: CGFloat = CGFloat(MAXFLOAT)) -> CGSize
     {
         let attributes = [NSFontAttributeName: font]
         var rect = (self as NSString).boundingRectWithSize(CGSizeMake(constraintWidth, constraintHeight), options:.UsesLineFragmentOrigin, attributes:attributes, context:nil)

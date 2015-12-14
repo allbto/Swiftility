@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel
 {
-    func setLetterSpacedText(text: String, spacing: CGFloat)
+    public func setLetterSpacedText(text: String, spacing: CGFloat)
     {
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttribute(NSKernAttributeName, value: spacing, range: NSRange(location: 0, length: text.length))

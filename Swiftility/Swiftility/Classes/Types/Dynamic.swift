@@ -8,36 +8,36 @@
 
 import Foundation
 
-class Dynamic<T> {
-    typealias Listener = T -> Void
+public struct Dynamic<T> {
+    public typealias Listener = T -> Void
     var listener: Listener?
     
-    func bind(listener: Listener?) {
+    public mutating func bind(listener: Listener?) {
         self.listener = listener
     }
     
-    func bindAndFire(listener: Listener?) {
+    public mutating func bindAndFire(listener: Listener?) {
         self.listener = listener
         self.fire()
     }
     
-    func fire() {
+    public func fire() {
         dispatch_async(dispatch_get_main_queue(), {
             self.listener?(self.value)
         })
     }
     
-    var value: T {
+    public var value: T {
         didSet {
             self.fire()
         }
     }
     
-    var isBinded: Bool {
+    public var isBinded: Bool {
         return self.listener != nil
     }
     
-    init(_ v: T) {
+    public init(_ v: T) {
         value = v
     }
 }

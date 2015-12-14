@@ -8,18 +8,18 @@
 
 import Foundation
 
-typealias BasicClosure = dispatch_block_t
+public typealias BasicClosure = dispatch_block_t
 
 // MARK: - Async
 
 /// Convenience call to dispatch_async
-func async(queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block: BasicClosure)
+public func async(queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block: BasicClosure)
 {
     dispatch_async(queue, block)
 }
 
 /// Convenience call to dispatch_async:dispatch_get_main_queue()
-func async_main(block: BasicClosure)
+public func async_main(block: BasicClosure)
 {
     dispatch_async(dispatch_get_main_queue(), block)
 }
@@ -27,7 +27,7 @@ func async_main(block: BasicClosure)
 // MARK: - Debounce
 
 /// Convenience call to dispatch_debounce_block
-func debounced(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
+public func debounced(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
 {
     return dispatch_debounce_block(wait, queue: queue, closure: closure)
 }
@@ -39,7 +39,7 @@ func debounced(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_ma
  
  Inspired by debounce function from underscore.js ( http://underscorejs.org/#debounce )
  */
-func dispatch_debounce_block(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
+public func dispatch_debounce_block(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
 {
     var cancelable : BasicClosure!
     return {
@@ -48,7 +48,7 @@ func dispatch_debounce_block(wait : NSTimeInterval, queue : dispatch_queue_t = d
     }
 }
 
-func dispatch_after_cancellable(when: dispatch_time_t, queue: dispatch_queue_t, closure: BasicClosure) -> BasicClosure {
+public func dispatch_after_cancellable(when: dispatch_time_t, queue: dispatch_queue_t, closure: BasicClosure) -> BasicClosure {
     var isCancelled = false
     dispatch_after(when, queue) {
         if !isCancelled {

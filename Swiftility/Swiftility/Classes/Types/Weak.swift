@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Weak<T: AnyObject>
+public struct Weak<T: AnyObject>
 {
-    weak var value : T?
+    public weak var value : T?
 
-    init (_ value: T) {
+    public init (_ value: T) {
         self.value = value
     }
 }

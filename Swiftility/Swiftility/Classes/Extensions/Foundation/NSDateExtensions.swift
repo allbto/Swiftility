@@ -22,7 +22,7 @@ extension NSDate
 {
     // MARK: - Convinience
     
-    static func dateFromString(fromString: String, format: String = "yyyy-MM-dd HH:mm:ss zzz") -> NSDate?
+    public static func dateFromString(fromString: String, format: String = "yyyy-MM-dd HH:mm:ss zzz") -> NSDate?
     {
         let formatter = NSDateFormatter()
         
@@ -33,7 +33,7 @@ extension NSDate
         return formatter.dateFromString(fromString)
     }
     
-    func dateByAddingValue(value: Int, toUnit unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDate
+    public func dateByAddingValue(value: Int, toUnit unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDate
     {
         let components: NSDateComponents = NSDateComponents()
         
@@ -44,12 +44,12 @@ extension NSDate
     
     // MARK: - Hour date
     
-    func component(unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> Int
+    public func component(unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> Int
     {
         return calendar.component(unit, fromDate: self)
     }
     
-    func hourDate(initialDate date: NSDate = NSDate(timeIntervalSince1970: 0), includeMinutes: Bool = true, includeSeconds: Bool = false) -> NSDate
+    public func hourDate(initialDate date: NSDate = NSDate(timeIntervalSince1970: 0), includeMinutes: Bool = true, includeSeconds: Bool = false) -> NSDate
     {
         let firstDate = date
         let calendar = NSCalendar.currentCalendar()
@@ -77,13 +77,13 @@ extension NSDate
         return calendar.dateFromComponents(components)!
     }
     
-    var hourDate: NSDate {
+    public var hourDate: NSDate {
         return self.hourDate()
     }
     
     // MARK: - String representation
     
-    func stringValue(ends ends: NSDate? = nil, format: String = "ha") -> String
+    public func stringValue(ends ends: NSDate? = nil, format: String = "ha") -> String
     {
         // TODO: Am pm for US only
         let formatter = NSDateFormatter()
