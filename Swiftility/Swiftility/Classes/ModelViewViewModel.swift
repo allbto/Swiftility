@@ -89,4 +89,19 @@ extension UIView
     
 }
 
+public protocol TableViewCell
+{
+    static var identifier: String { get }
+}
 
+extension UITableView
+{
+    public func dequeueReusableCell<T where T: UITableViewCell, T: TableViewCell>(type: T.Type) -> T
+    {
+        guard let cell = self.dequeueReusableCellWithIdentifier(String(type)) as? T else {
+            fatalError("\(String(type)) cell could not be instanciated because it was not found on the tableView")
+        }
+        
+        return cell
+    }
+}
