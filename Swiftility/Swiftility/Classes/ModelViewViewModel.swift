@@ -33,7 +33,7 @@ extension UIStoryboard
 
     func instantiateViewController<T where T: UIViewController>(type: T.Type) -> T
     {
-        guard let vc = self.instantiateViewControllerWithIdentifier(String(type)) as? T else {
+        guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(type)) as? T else {
             fatalError("\(String(type)) could not be instanciated because it was not found in storyboard: \(self)")
         }
         
