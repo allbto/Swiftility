@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => "0.1"}
+  s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => "0.2"}
 
   s.public_header_files = "Swiftility/Swiftility/**/*.h"
   s.source_files  = "Swiftility/Swiftility/Classes/**/*.{h,m,swift}"
