@@ -105,4 +105,14 @@ extension NSDate
             return "\(startS)"
         }
     }
+    
+    public var relativeValue: String {
+        let formatter = NSDateFormatter()
+        
+        formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .ShortStyle
+        formatter.doesRelativeDateFormatting = true
+        
+        return formatter.stringFromDate(self)
+    }
 }
