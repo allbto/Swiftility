@@ -8,11 +8,11 @@
 
 import UIKit
 
-public enum UINavigationControllerAnimationStyle {
+public enum UINavigationControllerAnimationStyle
+{
     case Fade, MoveIn, Push, Reveal
     
-    public var CATransitionValue: String
-        {
+    public var CATransitionValue: String {
             switch self {
             case .Fade:
                 return kCATransitionFade
