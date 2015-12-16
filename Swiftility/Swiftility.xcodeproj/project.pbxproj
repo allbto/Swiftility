@@ -40,6 +40,7 @@
 		9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */; };
 		9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */; };
+		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffectsExtension.swift; sourceTree = "<group>"; };
+		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				9D1CEE7D1C1ECCB2006A88C8 /* Dynamic.swift */,
 				9D1CEE7E1C1ECCB2006A88C8 /* Weak.swift */,
 				9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */,
+				9D95CA821C21B81A005C6B01 /* Regex.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */,
 				9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */,
 				9D1CEEB71C1ECD64006A88C8 /* UILabelExtensions.swift in Sources */,
+				9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */,
 				9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */,
 				9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */,
 				9D1CEEB21C1ECD64006A88C8 /* NSDateExtensions.swift in Sources */,
@@ -554,6 +558,7 @@
 				9D1CEE071C1ECA2D006A88C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D1CEE081C1ECA2D006A88C8 /* Build configuration list for PBXNativeTarget "SwiftilityTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +567,7 @@
 				9D1CEE0A1C1ECA2D006A88C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
