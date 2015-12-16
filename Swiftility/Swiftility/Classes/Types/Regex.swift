@@ -8,33 +8,93 @@
 
 import Foundation
 
-class Regex
+public struct Regex
 {
-    private(set) var internalExpression: NSRegularExpression!
-    let pattern: String
-    
-    init(_ pattern: String, options: NSRegularExpressionOptions = [.CaseInsensitive]) throws
-    {
-        self.pattern = pattern
-        self.internalExpression = nil
-
-        self.internalExpression = try NSRegularExpression(pattern: pattern, options: options)
+    public var pattern: String {
+        didSet {
+            do {
+                try updateRegex()
+            } catch {
+                print("Impossible to update regex")
+            }
+        }
     }
     
-    func test(input: String, options: NSMatchingOptions = NSMatchingOptions(rawValue: 0), range: NSRange? = nil) -> Bool
+    public var expressionOptions: NSRegularExpressionOptions {
+        didSet {
+            do {
+                try updateRegex()
+            } catch {
+                print("Impossible to update regex")
+            }
+        }
+    }
+    
+    public var matchingOptions: NSMatchingOptions
+    
+    public private(set) var regex: NSRegularExpression?
+    
+    public init(pattern: String, expressionOptions: NSRegularExpressionOptions = NSRegularExpressionOptions(rawValue: 0), matchingOptions: NSMatchingOptions = NSMatchingOptions(rawValue: 0)) throws
     {
-        let matches = self.internalExpression.matchesInString(input, options: options, range:range ?? NSMakeRange(0, input.length))
-        return matches.count > 0
+        self.pattern = pattern
+        self.expressionOptions = expressionOptions
+        self.matchingOptions = matchingOptions
+        try updateRegex()
+    }
+    
+    public mutating func updateRegex() throws
+    {
+        regex = try NSRegularExpression(pattern: pattern, options: expressionOptions)
     }
 }
 
 infix operator =~ {}
 
-func =~ (input: String, pattern: String) -> Bool
+public func =~ (input: String, pattern: String) -> Bool
 {
-    do {
-        return try Regex(pattern).test(input)
-    } catch {
+    return input.match(pattern)
+}
+
+extension String
+{
+    public func matchRegex(pattern: Regex) -> Bool
+    {
+        let range: NSRange = NSMakeRange(0, self.length)
+
+        if let regex = pattern.regex {
+            let matches: [AnyObject] = regex.matchesInString(self, options: pattern.matchingOptions, range: range)
+            return matches.count > 0
+        }
         return false
+    }
+    
+    public func match(patternString: String) -> Bool
+    {
+        do {
+            return self.matchRegex(try Regex(pattern: patternString))
+        } catch {
+            return false
+        }
+    }
+    
+    public func replaceRegex(pattern: Regex, template: String) -> String
+    {
+        if self.matchRegex(pattern) {
+            let range: NSRange = NSMakeRange(0, self.length)
+            
+            if let regex = pattern.regex {
+                return regex.stringByReplacingMatchesInString(self, options: pattern.matchingOptions, range: range, withTemplate: template)
+            }
+        }
+        return self
+    }
+    
+    public func replace(pattern: String, template: String) -> String
+    {
+        do {
+            return self.replaceRegex(try Regex(pattern: pattern), template: template)
+        } catch {
+            return self
+        }
     }
 }
