@@ -13,6 +13,13 @@ public protocol FromStoryboard
     static var storyboard: String { get }
 }
 
+extension FromStoryboard
+{
+    public static var uiStoryboard: UIStoryboard {
+        return UIStoryboard(name: Self.storyboard, bundle: nil)
+    }
+}
+
 public protocol ViewController: FromStoryboard
 {
     typealias VM
