@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Swiftility"
-  s.version      = "0.3"
+  s.version      = "0.4"
   s.summary      = "allbto utility libs to use across projects."
   s.homepage     = "https://github.com/allbto/ios-swiftility"
   s.license      = { :type => "MIT" }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => "0.3"}
+  s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => s.version}
 
   s.public_header_files = "Swiftility/Swiftility/**/*.h"
   s.source_files  = "Swiftility/Swiftility/Classes/**/*.{h,m,swift}"
