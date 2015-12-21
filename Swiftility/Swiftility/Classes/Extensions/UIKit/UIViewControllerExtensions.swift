@@ -45,11 +45,14 @@ extension UIViewController
         guard constraint != nil || updateClosure != nil else { return }
         
         NSNotificationCenter.defaultCenter().addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { [weak self] n in
+            
+            UIView.performWithoutAnimation({
+                updateClosure?(n)
+            })
+            
             if let constraint = constraint {
                 self?.adjustKeyboardContraint(constraint, notification: n)
             }
-            
-            updateClosure?(n)
         }
     }
     
