@@ -43,6 +43,7 @@
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
+		9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */,
 				9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */,
 				9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */,
+				9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				9D1CEEB41C1ECD64006A88C8 /* UIColorExtension.swift in Sources */,
 				9D1CEE801C1ECCB2006A88C8 /* Closure.swift in Sources */,
+				9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */,
 				9D1CEE8C1C1ECCB2006A88C8 /* StringExtensions.swift in Sources */,
 				9D1CEEB61C1ECD64006A88C8 /* UIImageViewExtension.swift in Sources */,
 				9D1CEE9D1C1ECCB2006A88C8 /* ModelViewViewModel.swift in Sources */,
