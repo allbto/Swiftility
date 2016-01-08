@@ -8,24 +8,15 @@
 
 import Foundation
 
-public struct Dynamic<T> {
+public struct Dynamic<T>
+{
+    // MARK: - Properties
+    
+    private var listener: Listener?
+
     public typealias Listener = T -> Void
-    var listener: Listener?
     
-    public mutating func bind(listener: Listener?) {
-        self.listener = listener
-    }
-    
-    public mutating func bindAndFire(listener: Listener?) {
-        self.listener = listener
-        self.fire()
-    }
-    
-    public func fire() {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.listener?(self.value)
-        })
-    }
+    public var shouldFire: Bool = true
     
     public var value: T {
         didSet {
@@ -37,7 +28,43 @@ public struct Dynamic<T> {
         return self.listener != nil
     }
     
-    public init(_ v: T) {
+    // MARK: - Life cycle
+    
+    public init(_ v: T)
+    {
         value = v
+    }
+
+    // MARK: - Binding
+    
+    public mutating func bind(listener: Listener?)
+    {
+        self.listener = listener
+    }
+    
+    public mutating func bindAndFire(listener: Listener?)
+    {
+        self.listener = listener
+        self.fire()
+    }
+    
+    // MARK: - Actions
+    
+    public func fire()
+    {
+        guard shouldFire == true else { return }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.listener?(self.value)
+        })
+    }
+    
+    public mutating func setValue(value: T, fire: Bool = true)
+    {
+        let originalShouldFire = shouldFire
+        
+        shouldFire = fire
+        self.value = value
+        shouldFire = originalShouldFire
     }
 }
