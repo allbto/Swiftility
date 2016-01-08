@@ -40,6 +40,7 @@
 		9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */; };
 		9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */; };
+		9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
@@ -93,6 +94,7 @@
 		9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffectsExtension.swift; sourceTree = "<group>"; };
+		9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */,
 				9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */,
 				9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */,
+				9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				9D1CEE9D1C1ECCB2006A88C8 /* ModelViewViewModel.swift in Sources */,
 				9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */,
 				9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */,
+				9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */,
 				9D1CEE8A1C1ECCB2006A88C8 /* UIView+Extensions.m in Sources */,
 				9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */,
 				9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */,
