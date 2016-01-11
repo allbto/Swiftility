@@ -80,18 +80,20 @@ extension UIViewController
 extension UIView
 {
     
-    public class func instantiateFromNib<T: UIView>(viewType: T.Type) -> T
+    public class func instantiateFromNib<T: UIView>(viewType: T.Type, nibName: String? = nil) -> T
     {
-        guard let view = NSBundle.mainBundle().loadNibNamed(String(viewType), owner: nil, options: nil).first as? T else {
-            fatalError("\(String(viewType)) could not be instanciated because it was not found main bundle or the nib did not contain \(String(viewType))")
+        let nibName = nibName ?? String(viewType)
+        
+        guard let view = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil).first as? T else {
+            fatalError("\(String(viewType)) could not be instanciated because it was not found main bundle or the nib (\(nibName)) did not contain \(String(viewType))")
         }
         
         return view
     }
-
-    public func instantiateFromNib<T: UIView>(viewType: T.Type) -> T
+    
+    public func instantiateFromNib<T: UIView>(viewType: T.Type, nibName: String? = nil) -> T
     {
-        return UIView.instantiateFromNib(viewType)
+        return UIView.instantiateFromNib(viewType, nibName: nibName)
     }
     
 }
@@ -112,3 +114,5 @@ extension UITableView
         return cell
     }
 }
+
+// TODO: Add UICollectionView like ^
