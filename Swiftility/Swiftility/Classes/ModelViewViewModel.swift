@@ -41,7 +41,7 @@ extension UIStoryboard
     public func instantiateViewController<T where T: UIViewController>(type: T.Type) -> T
     {
         guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(type)) as? T else {
-            fatalError("\(String(type)) could not be instanciated because it was not found in storyboard: \(self)")
+            fatalError("\(String(type)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc
@@ -85,7 +85,7 @@ extension UIView
         let nibName = nibName ?? String(viewType)
         
         guard let view = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil).first as? T else {
-            fatalError("\(String(viewType)) could not be instanciated because it was not found main bundle or the nib (\(nibName)) did not contain \(String(viewType))")
+            fatalError("\(String(viewType)) could not be instantiated because it was not found main bundle or the nib (\(nibName)) did not contain \(String(viewType))")
         }
         
         return view
@@ -108,7 +108,7 @@ extension UITableView
     public func dequeueReusableCell<T where T: UITableViewCell, T: TableViewCell>(type: T.Type) -> T
     {
         guard let cell = self.dequeueReusableCellWithIdentifier(String(type)) as? T else {
-            fatalError("\(String(type)) cell could not be instanciated because it was not found on the tableView")
+            fatalError("\(String(type)) cell could not be instantiated because it was not found on the tableView")
         }
         
         return cell
