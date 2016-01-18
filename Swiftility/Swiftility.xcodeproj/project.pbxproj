@@ -45,6 +45,7 @@
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
 		9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */; };
+		9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */,
 				9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */,
 				9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */,
+				9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
 				9D1CEEBF1C1ECD64006A88C8 /* UIWindowExtensions.swift in Sources */,
+				9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */,
 				9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */,
 				9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */,
 				9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */,
