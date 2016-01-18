@@ -31,32 +31,24 @@ extension UIViewController
     
     // MARK: - Keyboard
     
+    /// Update closure, params are keyboard size and the keyboard notification
+    public typealias KeyboardUpdateClosure = ((CGSize, NSNotification) -> Void)
+
     /**
     Subscribe to keyboard updates notifications.
-    Update constraint if != nil.
-    Call updateClosure if != nil.
-    If both == nil does nothing.
     
-    - parameter constraint:    the contraint to update when keyboard change frame or hide
-    - parameter updateClosure: called when keyboard change frame or hide
+    - parameter update: Closure called when keyboard change frame or hide. One should update constraints in this closure, the animation will run after the `update` closure
     */
-    public func subscribeToKeyboardUpdates(constraint: NSLayoutConstraint?, updateClosure: ((NSNotification) -> Void)? = nil)
+    public func subscribeToKeyboardUpdates(update: KeyboardUpdateClosure)
     {
-        guard constraint != nil || updateClosure != nil else { return }
-        
         NSNotificationCenter.defaultCenter().addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { [weak self] n in
             
-            UIView.performWithoutAnimation({
-                updateClosure?(n)
-            })
+            self?._adjustKeyboardWithUpdateClosure(update, notification: n)
             
-            if let constraint = constraint {
-                self?.adjustKeyboardContraint(constraint, notification: n)
-            }
         }
     }
     
-    private func adjustKeyboardContraint(constraint: NSLayoutConstraint, notification n: NSNotification)
+    private func _adjustKeyboardWithUpdateClosure(update: KeyboardUpdateClosure, notification n: NSNotification)
     {
         guard let userInfo = n.userInfo,
             keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size,
@@ -64,11 +56,7 @@ extension UIViewController
             curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.unsignedIntValue
             else { return }
         
-        if n.name == UIKeyboardWillHideNotification {
-            constraint.constant = 0
-        } else {
-            constraint.constant = keyboardSize.height
-        }
+        update(keyboardSize, n)
         
         let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
         
