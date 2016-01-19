@@ -19,8 +19,14 @@ extension UILabel
      - parameter ownAttributes:    =nil; Add your own attributes to the text. Ignored if == nil
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
      */
-    public func setTextWithSpacing(text: String, characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
+    public func setTextWithSpacing(text: String?, characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
     {
+        // If text is nil update label text and leave
+        guard let text = text else {
+            self.text = nil
+            return
+        }
+
         let range: NSRange = range ?? NSRange(location: 0, length: text.length)
         let attributedString = NSMutableAttributedString(string: text)
         
