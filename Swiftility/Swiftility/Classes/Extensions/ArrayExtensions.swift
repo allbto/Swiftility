@@ -10,13 +10,13 @@ import Foundation
 
 extension Array
 {
-    /**
-    Add a func to Array allowing to fetch object optionally
-    
-    :param: index to fetch
-    
-    :returns: Element of Array or nil if out of bounds
-    */
+     /**
+     Allow to fetch object optionally
+     
+     - parameter index: index to fetch
+     
+     - returns: Element of Array or nil if out of bounds
+     */
     public func get(index: Int?) -> Element?
     {
         if let index = index where index < self.count && index >= 0 {
@@ -26,13 +26,13 @@ extension Array
         return nil
     }
     
-    /**
-    Remove an object of the array and return the index removed
+     /**
+     Remove an object of the array and return the index removed
     
-    :param: object to remove
-    
-    :returns: index of the removed element
-    */
+     - parameter object: object to remove
+     
+     - returns: index of the removed element or nil if not found
+     */
     public mutating func remove<U: Equatable>(object: U) -> Int?
     {
         for (index, objectToCompare) in enumerate() {
@@ -46,3 +46,4 @@ extension Array
         return nil
     }
 }
+

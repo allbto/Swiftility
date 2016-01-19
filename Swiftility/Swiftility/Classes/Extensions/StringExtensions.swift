@@ -12,6 +12,7 @@ extension String
 {
     // MARK: - Length
 
+    /// Get only String length
     public var length: Int { return self.characters.count }
     
     // MARK: - Subscript
