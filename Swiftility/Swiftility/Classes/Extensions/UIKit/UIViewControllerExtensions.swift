@@ -39,16 +39,16 @@ extension UIViewController
     
     - parameter update: Closure called when keyboard change frame or hide. One should update constraints in this closure, the animation will run after the `update` closure
     */
-    public func subscribeToKeyboardUpdates(update: KeyboardUpdateClosure)
+    public func subscribeToKeyboardUpdates(animate animate: Bool = true, update: KeyboardUpdateClosure)
     {
         NSNotificationCenter.defaultCenter().addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { [weak self] n in
             
-            self?._adjustKeyboardWithUpdateClosure(update, notification: n)
+            self?._adjustKeyboardWithUpdateClosure(update, notification: n, animate: animate)
             
         }
     }
     
-    private func _adjustKeyboardWithUpdateClosure(update: KeyboardUpdateClosure, notification n: NSNotification)
+    private func _adjustKeyboardWithUpdateClosure(update: KeyboardUpdateClosure, notification n: NSNotification, animate: Bool)
     {
         guard let userInfo = n.userInfo,
             keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size,
@@ -60,9 +60,11 @@ extension UIViewController
         
         let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
         
-        UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
+        if animate {
+            UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
+                self.view.layoutIfNeeded()
+                }, completion: nil)
+        }
     }
     
     // MARK: - HUD
