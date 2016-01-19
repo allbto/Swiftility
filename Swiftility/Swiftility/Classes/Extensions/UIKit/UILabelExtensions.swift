@@ -30,12 +30,12 @@ extension UILabel
         }
         
         // Add character spacing if needed
-        if characterSpacing > 0 {
+        if characterSpacing != 0 {
             attributedString.addAttribute(NSKernAttributeName, value: characterSpacing, range: range)
         }
         
         // Add line spacing if needed
-        if lineSpacing > 0 {
+        if lineSpacing != 0 {
             let paragraphStyle = NSMutableParagraphStyle()
             
             paragraphStyle.lineSpacing = lineSpacing
