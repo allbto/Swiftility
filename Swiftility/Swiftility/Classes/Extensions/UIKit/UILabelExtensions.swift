@@ -52,4 +52,10 @@ extension UILabel
         // Assign text
         self.attributedText = attributedString
     }
+    
+    /// self.setTextWithSpacing with own text
+    public func setSpacing(characterSpacing characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
+    {
+        self.setTextWithSpacing(self.text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
+    }
 }
