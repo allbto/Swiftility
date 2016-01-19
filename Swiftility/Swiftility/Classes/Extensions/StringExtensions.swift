@@ -16,6 +16,16 @@ extension String
     public var length: Int { return self.characters.count }
     
     // MARK: - Subscript
+
+    public subscript (i: Int) -> Character {
+        get {
+            return self[self.startIndex.advancedBy(i)]
+        }
+    }
+    
+    public subscript (i: Int) -> String {
+        return String(self[self.startIndex.advancedBy(i)])
+    }
     
     public subscript (r: Range<Int>) -> String {
         get {
