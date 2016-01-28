@@ -1,5 +1,5 @@
 //
-//  Closure.swift
+//  GCD.swift
 //  Swiftility
 //
 //  Created by Allan Barbato on 10/23/15.
