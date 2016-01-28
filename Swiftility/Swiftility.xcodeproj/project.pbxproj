@@ -10,7 +10,7 @@
 		9D1CEDF51C1ECA2D006A88C8 /* Swiftility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEDFC1C1ECA2D006A88C8 /* Swiftility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */; };
 		9D1CEE011C1ECA2D006A88C8 /* SwiftilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */; };
-		9D1CEE801C1ECCB2006A88C8 /* Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5B1C1ECCB2006A88C8 /* Closure.swift */; };
+		9D1CEE801C1ECCB2006A88C8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */; };
 		9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */; };
 		9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */; };
 		9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,7 +65,7 @@
 		9D1CEDFB1C1ECA2D006A88C8 /* SwiftilityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftilityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftilityTests.swift; sourceTree = "<group>"; };
 		9D1CEE021C1ECA2D006A88C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D1CEE5B1C1ECCB2006A88C8 /* Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closure.swift; sourceTree = "<group>"; };
+		9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Extensions.h"; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			children = (
 				9D1CEE5D1C1ECCB2006A88C8 /* Extensions */,
 				9D1CEE7C1C1ECCB2006A88C8 /* Types */,
-				9D1CEE5B1C1ECCB2006A88C8 /* Closure.swift */,
+				9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */,
 				9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */,
 				9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */,
 			);
@@ -364,7 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1CEEB41C1ECD64006A88C8 /* UIColorExtensions.swift in Sources */,
-				9D1CEE801C1ECCB2006A88C8 /* Closure.swift in Sources */,
+				9D1CEE801C1ECCB2006A88C8 /* GCD.swift in Sources */,
 				9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */,
 				9D1CEE8C1C1ECCB2006A88C8 /* StringExtensions.swift in Sources */,
 				9D1CEEB61C1ECD64006A88C8 /* UIImageViewExtensions.swift in Sources */,
