@@ -8,18 +8,19 @@
 
 import UIKit
 
+// MARK: - Constraints
 extension UIView
 {
-    // MARK: - Constraints
-    
     public func addConstraintsWithVisualFormat(format: String, views: [String : UIView] = [:], options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: [String : AnyObject]? = nil)
     {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: metrics, views: views))
     }
-    
-    // MARK: - Animations
-    
-    public func fadeTransition(duration: CFTimeInterval)
+}
+
+// MARK: - Animations
+extension UIView
+{
+    public func addFadeTransition(duration: CFTimeInterval)
     {
         let animation:CATransition = CATransition()
         
@@ -29,27 +30,53 @@ extension UIView
 
         self.layer.addAnimation(animation, forKey: kCATransitionFade)
     }
-    
-    // MARK: - Frame convinience
-    
-    public var size : CGSize {
-        get {
-            return self.frame.size
+}
+
+// MARK: - Screenshot
+extension UIView
+{
+    public func screenshot() -> UIImage?
+    {
+        let rect = self.bounds
+        
+        UIGraphicsBeginImageContext(rect.size)
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
         }
+        
+        self.layer.renderInContext(context)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return img
+    }
+}
+
+// MARK: - Frame convinience
+extension UIView
+{
+    public func makeFrameIntegral()
+    {
+        self.frame = CGRectIntegral(self.frame)
+    }
+
+    public var size: CGSize {
+        get { return self.frame.size }
         
         set(value) {
             var newFrame = self.frame;
             newFrame.size.width = value.width;
             newFrame.size.height = value.height;
             self.frame = newFrame
-            
         }
     }
     
-    public var left : CGFloat {
-        get {
-            return self.frame.origin.x
-        }
+    public var left: CGFloat {
+        get { return self.frame.origin.x }
         
         set(value) {
             var newFrame = self.frame;
@@ -58,10 +85,8 @@ extension UIView
         }
     }
     
-    public var top : CGFloat {
-        get {
-            return self.frame.origin.y
-        }
+    public var top: CGFloat {
+        get { return self.frame.origin.y }
         
         set(value) {
             var newFrame = self.frame;
@@ -70,10 +95,8 @@ extension UIView
         }
     }
     
-    public var right : CGFloat {
-        get {
-            return self.frame.origin.x + self.frame.size.width
-        }
+    public var right: CGFloat {
+        get { return self.frame.origin.x + self.frame.size.width }
         
         set(value) {
             var newFrame = self.frame;
@@ -82,10 +105,8 @@ extension UIView
         }
     }
     
-    public var bottom : CGFloat {
-        get {
-            return self.frame.origin.y + self.frame.size.height
-        }
+    public var bottom: CGFloat {
+        get { return self.frame.origin.y + self.frame.size.height }
         
         set(value) {
             var newFrame = self.frame;
@@ -95,10 +116,8 @@ extension UIView
     }
     
     
-    public var width : CGFloat {
-        get {
-            return self.frame.size.width
-        }
+    public var width: CGFloat {
+        get { return self.frame.size.width }
         
         set(value) {
             var newFrame = self.frame;
@@ -107,10 +126,8 @@ extension UIView
         }
     }
     
-    public var height : CGFloat {
-        get {
-            return self.frame.size.height
-        }
+    public var height: CGFloat {
+        get { return self.frame.size.height }
         
         set(value) {
             var newFrame = self.frame;
@@ -119,102 +136,92 @@ extension UIView
         }
     }
     
-    public var centerY : CGFloat {
-        get {
-            return self.center.y
-        }
+    public var centerY: CGFloat {
+        get { return self.center.y }
         
         set(value) {
             self.center = CGPointMake(self.center.x, value)
         }
     }
     
-    public var centerX : CGFloat {
-        get {
-            return self.center.x
-        }
+    public var centerX: CGFloat {
+        get { return self.center.x }
         
         set(value) {
             self.center = CGPointMake(value, self.center.y);
         }
     }
     
-    public var bottomMargin : CGFloat {
+    // MARK: - Margins
+    
+    public var bottomMargin: CGFloat {
         get {
-            if let unwrappedSuperview = self.superview {
-                return unwrappedSuperview.height - self.bottom;
-            } else {
-                return 0;
+            guard let unwrappedSuperview = self.superview else {
+                return 0
             }
+            
+            return unwrappedSuperview.height - self.bottom;
         }
         
         set(value) {
+            guard let unwrappedSuperview = self.superview else { return }
             
-            if let unwrappedSuperview = self.superview {
-                var frame = self.frame;
-                frame.origin.y = unwrappedSuperview.height - value - self.height;
-                self.frame = frame;
-                
-            }
+            var frame = self.frame;
+            frame.origin.y = unwrappedSuperview.height - value - self.height;
+            self.frame = frame;
         }
     }
     
     
-    public var rightMargin : CGFloat {
+    public var rightMargin: CGFloat {
         get {
-            if let unwrappedSuperview = self.superview {
-                return unwrappedSuperview.width - self.right;
-            } else {
-                return 0;
+            guard let unwrappedSuperview = self.superview else {
+                return 0
             }
+            
+            return unwrappedSuperview.width - self.right;
         }
         
         set(value) {
+            guard let unwrappedSuperview = self.superview else { return }
             
-            if let unwrappedSuperview = self.superview {
-                var frame = self.frame;
-                frame.origin.y = unwrappedSuperview.width - value - self.width;
-                self.frame = frame;
-                
-            }
+            var frame = self.frame;
+            frame.origin.y = unwrappedSuperview.width - value - self.width;
+            self.frame = frame;
         }
     }
     
+    // MARK: - Center
     
-    public func centerInSuperview() {
-        
+    public func centerInSuperview()
+    {
         if let u = self.superview {
             self.center = CGPointMake(CGRectGetMidX(u.bounds), CGRectGetMidY(u.bounds));
-            
         }
-        
     }
     
-    public func centerVertically() {
+    public func centerVertically()
+    {
         if let unwrappedOptional = self.superview {
             self.center = CGPointMake(self.center.x, CGRectGetMidY(unwrappedOptional.bounds));
         }
     }
     
-    public func centerHorizontally() {
+    public func centerHorizontally()
+    {
         if let unwrappedOptional = self.superview {
             self.center = CGPointMake(CGRectGetMidX(unwrappedOptional.bounds), self.center.y);
         }
     }
     
+    // MARK: - Subviews
     
-    public func removeAllSubviews() {
-        while(self.subviews.count > 0) {
-            if let view: AnyObject =  self.subviews.last {
+    public func removeAllSubviews()
+    {
+        while (self.subviews.count > 0) {
+            if let view = self.subviews.last {
                 view.removeFromSuperview()
             }
         }
-        
-    }
-    
-    public func makeFrameIntegral() {
-        self.frame = CGRectIntegral(self.frame)
-        //    self.bounds = CGRectIntegral(self.bounds)
-        
     }
 }
