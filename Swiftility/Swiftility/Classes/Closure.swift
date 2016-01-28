@@ -8,62 +8,117 @@
 
 import Foundation
 
-public typealias BasicClosure = dispatch_block_t
+public typealias DispatchClosure = dispatch_block_t
+public typealias DispatchQueue = dispatch_queue_t
+
+public enum GCDQueue
+{
+    case Main
+    case High
+    case Default
+    case Low
+    case Background
+    case Custom(DispatchQueue)
+    
+    var queue: DispatchQueue {
+        switch self {
+        case .Main:
+            return dispatch_get_main_queue()
+        case .High:
+            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+        case .Default:
+            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        case .Low:
+            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
+        case .Background:
+            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
+        case .Custom(let queue):
+            return queue
+        }
+    }
+}
 
 // MARK: - Async
 
 /// Convenience call to dispatch_async
-public func async(queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block: BasicClosure)
+public func async(queue: GCDQueue = .Default, closure: DispatchClosure)
 {
-    dispatch_async(queue, block)
+    dispatch_async(queue.queue, closure)
 }
 
-/// Convenience call to dispatch_async:dispatch_get_main_queue()
-public func async_main(block: BasicClosure)
+/// Convenience call to async(.Main)
+public func async_main(closure: DispatchClosure)
 {
-    dispatch_async(dispatch_get_main_queue(), block)
+    async(.Main, closure: closure)
 }
 
 /// Convenience call to dispatch_after (time is in seconds)
-public func after(time: Double, queue: dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure)
+public func after(time: Double, queue: GCDQueue = .Default, closure: DispatchClosure)
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(time) * NSEC_PER_SEC)), queue, closure)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(time) * NSEC_PER_SEC)), queue.queue, closure)
 }
 
-// MARK: - Debounce
+// MARK: - Debounce / Throttle
 
-/// Convenience call to dispatch_debounce_block
-public func debounced(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
+/**
+ Debounce will fire method when delay passed, but if there was request before that, then it invalidates the previous method and uses only the last
+
+- parameter delay:  delay before each debounce
+- parameter queue:  =.Main; Queue to fire to
+- parameter action: closure called when debouncing
+
+- returns: closure to call to fire the debouncing
+*/
+public func debounce(delay: NSTimeInterval, queue: GCDQueue = .Main, action: DispatchClosure) -> DispatchClosure
 {
-    return dispatch_debounce_block(wait, queue: queue, closure: closure)
+    var lastCall : Int = 0
+    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
+    
+    return {
+        // Increase call counter and invalidate the call if it is not the last one
+        lastCall++
+        let currentCall = lastCall
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                dispatchDelay
+            ),
+            queue.queue) {
+                if lastCall == currentCall {
+                    action()
+                }
+        }
+    }
 }
 
 /**
- Creates and returns a new debounced version of the passed block which will postpone its execution until after wait seconds have elapsed since the last time it was invoked.
- It is like a bouncer at a discotheque. He will act only after you shut up for some time.
- This technique is important if you have action wich should fire on update, however the updates are to frequent.
+ Throttled method will be fired only if some time passed after you called it before
  
- Inspired by debounce function from underscore.js ( http://underscorejs.org/#debounce )
+ - parameter delay:  delay before each throttle
+ - parameter queue:  =.Main; Queue to fire to
+ - parameter action: closure called when throttling
+ 
+ - returns: closure to call to fire the throttleing
  */
-public func dispatch_debounce_block(wait : NSTimeInterval, queue : dispatch_queue_t = dispatch_get_main_queue(), closure: BasicClosure) -> BasicClosure
+public func throttle(delay: NSTimeInterval, queue: GCDQueue = .Main, action: DispatchClosure) -> DispatchClosure
 {
-    var cancelable : BasicClosure!
-    return {
-        cancelable?()
-        cancelable = dispatch_after_cancellable(dispatch_time(DISPATCH_TIME_NOW, Int64(wait * Double(NSEC_PER_SEC))), queue: queue, closure: closure)
-    }
-}
-
-public func dispatch_after_cancellable(when: dispatch_time_t, queue: dispatch_queue_t, closure: BasicClosure) -> BasicClosure {
-    var isCancelled = false
-    dispatch_after(when, queue) {
-        if !isCancelled {
-            closure()
-        }
-    }
+    var lastFireTime : dispatch_time_t = 0
+    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
     
     return {
-        isCancelled = true
+        lastFireTime = dispatch_time(DISPATCH_TIME_NOW,0)
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                dispatchDelay
+            ),
+            queue.queue) {
+                let now = dispatch_time(DISPATCH_TIME_NOW,0)
+                let when = dispatch_time(lastFireTime, dispatchDelay)
+                if now >= when {
+                    action()
+                }
+        }
     }
 }
 
