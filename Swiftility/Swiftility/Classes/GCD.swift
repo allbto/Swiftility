@@ -53,7 +53,7 @@ public func async_main(closure: DispatchClosure)
 }
 
 /// Convenience call to dispatch_after (time is in seconds)
-public func after(time: Double, queue: GCDQueue = .Default, closure: DispatchClosure)
+public func after(time: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(time) * NSEC_PER_SEC)), queue.queue, closure)
 }
