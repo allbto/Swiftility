@@ -1,9 +1,9 @@
 //
 //  UITabBarController.swift
-//  PuraScents
+//  Swiftility
 //
 //  Created by Allan Barbato on 11/2/15.
-//  Copyright © 2015 Pura Scents. All rights reserved.
+//  Copyright © 2015 Allan Barbato. All rights reserved.
 //
 
 import Foundation

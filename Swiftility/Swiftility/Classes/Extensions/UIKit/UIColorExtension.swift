@@ -1,9 +1,9 @@
 //
 //  UIColorExtension.swift
-//  runandonly
+//  Swiftility
 //
-//  Created by Jan Remes on 05.01.15.
-//  Copyright (c) 2015 Jan Remes. All rights reserved.
+//  Created by Allan Barbato on 05/01/15.
+//  Copyright © 2015 Allan Barbato. All rights reserved.
 //
 
 import Foundation
