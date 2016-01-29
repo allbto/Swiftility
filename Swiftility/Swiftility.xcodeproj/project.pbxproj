@@ -20,7 +20,6 @@
 		9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEE8A1C1ECCB2006A88C8 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE671C1ECCB2006A88C8 /* UIView+Extensions.m */; };
 		9D1CEE8C1C1ECCB2006A88C8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */; };
-		9D1CEE9D1C1ECCB2006A88C8 /* ModelViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */; };
 		9D1CEE9E1C1ECCB2006A88C8 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7D1C1ECCB2006A88C8 /* Dynamic.swift */; };
 		9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7E1C1ECCB2006A88C8 /* Weak.swift */; };
 		9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */; };
@@ -44,6 +43,13 @@
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
+		9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD884D1C5ADE6F00A75331 /* Storyboard.swift */; };
+		9DBD88501C5ADEC600A75331 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD884F1C5ADEC600A75331 /* UIViewController.swift */; };
+		9DBD88521C5ADFD100A75331 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88511C5ADFD100A75331 /* UIView.swift */; };
+		9DBD88541C5AE1DA00A75331 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88531C5AE1DA00A75331 /* UITableView.swift */; };
+		9DBD88561C5AE29B00A75331 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88551C5AE29B00A75331 /* UICollectionView.swift */; };
+		9DBD88581C5AEA6A00A75331 /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88571C5AEA6A00A75331 /* MVVM.swift */; };
+		9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88591C5AEAA600A75331 /* Nib.swift */; };
 		9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */; };
 		9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +81,6 @@
 		9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
 		9D1CEE671C1ECCB2006A88C8 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
 		9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelViewViewModel.swift; sourceTree = "<group>"; };
 		9D1CEE7D1C1ECCB2006A88C8 /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		9D1CEE7E1C1ECCB2006A88C8 /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTimer.swift; sourceTree = "<group>"; };
@@ -99,6 +104,13 @@
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		9DBD884D1C5ADE6F00A75331 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		9DBD884F1C5ADEC600A75331 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9DBD88511C5ADFD100A75331 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		9DBD88531C5AE1DA00A75331 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		9DBD88551C5AE29B00A75331 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		9DBD88571C5AEA6A00A75331 /* MVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
+		9DBD88591C5AEAA600A75331 /* Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,11 +176,11 @@
 		9D1CEE5A1C1ECCB2006A88C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */,
 				9D1CEE5D1C1ECCB2006A88C8 /* Extensions */,
 				9D1CEE7C1C1ECCB2006A88C8 /* Types */,
 				9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */,
 				9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */,
-				9D1CEE7B1C1ECCB2006A88C8 /* ModelViewViewModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,6 +260,20 @@
 				9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */,
 			);
 			path = UIImageEffects;
+			sourceTree = "<group>";
+		};
+		9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9DBD884D1C5ADE6F00A75331 /* Storyboard.swift */,
+				9DBD884F1C5ADEC600A75331 /* UIViewController.swift */,
+				9DBD88511C5ADFD100A75331 /* UIView.swift */,
+				9DBD88531C5AE1DA00A75331 /* UITableView.swift */,
+				9DBD88551C5AE29B00A75331 /* UICollectionView.swift */,
+				9DBD88591C5AEAA600A75331 /* Nib.swift */,
+				9DBD88571C5AEA6A00A75331 /* MVVM.swift */,
+			);
+			path = "Type Safe UIKit";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,12 +389,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBD88521C5ADFD100A75331 /* UIView.swift in Sources */,
+				9DBD88581C5AEA6A00A75331 /* MVVM.swift in Sources */,
 				9D1CEEB41C1ECD64006A88C8 /* UIColorExtensions.swift in Sources */,
 				9D1CEE801C1ECCB2006A88C8 /* GCD.swift in Sources */,
 				9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */,
 				9D1CEE8C1C1ECCB2006A88C8 /* StringExtensions.swift in Sources */,
 				9D1CEEB61C1ECD64006A88C8 /* UIImageViewExtensions.swift in Sources */,
-				9D1CEE9D1C1ECCB2006A88C8 /* ModelViewViewModel.swift in Sources */,
 				9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */,
 				9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */,
 				9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */,
@@ -379,17 +406,22 @@
 				9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */,
 				9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */,
 				9D1CEEB71C1ECD64006A88C8 /* SpacingExtensions.swift in Sources */,
+				9DBD88561C5AE29B00A75331 /* UICollectionView.swift in Sources */,
 				9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */,
 				9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */,
 				9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */,
 				9D1CEEB21C1ECD64006A88C8 /* NSDateExtensions.swift in Sources */,
+				9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */,
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
+				9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */,
 				9D1CEEBF1C1ECD64006A88C8 /* UIWindowExtensions.swift in Sources */,
 				9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */,
 				9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */,
 				9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */,
 				9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */,
+				9DBD88501C5ADEC600A75331 /* UIViewController.swift in Sources */,
+				9DBD88541C5AE1DA00A75331 /* UITableView.swift in Sources */,
 				9D1CEE9E1C1ECCB2006A88C8 /* Dynamic.swift in Sources */,
 				9D1CEE881C1ECCB2006A88C8 /* UIStoryboard+Extensions.m in Sources */,
 				9D1CEE861C1ECCB2006A88C8 /* CALayer+Extensions.m in Sources */,
