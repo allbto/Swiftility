@@ -8,7 +8,11 @@
 
 import UIKit
 
-private func _attributedSpacingString(text: String?, characterSpacing: CGFloat, lineSpacing: CGFloat, ownAttributes: [String : AnyObject]?, range: NSRange?) -> NSAttributedString?
+private func _attributedSpacingString(text: String?,
+    characterSpacing: CGFloat,
+    lineSpacing: CGFloat,
+    ownAttributes: [String : AnyObject]?,
+    range: NSRange?) -> NSAttributedString?
 {
     // If text is nil update label text and leave
     guard let text = text else {
@@ -50,14 +54,28 @@ extension UITextView
      - parameter lineSpacing:      =0; Amount of line spacing. Ignored if == 0
      - parameter ownAttributes:    =nil; Add your own attributes to the text. Ignored if == nil
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
+     - parameter preserveFont:     =true; Preserve font after change
+     - parameter preserveColor:    =true; Preserve color after change
      */
-    public func setTextWithSpacing(text: String?, characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil, preserveFont: Bool = true)
+    public func setTextWithSpacing(text: String?,
+        characterSpacing: CGFloat = 0,
+        lineSpacing: CGFloat = 0,
+        ownAttributes: [String : AnyObject]? = nil,
+        range: NSRange? = nil,
+        preserveFont: Bool = true,
+        preserveColor: Bool = true)
     {
         var font: UIFont? = nil
+        var color: UIColor? = nil
         
         // Copy font if needed
         if preserveFont {
             font = self.font
+        }
+        
+        // Copy color if needed
+        if preserveColor {
+            color = self.textColor
         }
         
         // Assign text
@@ -67,12 +85,28 @@ extension UITextView
         if let preservedFont = font {
             self.font = preservedFont
         }
+        
+        // Reapply color if needed
+        if let preservedColor = color {
+            self.textColor = preservedColor
+        }
     }
     
     /// self.setTextWithSpacing with own text
-    public func setSpacing(characterSpacing characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
+    public func setSpacing(characterSpacing: CGFloat = 0,
+        lineSpacing: CGFloat = 0,
+        ownAttributes: [String : AnyObject]? = nil,
+        range: NSRange? = nil,
+        preserveFont: Bool = true,
+        preserveColor: Bool = true)
     {
-        self.setTextWithSpacing(self.text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
+        self.setTextWithSpacing(self.text,
+            characterSpacing: characterSpacing,
+            lineSpacing: lineSpacing,
+            ownAttributes: ownAttributes,
+            range: range,
+            preserveFont: preserveFont,
+            preserveColor: preserveColor)
     }
 }
 
@@ -87,16 +121,27 @@ extension UILabel
      - parameter ownAttributes:    =nil; Add your own attributes to the text. Ignored if == nil
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
      */
-    public func setTextWithSpacing(text: String?, characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
+    public func setTextWithSpacing(text: String?,
+        characterSpacing: CGFloat = 0,
+        lineSpacing: CGFloat = 0,
+        ownAttributes: [String : AnyObject]? = nil,
+        range: NSRange? = nil)
     {
         // Assign text
         self.attributedText = _attributedSpacingString(text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
     }
     
     /// self.setTextWithSpacing with own text
-    public func setSpacing(characterSpacing characterSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, ownAttributes: [String : AnyObject]? = nil, range: NSRange? = nil)
+    public func setSpacing(characterSpacing characterSpacing: CGFloat = 0,
+        lineSpacing: CGFloat = 0,
+        ownAttributes: [String : AnyObject]? = nil,
+        range: NSRange? = nil)
     {
-        self.setTextWithSpacing(self.text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
+        self.setTextWithSpacing(self.text,
+            characterSpacing: characterSpacing,
+            lineSpacing: lineSpacing,
+            ownAttributes: ownAttributes,
+            range: range)
     }
 }
 
