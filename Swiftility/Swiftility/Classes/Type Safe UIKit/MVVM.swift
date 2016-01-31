@@ -18,9 +18,7 @@ extension FromStoryboard where Self: UIViewController, Self: ViewModelController
 {
     public static func instanciateFromStoryboard(viewModel viewModel: Self.VM) -> Self
     {
-        let storyboardContainer = UIStoryboard(name: self.storyboard.storyboard, bundle: self.storyboard.bundle)
-        
-        return storyboardContainer.instantiateViewController(Self.self, vm: viewModel)
+        return self.ownStoryboard.storyboard.instantiateViewController(Self.self, vm: viewModel)
     }
 }
 

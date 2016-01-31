@@ -21,6 +21,10 @@ extension NibConvertible
     public var bundle: NSBundle? {
         return nil
     }
+    
+    public var nib: UINib {
+        return UINib(nibName: self.nibName, bundle: self.bundle)
+    }
 }
 
 // MARK: - From nib
@@ -32,12 +36,12 @@ public protocol FromNib
 
 extension FromNib
 {
-    public static func instantiateFromNib(nib: NibConvertible? = nil) -> Self
+    public static func instantiateFromNib(nib: NibConvertible? = nil, owner: AnyObject? = nil, options: [NSObject : AnyObject]? = nil) -> Self
     {
         let nibName: String = nib?.nibName ?? self.nib.nibName
         let bundle: NSBundle = nib?.bundle ?? self.nib.bundle ?? NSBundle.mainBundle()
         
-        guard let view = bundle.loadNibNamed(nibName, owner: nil, options: nil).first as? Self else {
+        guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options).first as? Self else {
             fatalError("\(String(self)) could not be instantiated because it was not found main bundle or the nib (\(nibName)) did not contain \(String(self))")
         }
         
@@ -47,25 +51,31 @@ extension FromNib
 
 // MARK: - SelfNibConvertible
 
-public protocol SelfNibConvertible: FromNib {}
+public protocol SelfNibConvertible {}
 
 extension SelfNibConvertible
 {
     public static var nib: NibConvertible {
-        return SelfNibContainer(String(Self))
+        return NibContainer(String(Self))
     }
 }
 
-private struct SelfNibContainer: NibConvertible
+public struct NibContainer: NibConvertible
 {
-    private var name: String
+    private var _name: String
+    private var _bundle: NSBundle?
     
-    init(_ name: String)
+    init(_ name: String, bundle: NSBundle? = nil)
     {
-        self.name = name
+        _name = name
+        _bundle = bundle
     }
     
-    var nibName: String {
-        return name
+    public var nibName: String {
+        return _name
+    }
+    
+    public var bundle: NSBundle? {
+        return _bundle
     }
 }

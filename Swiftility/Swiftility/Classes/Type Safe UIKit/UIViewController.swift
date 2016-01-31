@@ -10,11 +10,9 @@ import Foundation
 
 extension FromStoryboard where Self: UIViewController
 {
-    public static func instanciateFromStoryboard() -> Self
+    public static func instantiateFromStoryboard() -> Self
     {
-        let storyboardContainer = UIStoryboard(name: self.storyboard.storyboard, bundle: self.storyboard.bundle)
-        
-        return storyboardContainer.instantiateViewController(Self)
+        return self.ownStoryboard.storyboard.instantiateViewController(Self)
     }
 }
 

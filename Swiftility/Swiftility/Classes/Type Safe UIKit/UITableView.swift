@@ -20,7 +20,12 @@ extension TableViewCell
 
 extension UITableView
 {
-    public func dequeueReusableCell<T where T: UITableViewCell, T: TableViewCell>(type: T.Type) -> T
+    public func registerCell<T where T: UITableViewCell, T: FromNib>(type: T.Type)
+    {
+        self.registerNib(type.nib.nib, forCellReuseIdentifier: String(type))
+    }
+    
+    public func dequeueReusableCell<T: UITableViewCell>(type: T.Type) -> T
     {
         guard let cell = self.dequeueReusableCellWithIdentifier(String(type)) as? T else {
             fatalError("\(String(type)) cell could not be instantiated because it was not found on the tableView(\(self))")
