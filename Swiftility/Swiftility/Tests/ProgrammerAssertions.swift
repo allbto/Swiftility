@@ -1,23 +1,12 @@
 //
 //  ProgrammerAssertions.swift
-//  Assertions
+//  Swiftility
 //
-//  Created by Mohamed Afifi on 12/20/15.
-//  Copyright © 2015 mohamede1945. All rights reserved.
+//  Created by Allan Barbato on 01/02/16.
+//  Copyright © 2015 Allan Barbato. All rights reserved.
 //
 
 import Foundation
-
-
-/// ### IMPORTANT HOW TO USE ###
-/// 1. Drop `ProgrammerAssertions.swift` to the target of your app or framework under test. Just besides your source code.
-/// 2. Drop `XCTestCase+ProgrammerAssertions.swift` to your test target. Just besides your test cases.
-/// 3. Use `assert`, `assertionFailure`, `precondition`, `preconditionFailure` and `fatalError` normally as you always do.
-/// 4. Unit test them with the new methods `expectAssert`, `expectAssertionFailure`, `expectPrecondition`, `expectPreconditionFailure` and `expectFatalError`.
-///
-/// This file is an overriden implementation of Swift assertions functions.
-/// For a complete project example see <https://github.com/mohamede1945/AssertionsTestingExample>
-
 
 /// drop-in replacements
 
