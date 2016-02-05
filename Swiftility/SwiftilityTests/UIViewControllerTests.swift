@@ -22,7 +22,7 @@ class UIViewControllerTests: XCTestCase
         super.tearDown()
     }
     
-    func testInstanciateFromStoryboard()
+    func testInstantiateFromStoryboard()
     {
         expect(TestVC.instantiateFromStoryboard()).to(beTruthy())
     }

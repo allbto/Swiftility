@@ -24,7 +24,7 @@ class RegexTests: XCTestCase
             let regex = try Regex(pattern: emailRegEx)
             XCTAssert("allan.bto+test34@allan.com".matchRegex(regex), "regex doesn't validate email")
         } catch {
-            XCTAssert(false, "Regex fails to instanciate")
+            XCTAssert(false, "Regex fails to instantiate")
         }
     }
     
@@ -40,7 +40,7 @@ class RegexTests: XCTestCase
                 "I am a developer implementing features",
                 "regex doesn't replace correctly")
         } catch {
-            XCTAssert(false, "Regex fails to instanciate")
+            XCTAssert(false, "Regex fails to instantiate")
         }
         
         XCTAssertEqual("I am a developer doing <weird>stuff</weird>".replace("<[a-z]+>([a-z]+)</[a-z]+>", template: "normal $1"),

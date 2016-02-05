@@ -16,7 +16,7 @@ public protocol ViewModelController
 
 extension FromStoryboard where Self: UIViewController, Self: ViewModelController
 {
-    public static func instanciateFromStoryboard(viewModel viewModel: Self.VM) -> Self
+    public static func instantiateFromStoryboard(viewModel viewModel: Self.VM) -> Self
     {
         return self.ownStoryboard.storyboard.instantiateViewController(Self.self, vm: viewModel)
     }
