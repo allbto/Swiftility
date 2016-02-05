@@ -65,7 +65,7 @@ public struct NibContainer: NibConvertible
     private var _name: String
     private var _bundle: NSBundle?
     
-    init(_ name: String, bundle: NSBundle? = nil)
+    public init(_ name: String, bundle: NSBundle? = nil)
     {
         _name = name
         _bundle = bundle
