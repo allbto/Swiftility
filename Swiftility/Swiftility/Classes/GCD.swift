@@ -53,9 +53,11 @@ public func async_main(closure: DispatchClosure)
 }
 
 /// Convenience call to dispatch_after (time is in seconds)
-public func after(time: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
+public func after(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(time) * NSEC_PER_SEC)), queue.queue, closure)
+    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, dispatchDelay), queue.queue, closure)
 }
 
 // MARK: - Debounce / Throttle
