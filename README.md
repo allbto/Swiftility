@@ -30,6 +30,10 @@ import Swiftility
 
 enum Storyboards: String, StoryboardConvertible {
 	case Main, Settings, Explore
+
+	var storyboardName: String {
+        return self.rawValue
+    }
 }
 
 /// Define your view controller built in the `Settings` storyboard
@@ -85,15 +89,11 @@ let cell: MyCell = tableView.dequeueReusableCell(MyCell)
 
 class MyCell: UICollectionViewCell, FromNib { ... }
 
-// Register cell
-
 collectionView.registerCell(MyCell)
 
 /// Define custom view defined in "MyCustomView.xib"
 
 class MyCustomView: UICollectionReusableView, FromNib { ... }
-
-// Register view
 
 collectionView.registerSupplementaryView(MyCustomView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader)
 
@@ -101,7 +101,7 @@ collectionView.registerSupplementaryView(MyCustomView.self, forSupplementaryView
 
 let supView: MyCustomView = collectioView.dequeueReusableSupplementaryView(kind: UICollectionElementKindSectionHeader, forIndexPath: someIndexPath)
 
-let cell: MyCell = collectioView.dequeueReusableCell(MyCell, forIndexPath: someIndexPath)
+let cell: MyCell = collectioView.dequeueReusableCell(MyCell.self, forIndexPath: someIndexPath)
 ```
 
 ## Dynamic
