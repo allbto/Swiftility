@@ -64,6 +64,7 @@
 		9DD8935C1C5E4F5E0083EBFF /* UIViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */; };
 		9DD8935E1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */; };
 		9DD893601C5E51520083EBFF /* StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3374B51C5D7979001DE413 /* StoryboardTests.swift */; };
+		9DE377121C6E1FEB00A12A42 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9DE377111C6E1FEB00A12A42 /* README.md */; };
 		9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerTests.swift; sourceTree = "<group>"; };
 		9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeUIKitTestsCommon.swift; sourceTree = "<group>"; };
+		9DE377111C6E1FEB00A12A42 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,8 @@
 				9D1CEDF21C1ECA2D006A88C8 /* Products */,
 				C3CD426AABC96B8C755433E3 /* Pods */,
 				785930338E8FC1E299ECBA06 /* Frameworks */,
+				9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */,
+				9DE377111C6E1FEB00A12A42 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,7 +201,6 @@
 				9D1CEE5A1C1ECCB2006A88C8 /* Classes */,
 				9D3374C11C5DEC38001DE413 /* Tests */,
 				9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */,
-				9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */,
 				9D1CEDF61C1ECA2D006A88C8 /* Info.plist */,
 			);
 			path = Swiftility;
@@ -560,6 +563,7 @@
 				9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */,
 				9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */,
 				9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */,
+				9DE377121C6E1FEB00A12A42 /* README.md in Sources */,
 				9DBD88501C5ADEC600A75331 /* UIViewController.swift in Sources */,
 				9DBD88541C5AE1DA00A75331 /* UITableView.swift in Sources */,
 				9D1CEE9E1C1ECCB2006A88C8 /* Dynamic.swift in Sources */,
