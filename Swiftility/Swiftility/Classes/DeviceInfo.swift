@@ -12,7 +12,6 @@ import UIKit
 // MARK: - Device Structure
 public struct DeviceInfo
 {
-    
     // MARK: - Singletons
     
     public static var currentDevice: UIDevice {

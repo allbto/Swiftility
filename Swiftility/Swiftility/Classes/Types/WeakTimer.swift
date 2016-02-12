@@ -8,7 +8,6 @@
 
 import Foundation
 
-/// A factory for NSTimer instances that invoke closures, thereby allowing a weak reference to its context.
 public class WeakTimer: NSObject
 {
     // MARK: - Properties
@@ -35,15 +34,14 @@ public class WeakTimer: NSObject
     // MARK: - Public
     
     /**
-    Returns a new timer that has not yet executed, and is not scheduled for execution
-    More info, see: NSTimer.scheduledTimerWithTimeInterval
+    A factory for NSTimer instances that invoke closures, thereby allowing a weak reference to its context
     
     - parameter timeInterval: Interval
     - parameter userInfo:     =nil; userInfo object
     - parameter repeats:      =false; Should repeat or called only once
     - parameter callback:     callback called instead of NSTimer target's selector
     
-    - returns: new scheduled timer
+    - returns: new scheduled timer. More info, see: NSTimer.scheduledTimerWithTimeInterval
     */
     public static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
     {

@@ -15,11 +15,6 @@ Pod::Spec.new do |s|
   s.public_header_files = "Swiftility/Swiftility/**/*.h"
   s.source_files  = "Swiftility/Swiftility/Classes/**/*.{h,m,swift}"
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  s.requires_arc = true
-
-  # s.dependency "JSONKit", "~> 1.4"
+s.requires_arc = true
 
 end

@@ -60,7 +60,15 @@ public func after(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosu
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, dispatchDelay), queue.queue, closure)
 }
 
+/// Same as after
+public func delay(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
+{
+    after(delay, queue: queue, closure: closure)
+}
+
 // MARK: - Debounce / Throttle
+
+// TODO: Tests
 
 /**
  Debounce will fire method when delay passed, but if there was request before that, then it invalidates the previous method and uses only the last
