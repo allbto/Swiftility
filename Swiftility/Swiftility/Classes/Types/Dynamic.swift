@@ -30,6 +30,9 @@ public struct Dynamic<T>
     /// Whether value didSet should fire or not
     public var shouldFire: Bool = true
     
+    /// Whether fire() should call listener on main thread or not
+    public var fireOnMainThread: Bool = true
+    
     // Has a listener
     public var isBinded: Bool {
         return _listener != nil
@@ -68,14 +71,10 @@ public struct Dynamic<T>
     
     // MARK: - Actions
     
-    /**
-    Fires listener if not nil. Regardless of `self.shouldFire`
-    
-    - parameter =true;onMainThread: Should fire on main thread
-    */
-    public func fire(onMainThread mainThread: Bool = true)
+    // Fires listener if not nil. Regardless of `self.shouldFire`
+    public func fire()
     {
-        if mainThread {
+        if fireOnMainThread {
             dispatch_async(dispatch_get_main_queue(), {
                 self._listener?(self.value)
             })
