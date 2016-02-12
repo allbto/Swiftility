@@ -20,6 +20,37 @@ pod "Swiftility"
 ```swift
 import Swiftility
 ```
+
+## Dynamic
+
+Lightweight binding in Swift
+
+```swift
+struct Dynamic<T> {
+	var value: T
+
+	// ...
+
+	init(_ value: T)
+
+	// ...
+
+	func bind(listener: T -> Void)
+
+	// ...
+}
+
+/// Usage example
+
+var email: Dynamic<String>("")
+
+email.bind { value in
+	print("Email is now: \(value)")
+}
+
+email.value = "allan@test.com"
+// prints "Email is now: allan@test.com"
+```
  
 ## Grand Central Dispatch
 
@@ -36,10 +67,10 @@ enum GCDQueue {
 }
 ```
 
-**async**
+**async()**
 ```swift
 func async(queue: GCDQueue = .Default, closure: dispatch_block_t)
-func async_main(closure: dispatch_block_t) // same as calling `async(.Main, closure: closure)`
+func async_main(closure: dispatch_block_t) // same as calling async(.Main, closure: closure)
  
 async {
     // Asynchronous code
@@ -50,12 +81,52 @@ async {
 }
 ```
 
-**after**
+**after()**
 ```swift
 func after(delay: Double, queue: GCDQueue = .Main, closure: dispatch_block_t)
+func delay(delay: Double, queue: GCDQueue = .Main, closure: dispatch_block_t) // Same as above
  
 after(2.5) {
     // Executed after 2.5 seconds
 }
 ```
+
+## Weak
+
+Container of weak variable
+
+```swift
+struct Weak<T: AnyObject> {
+    weak var value : T?
+
+    init (_ value: T)
+}
+
+/// Usage example
+
+let arrayOfViewControllers = [Weak(vc1), Weak(vc2), Weak(vc3)]
+let vc1View = arrayOfViewControllers[0].value.view
+```
+
+## Weak Timer
+
+```swift
+class WeakTimer {
+	static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
+}
+
+// Usage example
+
+WeakTimer.scheduledTimerWithTimeInterval(1, repeats: true) { [weak self] in
+	// Code repeated every 1 second
+	// Do something with weak self?
+}
+```
  
+## Author
+
+Allan Barbato, allan.barbato@gmail.com
+
+## License
+
+Swiftility is available under the MIT license. See the LICENSE file for more info.
