@@ -21,6 +21,89 @@ pod "Swiftility"
 import Swiftility
 ```
 
+## Type safe UIKit
+
+### Storyboard
+
+```swift
+/// Define Storyboard convertible type
+
+enum Storyboards: String, StoryboardConvertible {
+	case Main, Settings, Explore
+}
+
+/// Define your view controller built in the `Settings` storyboard
+// "SettingsViewController" should be the identifier in the storyboard (same as class name)
+
+class SettingsViewController: UIViewController, FromStoryboard {
+	static let ownStoryboard = Storyboards.Settings
+}
+
+/// Now you can do this
+
+let settingsVC = SettingsViewController.instantiateFromStoryboard()
+```
+
+### Nib
+
+```swift
+// "SettingsViewController.xib" should be the file containing SettingsViewController
+
+class SettingsViewController: UIViewController, FromNib { ... }
+
+// "MyView.xib" should be the file containing MyView
+
+class MyView: UIView, FromNib { ... }
+
+/// Now you can do this
+
+let settingsVC = SettingsViewController.instantiateFromNib()
+
+let myView = MyView.instantiateFromNib()
+```
+
+### TableView
+
+```swift
+/// Define cell defined in "MyCell.xib"
+
+class MyCell: UITableViewCell, FromNib { ... }
+
+// Register cell
+
+tableView.registerCell(MyCell)
+
+/// Later
+
+let cell: MyCell = tableView.dequeueReusableCell(MyCell)
+```
+
+### CollectionView
+
+```swift
+/// Define cell defined in "MyCell.xib"
+
+class MyCell: UICollectionViewCell, FromNib { ... }
+
+// Register cell
+
+collectionView.registerCell(MyCell)
+
+/// Define custom view defined in "MyCustomView.xib"
+
+class MyCustomView: UICollectionReusableView, FromNib { ... }
+
+// Register view
+
+collectionView.registerSupplementaryView(MyCustomView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader)
+
+/// Later
+
+let supView: MyCustomView = collectioView.dequeueReusableSupplementaryView(kind: UICollectionElementKindSectionHeader, forIndexPath: someIndexPath)
+
+let cell: MyCell = collectioView.dequeueReusableCell(MyCell, forIndexPath: someIndexPath)
+```
+
 ## Dynamic
 
 Lightweight binding in Swift
