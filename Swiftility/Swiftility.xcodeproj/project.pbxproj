@@ -47,8 +47,6 @@
 		9D3025881C5EA6630063493F /* NibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3025871C5EA6630063493F /* NibTests.swift */; };
 		9D30258B1C5EA9F80063493F /* TestNonExistingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */; };
 		9D3374B91C5D7B30001DE413 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3374B81C5D7B30001DE413 /* MainStoryboard.storyboard */; };
-		9D3374BE1C5DEB0C001DE413 /* XCTestCase+ProgrammerAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3374BC1C5DEB0C001DE413 /* XCTestCase+ProgrammerAssertions.swift */; };
-		9D3374C31C5DEC38001DE413 /* ProgrammerAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3374C21C5DEC38001DE413 /* ProgrammerAssertions.swift */; };
 		9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
@@ -125,8 +123,6 @@
 		9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestNonExistingCell.xib; sourceTree = "<group>"; };
 		9D3374B51C5D7979001DE413 /* StoryboardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardTests.swift; sourceTree = "<group>"; };
 		9D3374B81C5D7B30001DE413 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9D3374BC1C5DEB0C001DE413 /* XCTestCase+ProgrammerAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+ProgrammerAssertions.swift"; sourceTree = "<group>"; };
-		9D3374C21C5DEC38001DE413 /* ProgrammerAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammerAssertions.swift; sourceTree = "<group>"; };
 		9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
@@ -199,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				9D1CEE5A1C1ECCB2006A88C8 /* Classes */,
-				9D3374C11C5DEC38001DE413 /* Tests */,
 				9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */,
 				9D1CEDF61C1ECA2D006A88C8 /* Info.plist */,
 			);
@@ -209,7 +204,6 @@
 		9D1CEDFF1C1ECA2D006A88C8 /* SwiftilityTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D3374BA1C5DEAFE001DE413 /* Externals */,
 				9D3374B71C5D7B11001DE413 /* Type Safe UIKIt */,
 				9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */,
 				9D95CA861C21BF8B005C6B01 /* RegexTests.swift */,
@@ -322,22 +316,6 @@
 				9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */,
 			);
 			name = "Type Safe UIKIt";
-			sourceTree = "<group>";
-		};
-		9D3374BA1C5DEAFE001DE413 /* Externals */ = {
-			isa = PBXGroup;
-			children = (
-				9D3374BC1C5DEB0C001DE413 /* XCTestCase+ProgrammerAssertions.swift */,
-			);
-			name = Externals;
-			sourceTree = "<group>";
-		};
-		9D3374C11C5DEC38001DE413 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				9D3374C21C5DEC38001DE413 /* ProgrammerAssertions.swift */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */ = {
@@ -552,7 +530,6 @@
 				9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */,
 				9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */,
 				9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */,
-				9D3374C31C5DEC38001DE413 /* ProgrammerAssertions.swift in Sources */,
 				9D1CEEB21C1ECD64006A88C8 /* NSDateExtensions.swift in Sources */,
 				9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */,
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
@@ -581,7 +558,6 @@
 				9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */,
 				9DD8935E1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift in Sources */,
 				9D3025801C5E66170063493F /* UITableViewTests.swift in Sources */,
-				9D3374BE1C5DEB0C001DE413 /* XCTestCase+ProgrammerAssertions.swift in Sources */,
 				9D3025841C5E894E0063493F /* UICollectionViewTests.swift in Sources */,
 				9D3025881C5EA6630063493F /* NibTests.swift in Sources */,
 				9DD8935C1C5E4F5E0083EBFF /* UIViewControllerTests.swift in Sources */,

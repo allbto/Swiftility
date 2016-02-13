@@ -34,9 +34,9 @@ class NibTests: XCTestCase
     
     func testInstantiateFromNib()
     {
-        expectFatalError {
-            TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: NSBundle(forClass: self.dynamicType)))
-        }
+//        expectFatalError {
+//            TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: NSBundle(forClass: self.dynamicType)))
+//        }
 
         expect(TestCell.instantiateFromNib()).to(beTruthy())
     }
