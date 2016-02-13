@@ -1,4 +1,5 @@
 [![CocoaPods Status](https://img.shields.io/cocoapods/v/Swiftility.svg?style=flat)](http://cocoapods.org/pods/Swiftility)
+[![Build Status](https://travis-ci.org/allbto/iOS-Swiftility.svg?branch=master)](https://travis-ci.org/allbto/iOS-Swiftility)
 [![License](https://img.shields.io/cocoapods/l/Swiftility.svg?style=flat)](http://cocoapods.org/pods/Swiftility)
 [![Platform](https://img.shields.io/cocoapods/p/Swiftility.svg?style=flat)](http://cocoapods.org/pods/Swiftility)
 [![Swift-2.1](http://img.shields.io/badge/Swift-2.1-blue.svg)]()
