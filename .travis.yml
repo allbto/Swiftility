@@ -1,13 +1,6 @@
 language: objective-c
 
-branches:
- only:
- - master
-
-xcode_project: Swiftility/Swiftility.xcodeproj
-xcode_scheme: SwiftilityTests
+xcode_workspace: Swiftility/Swiftility.xcworkspace
+xcode_scheme: Swiftility
 osx_image: xcode7.2
 xcode_sdk: iphonesimulator9.2
-
-script:
-- xcodebuild clean build test -project Swiftility/Swiftility.xcodeproj -scheme SwiftilityTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO

@@ -28,9 +28,9 @@ class UITableViewTests: XCTestCase
         
         expect(tableView.registerCell(TestCell)).toNot(raiseException())
         
-        expectFatalError {
-            tableView.dequeueReusableCell(TestNonExistingCell)
-        }
+//        expectFatalError {
+//            tableView.dequeueReusableCell(TestNonExistingCell)
+//        }
         
         expect(tableView.dequeueReusableCell(TestCell)).to(beTruthy())
     }
@@ -41,9 +41,9 @@ class UITableViewTests: XCTestCase
         
         expect(tableVC).to(beTruthy())
 
-        expectFatalError {
-            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
-        }
+//        expectFatalError {
+//            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
+//        }
 
         expect(tableVC.tableView.dequeueReusableCell(TestCell)).to(beTruthy())
     }
