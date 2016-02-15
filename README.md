@@ -188,7 +188,7 @@ struct Weak<T: AnyObject> {
 /// Usage example
 
 let arrayOfViewControllers = [Weak(vc1), Weak(vc2), Weak(vc3)]
-let vc1View = arrayOfViewControllers[0].value.view
+let vc1View = arrayOfViewControllers[0].value?.view
 ```
 
 ## Weak Timer
