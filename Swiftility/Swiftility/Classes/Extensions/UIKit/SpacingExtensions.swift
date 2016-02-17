@@ -19,8 +19,8 @@ private func _attributedSpacingString(text: String?,
         return nil
     }
     
-    let range: NSRange = range ?? NSRange(location: 0, length: text.length)
     let attributedString = NSMutableAttributedString(string: text)
+    let range: NSRange = range ?? NSRange(location: 0, length: attributedString.length)
     
     // Add own attributes if needed
     if let attrs = ownAttributes {
@@ -65,31 +65,20 @@ extension UITextView
         preserveFont: Bool = true,
         preserveColor: Bool = true)
     {
-        var font: UIFont? = nil
-        var color: UIColor? = nil
+        var attrs = ownAttributes ?? [:]
         
-        // Copy font if needed
-        if preserveFont {
-            font = self.font
+        // Set font if needed
+        if preserveFont && attrs[NSFontAttributeName] == nil {
+            attrs[NSFontAttributeName] = self.font
         }
         
-        // Copy color if needed
-        if preserveColor {
-            color = self.textColor
+        // Set color if needed
+        if preserveColor && attrs[NSForegroundColorAttributeName] == nil {
+            attrs[NSForegroundColorAttributeName] = self.textColor
         }
         
         // Assign text
-        self.attributedText = _attributedSpacingString(text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
-        
-        // Reapply font if needed
-        if let preservedFont = font {
-            self.font = preservedFont
-        }
-        
-        // Reapply color if needed
-        if let preservedColor = color {
-            self.textColor = preservedColor
-        }
+        self.attributedText = _attributedSpacingString(text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: attrs, range: range)
     }
     
     /// self.setTextWithSpacing with own text
