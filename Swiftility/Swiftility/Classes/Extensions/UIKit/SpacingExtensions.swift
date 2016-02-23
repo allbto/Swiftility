@@ -56,6 +56,7 @@ extension UITextView
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
      - parameter preserveFont:     =true; Preserve font after change
      - parameter preserveColor:    =true; Preserve color after change
+     - parameter preserveAlignment:=true; If alignment should be preserved after setting attributedText
      */
     public func setTextWithSpacing(text: String?,
         characterSpacing: CGFloat = 0,
@@ -63,9 +64,11 @@ extension UITextView
         ownAttributes: [String : AnyObject]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
-        preserveColor: Bool = true)
+        preserveColor: Bool = true,
+        preserveAlignment: Bool = true)
     {
         var attrs = ownAttributes ?? [:]
+        let alignment = self.textAlignment
         
         // Set font if needed
         if preserveFont && attrs[NSFontAttributeName] == nil {
@@ -79,6 +82,11 @@ extension UITextView
         
         // Assign text
         self.attributedText = _attributedSpacingString(text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: attrs, range: range)
+        
+        // Set alignment if needed
+        if preserveAlignment {
+            self.textAlignment = alignment
+        }
     }
     
     /// self.setTextWithSpacing with own text
@@ -87,7 +95,8 @@ extension UITextView
         ownAttributes: [String : AnyObject]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
-        preserveColor: Bool = true)
+        preserveColor: Bool = true,
+        preserveAlignment: Bool = true)
     {
         self.setTextWithSpacing(self.text,
             characterSpacing: characterSpacing,
@@ -95,7 +104,8 @@ extension UITextView
             ownAttributes: ownAttributes,
             range: range,
             preserveFont: preserveFont,
-            preserveColor: preserveColor)
+            preserveColor: preserveColor,
+            preserveAlignment: preserveAlignment)
     }
 }
 
@@ -107,22 +117,32 @@ extension UILabel
      - parameter text:             The text to set
      - parameter characterSpacing: =0; Amount of character spacing. Ignored if == 0
      - parameter lineSpacing:      =0; Amount of line spacing. Ignored if == 0
+     - parameter preserveAlignment:=true; If alignment should be preserved after setting attributedText
      - parameter ownAttributes:    =nil; Add your own attributes to the text. Ignored if == nil
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
      */
     public func setTextWithSpacing(text: String?,
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
+        preserveAlignment: Bool = true,
         ownAttributes: [String : AnyObject]? = nil,
         range: NSRange? = nil)
     {
+        let alignment = self.textAlignment
+        
         // Assign text
         self.attributedText = _attributedSpacingString(text, characterSpacing: characterSpacing, lineSpacing: lineSpacing, ownAttributes: ownAttributes, range: range)
+        
+        // Set alignment if needed
+        if preserveAlignment {
+            self.textAlignment = alignment
+        }
     }
     
     /// self.setTextWithSpacing with own text
     public func setSpacing(characterSpacing characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
+        preserveAlignment: Bool = true,
         ownAttributes: [String : AnyObject]? = nil,
         range: NSRange? = nil)
     {
@@ -130,7 +150,7 @@ extension UILabel
             characterSpacing: characterSpacing,
             lineSpacing: lineSpacing,
             ownAttributes: ownAttributes,
+            preserveAlignment: preserveAlignment,
             range: range)
     }
 }
-
