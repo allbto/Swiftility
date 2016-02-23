@@ -10,15 +10,19 @@ import Foundation
 
 extension NSNotificationCenter
 {
-    public func addObserverWithName(name: String, object obj: AnyObject? = nil, queue: NSOperationQueue? = nil, usingBlock block: (NSNotification) -> Void)
+    public func addObserverWithName(name: String,
+        object obj: AnyObject? = nil,
+        queue: NSOperationQueue? = nil,
+        usingBlock block: (NSNotification) -> Void) -> NSObjectProtocol
     {
-        self.addObserverForName(name, object: obj, queue: queue, usingBlock: block)
+        return self.addObserverForName(name, object: obj, queue: queue, usingBlock: block)
     }
-
-    public func addObserverWithNames(names: [String], object obj: AnyObject? = nil, queue: NSOperationQueue? = nil, usingBlock block: (NSNotification) -> Void)
+    
+    public func addObserverWithNames(names: [String],
+        object obj: AnyObject? = nil,
+        queue: NSOperationQueue? = nil,
+        usingBlock block: (NSNotification) -> Void) -> [NSObjectProtocol]
     {
-        names.forEach {
-            self.addObserverForName($0, object: obj, queue: queue, usingBlock: block)
-        }
+        return names.map { self.addObserverForName($0, object: obj, queue: queue, usingBlock: block) }
     }
 }
