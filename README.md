@@ -24,7 +24,7 @@ import Swiftility
 
 ## MVVM
 
-Checkout the [MVVM example](https://github.com/allbto/iOS-Swiftility/blob/master/MVVM.md) I wrote using Swiftility
+Checkout the [MVVM implementation example](MVVM.md) I wrote using Swiftility
 
 ## Type safe UIKit
 
