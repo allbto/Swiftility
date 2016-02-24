@@ -257,5 +257,11 @@ class PostDetailViewModel
 
 Don't forget to check [Swiftility](https://github.com/allbto/ios-swiftility) if you liked this. And if have any suggestions they are more than welcome.
 
-You can also check the MVVM [example project](https://github.com/allbto/iOS-DynamicRegistration) I built using Swiftility and PromiseKit.
+You can also checkout the [MVVM example project](https://github.com/allbto/iOS-DynamicRegistration) I built using Swiftility and [PromiseKit](http://promisekit.org/).
 
+## Author
+
+Allan Barbato, allan.barbato@gmail.com
+
+Thanks to [@DanielCech](https://github.com/DanielCech) for the article and explanation of MVVM components.	
+Checkout his [ReactiveCocoa MVVM implementation example project](https://github.com/DanielCech/iOS-ReactiveRegistration)
