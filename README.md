@@ -22,6 +22,10 @@ pod "Swiftility"
 import Swiftility
 ```
 
+## MVVM
+
+Checkout the [MVVM implementation example](MVVM.md) I wrote using Swiftility
+
 ## Type safe UIKit
 
 ### Storyboard
