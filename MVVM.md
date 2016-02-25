@@ -1,10 +1,10 @@
 # MVVM in Swift
 
-First if you don't know what is MVVM or why it's awesome, go check [this great article](http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/)
+Firstly if you don't know what is MVVM or why it's awesome, go check [this great article](http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/)
 
-Each and everyone have their own implementation of MVVM.	
+Everyone has their own implementation of MVVM.
 Here I'd like to present how I do it using a collection of extensions and tools I called [Swiftility](https://github.com/allbto/ios-swiftility)		
-Swiftility tools are very simple and easily replacable by something like ReactiveCocoa or you name it
+Swiftility tools are very simple and easily replacable by something like ReactiveCocoa or you name it.
 
 ## Summary
 
@@ -14,14 +14,16 @@ MVVM has 3 main components:
 
 The same as in MVC. It represents data in application.	
 Depending on your preference it may or may not encapsulate some additional business logic.
+In my case is includes local and remote data logic.
 
 #### View
 
 UI layer, UI in code, storyboards, xibs.	
-Also reaction to user input. View in MVVM covers the presentation logic of controller in MVC.	
+Also reacts to user input. **View** in MVVM covers the presentation logic of controller in MVC.	
 `View == UIView + UIViewController`		
 
-Each **View** contain one instance of **View-Model**. In case your UIViewController has sub-UIViews or sub-UIViewControllers (UITableView with switch on a cell for example), I advise you to bring the events up to the main UIViewController that will talk to the **View-Model** and contain the binding/update view logic.
+Each **View** contain one instance of **View-Model**.	
+If your UIViewController has sub-UIViews or sub-UIViewControllers (UITableView with switch on a cell for example), I advise you to bring the events up to the main UIViewController that will talk to the **View-Model** and contain the binding/update view logic.
 
 #### View-Model
 
@@ -33,14 +35,14 @@ Prepares data for future presentation. Also Responsible for gathering, interpret
 ## Model
 
 ```swift
-/// Represents data. In this example we will use a plain object.
+/// Represents data. In this example we will use plain objects.
 /// But you can imagine your own implementation with CoreData, Realm, etc.
 
 /// In MVVM, info need to be passed to the View
 /// But it needs to stay immutable, changed only by the View-Model
-/// That's why each Model is a protocol with get only variables
-/// It's only acceptable to pass protocols to View, no object.
-/// So it doesn't really matter to the View what kind of implementation you have behind
+/// That's why each Model is a protocol with get only variables/functions
+/// It's not acceptable to pass objects to the View only protocols.
+/// So View don't need to know what kind of model implementation you have.
 protocol Post
 {
 	var id: String { get }
@@ -69,12 +71,12 @@ class PostEntity: Post
 extension PostEntity
 {
 	var numberOfWords: Int {
-		// Count and return number of words
+		// Count and return number of words from self.content
 	}
 }
 
-/// I decide to add the logic inside the model
-/// Separated in two extensions, Model (local data logic) and API (network requests)
+/// I add the local and remote data logic inside the model
+/// Separated in two extensions, Model (local data) and API (network requests)
 
 // MARK: - Model
 extension PostEntity
@@ -106,9 +108,9 @@ Side note: I'm aware that you can get the same immutable result using `struct`, 
 
 ```swift
 /// Handles the UI layer
-/// Also passes user input to View-Model
+/// Also passes user inputs to View-Model
 
-/// Define class implement Swiftility ViewModelController protocol
+/// Define class implementing Swiftility ViewModelController protocol
 class PostListViewController: UIViewController, ViewModelController
 {
 	// MARK: - Outlets
@@ -122,16 +124,14 @@ class PostListViewController: UIViewController, ViewModelController
 	/// Detail Views have their viewModels instanciated by the initial View-Model (more on that on the View-Model section)
 	/// That's why we need an explicitly unwrapped variable
 	lazy var viewModel: PostListViewModel! = {
-		/// Instanciate viewModel
 		let vm = PostListViewModel(/* Pass any variable needed */)
 
 		/// Using a Swiftility Dynamic variable from the viewModel here (more on that on the View-Model section)
-		/// Binding value changes of the dynamic posts variable
+		/// Binding value changes of the Dynamic posts variable
 		vm.posts.bind { posts in
 			self.tableView.reloadData()
 		}
 
-		/// Return viewModel
 		return vm
 	}()
 
@@ -140,7 +140,7 @@ class PostListViewController: UIViewController, ViewModelController
 	/// User request a post reload
 	/// Ask viewModel to reload post list
 	/// Changes will be applied in above binding
-	@IBAction func reloadPosts(_: AnyObject)
+	func reloadPosts()
 	{
 		self.viewModel.reloadPosts()
 	}
@@ -150,7 +150,7 @@ class PostListViewController: UIViewController, ViewModelController
 extension PostListViewController: UITableViewDelegate, UITableViewDataSource
 {
 	/// Example of UITableViewDataSource implementation
-	/// Returning the size of the posts dynamic variable ( varName.value to get the actual value out of the Dynamic )
+	/// Returning the size of the posts Dynamic variable ( varName.value to get the actual value out of a Dynamic )
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.viewModel.posts.value.count
@@ -176,8 +176,8 @@ class PostDetailViewController: UIViewController, ViewModelController
 {
 	// MARK: - View Model
 
-	/// Detail View has it's viewModel instanciated in the initial View
-	/// So here we can bind Dynamic variables in the didSet trigger
+	/// Detail View has it's View-Model instanciated in the initial View (PostListViewController)
+	/// So here we bind Dynamic variables in the didSet trigger
 	var viewModel: PostDetailViewModel! {
 		didSet {
 
@@ -197,7 +197,7 @@ class PostListViewModel
 {
 	// MARK: - Dynamic
 
-	/// Define dynamic array of post variable
+	/// Define Dynamic array of post variable
 	/// Note that it's an array of Post not PostEntity since the info passed to the View must be immutable
 	var posts: Dynamic<[Post]>
 
@@ -213,6 +213,7 @@ class PostListViewModel
 		self._posts = /// Get the list of post somehow
 
 		/// Casting PostEntity as Post to avoid Swift fatal error: array cannot be bridged from objective-c
+		/// This assignation could also be done in _posts didSet trigger
 		self.posts = Dynamic(_posts.map { $0 as Post })
 	}
 
@@ -233,7 +234,7 @@ class PostDetailViewModel
 {
 	// MARK: - Dynamic
 
-	/// Define dynamic post variable
+	/// Define Dynamic post variable
 	/// Note that it's a Post not PostEntity since the info passed to the View must be immutable
 	var post: Dynamic<Post>
 
