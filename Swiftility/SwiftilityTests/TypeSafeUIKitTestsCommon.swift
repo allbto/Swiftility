@@ -39,6 +39,16 @@ class TestCollectionViewVC: UICollectionViewController, FromStoryboard
     }
 }
 
+class TestViewModelVC: UIViewController, ViewModelController
+{
+    var viewModel: TestViewModel!
+}
+
+class TestViewModel
+{
+    
+}
+
 // MARK: - View
 
 class TestView: UIView {}

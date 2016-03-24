@@ -10,7 +10,7 @@ import Foundation
 
 public protocol ViewModelController
 {
-    typealias VM
+    associatedtype VM
     var viewModel: VM! { get set }
 }
 

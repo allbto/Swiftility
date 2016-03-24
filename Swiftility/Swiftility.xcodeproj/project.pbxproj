@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73F0203316B3D53A598DC882 /* Pods_SwiftilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DF1FD166B7482AAA848529 /* Pods_SwiftilityTests.framework */; };
+		9D0A0C701CA439B000DC7335 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */; };
 		9D1CEDF51C1ECA2D006A88C8 /* Swiftility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEDFC1C1ECA2D006A88C8 /* Swiftility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */; };
 		9D1CEE011C1ECA2D006A88C8 /* SwiftilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */; };
@@ -80,6 +81,7 @@
 		547385DAAFCC26C95E586651 /* Pods-SwiftilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D45AEEFCC311C2C516E6343 /* Pods-SwiftilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.release.xcconfig"; sourceTree = "<group>"; };
 		80DF1FD166B7482AAA848529 /* Pods_SwiftilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swiftility.h; sourceTree = "<group>"; };
 		9D1CEDF61C1ECA2D006A88C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				9D3374B71C5D7B11001DE413 /* Type Safe UIKIt */,
 				9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */,
+				9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */,
 				9D95CA861C21BF8B005C6B01 /* RegexTests.swift */,
 				9D1CEE021C1ECA2D006A88C8 /* Info.plist */,
 			);
@@ -553,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0A0C701CA439B000DC7335 /* StringExtensionsTests.swift in Sources */,
 				9DD893601C5E51520083EBFF /* StoryboardTests.swift in Sources */,
 				9D1CEE011C1ECA2D006A88C8 /* SwiftilityTests.swift in Sources */,
 				9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */,

@@ -8,6 +8,11 @@
 
 import Foundation
 
+private extension Selector
+{
+    static let invokeCallback = #selector(WeakTimer.invokeCallback)
+}
+
 public class WeakTimer: NSObject
 {
     // MARK: - Properties
@@ -17,11 +22,22 @@ public class WeakTimer: NSObject
 
     // MARK: - Life cycle
     
-    private init(timeInterval: NSTimeInterval, userInfo: AnyObject?, repeats: Bool, callback: () -> Void)
+    private init(timeInterval: NSTimeInterval,
+                 userInfo: AnyObject?,
+                 repeats: Bool,
+                 callback: () -> Void)
     {
         self.callback = callback
+        
         super.init()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: "invokeCallback", userInfo: userInfo, repeats: repeats)
+
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(
+            timeInterval,
+            target: self,
+            selector: .invokeCallback,
+            userInfo: userInfo,
+            repeats: repeats
+        )
     }
 
     // MARK: - Actions
@@ -43,9 +59,18 @@ public class WeakTimer: NSObject
     
     - returns: new scheduled timer. More info, see: NSTimer.scheduledTimerWithTimeInterval
     */
-    public static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
+    public static func scheduledTimerWithTimeInterval(
+        timeInterval: NSTimeInterval,
+        userInfo: AnyObject? = nil,
+        repeats: Bool = false,
+        callback: () -> Void) -> NSTimer
     {
-        return WeakTimer(timeInterval: timeInterval, userInfo: userInfo, repeats: repeats, callback: callback).timer
+        return WeakTimer(
+            timeInterval: timeInterval,
+            userInfo: userInfo,
+            repeats: repeats,
+            callback: callback
+        ).timer
     }
 }
 

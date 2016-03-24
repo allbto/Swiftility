@@ -83,6 +83,6 @@ public struct DeviceInfo
     
     public static func isRetina() -> Bool
     {
-        return UIScreen.mainScreen().respondsToSelector("scale")
+        return UIScreen.mainScreen().scale == 2.0
     }
 }

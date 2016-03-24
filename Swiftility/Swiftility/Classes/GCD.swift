@@ -57,7 +57,14 @@ public func after(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosu
 {
     let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, dispatchDelay), queue.queue, closure)
+    dispatch_after(
+        dispatch_time(
+            DISPATCH_TIME_NOW,
+            dispatchDelay
+        ),
+        queue.queue,
+        closure
+    )
 }
 
 /// Same as after
@@ -86,7 +93,7 @@ public func debounce(delay: NSTimeInterval, queue: GCDQueue = .Main, action: Dis
     
     return {
         // Increase call counter and invalidate the call if it is not the last one
-        lastCall++
+        lastCall += 1
         let currentCall = lastCall
         dispatch_after(
             dispatch_time(
