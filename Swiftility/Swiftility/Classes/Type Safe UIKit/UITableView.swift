@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol TableViewCell
+public protocol TableViewCell: FromNib
 {
     static var DefaultHeight: CGFloat { get }
 }
@@ -22,13 +22,22 @@ extension UITableView
 {
     public func registerCell<T where T: UITableViewCell, T: FromNib>(type: T.Type)
     {
-        self.registerNib(type.nib.nib, forCellReuseIdentifier: String(type))
+        self.registerNib(type.ownNib.nib, forCellReuseIdentifier: String(type))
     }
     
-    public func dequeueReusableCell<T: UITableViewCell>(type: T.Type) -> T
+    public func dequeueReusableCell<T: UITableViewCell>() -> T
     {
-        guard let cell = self.dequeueReusableCellWithIdentifier(String(type)) as? T else {
-            fatalError("\(String(type)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        guard let cell = self.dequeueReusableCellWithIdentifier(String(T)) as? T else {
+            fatalError("\(String(T)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        }
+        
+        return cell
+    }
+
+    public func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: NSIndexPath) -> T
+    {
+        guard let cell = self.dequeueReusableCellWithIdentifier(String(T), forIndexPath: indexPath) as? T else {
+            fatalError("\(String(T)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return cell

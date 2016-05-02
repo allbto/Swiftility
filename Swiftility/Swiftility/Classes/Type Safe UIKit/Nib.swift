@@ -31,18 +31,18 @@ extension NibConvertible
 
 public protocol FromNib
 {
-    static var nib: NibConvertible { get }
+    static var ownNib: NibConvertible { get }
 }
 
 extension FromNib
 {
     public static func instantiateFromNib(nib: NibConvertible? = nil, owner: AnyObject? = nil, options: [NSObject : AnyObject]? = nil) -> Self
     {
-        let nibName: String = nib?.nibName ?? self.nib.nibName
-        let bundle: NSBundle = nib?.bundle ?? self.nib.bundle ?? NSBundle.mainBundle()
+        let nibName: String = nib?.nibName ?? self.ownNib.nibName
+        let bundle: NSBundle = nib?.bundle ?? self.ownNib.bundle ?? NSBundle.mainBundle()
         
         guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options).first as? Self else {
-            fatalError("\(String(self)) could not be instantiated because it was not found main bundle or the nib (\(nibName)) did not contain \(String(self))")
+            fatalError("\(String(self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(self))")
         }
         
         return view
@@ -55,7 +55,7 @@ public protocol SelfNibConvertible {}
 
 extension SelfNibConvertible
 {
-    public static var nib: NibConvertible {
+    public static var ownNib: NibConvertible {
         return NibContainer(String(Self))
     }
 }
