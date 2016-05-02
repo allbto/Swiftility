@@ -74,7 +74,7 @@ public struct Dynamic<T>
     // Fires listener if not nil. Regardless of `self.shouldFire`
     public func fire()
     {
-        if fireOnMainThread {
+        if fireOnMainThread && !NSThread.isMainThread() {
             dispatch_async(dispatch_get_main_queue(), {
                 self._listener?(self.value)
             })
