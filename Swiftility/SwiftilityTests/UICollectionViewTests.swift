@@ -33,9 +33,12 @@ class UICollectionViewTests: XCTestCase
         
         expect(collectionView!.registerCell(TestCollectionViewCell)).toNot(raiseException())
         
-        expect(collectionView!.dequeueReusableCell(TestCollectionViewCell.self, forIndexPath: NSIndexPath(forRow: 0, inSection: 0))).to(beTruthy())
+        let cell: TestCollectionViewCell = collectionView!.dequeueReusableCell(forIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+
+        expect(cell).to(beTruthy())
     }
 
+    // TODO: Add test for reusableSupplementaryView
 //    func testDequeueView()
 //    {
 //        let collectionView = self.collectionVC.collectionView

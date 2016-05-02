@@ -32,7 +32,9 @@ class UITableViewTests: XCTestCase
 //            tableView.dequeueReusableCell(TestNonExistingCell)
 //        }
         
-        expect(tableView.dequeueReusableCell(TestCell)).to(beTruthy())
+        let cell: TestCell = tableView.dequeueReusableCell()
+        
+        expect(cell).to(beTruthy())
     }
 
     func testDequeueCellOnViewController()
@@ -45,6 +47,8 @@ class UITableViewTests: XCTestCase
 //            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
 //        }
 
-        expect(tableVC.tableView.dequeueReusableCell(TestCell)).to(beTruthy())
+        let cell: TestCell = tableVC.tableView.dequeueReusableCell()
+        
+        expect(cell).to(beTruthy())
     }
 }

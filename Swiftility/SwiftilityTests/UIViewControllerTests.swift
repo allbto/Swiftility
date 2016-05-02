@@ -29,13 +29,13 @@ class UIViewControllerTests: XCTestCase
     
     func testNibConvertible()
     {
-        expect(TestVC.nib.nibName) == "TestVC"
-        expect(TestVC.nib.bundle).to(beNil())
+        expect(TestVC.ownNib.nibName) == "TestVC"
+        expect(TestVC.ownNib.bundle).to(beNil())
     }
     
     func testViewNibConvertible()
     {
-        expect(TestView.nib.nibName) == "TestView"
-        expect(TestView.nib.bundle).to(beNil())
+        expect(TestView.ownNib.nibName) == "TestView"
+        expect(TestView.ownNib.bundle).to(beNil())
     }
 }

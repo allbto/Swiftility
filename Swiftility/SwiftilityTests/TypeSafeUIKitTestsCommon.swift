@@ -57,7 +57,7 @@ class TestView: UIView {}
 
 class TestCell: UITableViewCell, FromNib
 {
-    static var nib: NibConvertible {
+    static var ownNib: NibConvertible {
         return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
     }
 }
@@ -68,7 +68,7 @@ class TestNonExistingCell: UITableViewCell, FromNib {}
 
 class TestCollectionViewCell: UICollectionViewCell, FromNib
 {
-    static var nib: NibConvertible {
+    static var ownNib: NibConvertible {
         return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
     }
 }
@@ -77,7 +77,7 @@ class TestNonExistingCollectionViewCell: UICollectionViewCell, FromNib {}
 
 class TestCollectionViewView: UICollectionReusableView, FromNib
 {
-    static var nib: NibConvertible {
+    static var ownNib: NibConvertible {
         return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
     }
 }
