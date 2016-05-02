@@ -45,7 +45,7 @@ enum Storyboards: String, StoryboardConvertible {
 // "SettingsViewController" should be the identifier in the storyboard (same as class name)
 
 class SettingsViewController: UIViewController, FromStoryboard {
-	static let ownStoryboard = Storyboards.Settings
+	static let ownStoryboard: StoryboardConvertible = Storyboards.Settings
 }
 
 /// Now you can do this
