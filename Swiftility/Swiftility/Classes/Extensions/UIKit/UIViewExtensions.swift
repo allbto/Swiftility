@@ -8,10 +8,24 @@
 
 import UIKit
 
+// MARK: - Convenience init
+extension UIView
+{
+    public convenience init(backgroundColor: UIColor)
+    {
+        self.init()
+        self.backgroundColor = backgroundColor
+    }
+}
+
 // MARK: - Constraints
 extension UIView
 {
-    public func addConstraintsWithVisualFormat(format: String, views: [String : UIView] = [:], options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: [String : AnyObject]? = nil)
+    public func addConstraintsWithVisualFormat(
+        format: String,
+        views: [String : UIView] = [:],
+        options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing,
+        metrics: [String : AnyObject]? = nil)
     {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: metrics, views: views))
     }
@@ -29,6 +43,45 @@ extension UIView
         animation.duration = duration
 
         self.layer.addAnimation(animation, forKey: kCATransitionFade)
+    }
+    
+    public func setHidden(
+        hidden: Bool,
+        animated: Bool,
+        duration: NSTimeInterval = 0.2,
+        customAnimations: (() -> Void)? = nil)
+    {
+        guard hidden != self.hidden else {
+            return
+        }
+        
+        guard animated else {
+            self.hidden = hidden
+            self.alpha = hidden ? 1 : 0
+            customAnimations?()
+            return
+        }
+        
+        self.alpha = hidden ? 1 : 0
+        
+        if !hidden {
+            self.hidden = false
+        }
+        
+        UIView.animateWithDuration(
+            duration,
+            animations: {
+                self.alpha = hidden ? 0 : 1
+                customAnimations?()
+            },
+            completion: { finished in
+                guard finished else { return }
+                
+                if hidden {
+                    self.hidden = true
+                }
+            }
+        )
     }
 }
 
@@ -216,10 +269,15 @@ extension UIView
     
     // MARK: - Subviews
     
-    public func removeAllSubviews()
+    public func removeAllSubviews(recursively recursively: Bool = false)
     {
-        while (self.subviews.count > 0) {
+        while self.subviews.count > 0 {
             if let view = self.subviews.last {
+                
+                if recursively {
+                    view.removeAllSubviews(recursively: recursively)
+                }
+                
                 view.removeFromSuperview()
             }
         }

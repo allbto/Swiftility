@@ -15,9 +15,9 @@ extension UIFont
     
     - parameter filter: Optional filter on the family name of the fonts
     */
-    public static func printAllFonts(filter: String? = nil)
+    public static func printAllFonts(familyFilter filter: String? = nil)
     {
-        print("\n--- FONTS\((filter != nil) ? " filter=\(filter!)" : "") ---\n")
+        print("\n--- FONTS\((filter != nil) ? " familyFilter=\(filter!)" : "") ---\n")
         
         UIFont.familyNames().forEach { name in
             guard filter == nil || name.containsString(filter!) else { return }

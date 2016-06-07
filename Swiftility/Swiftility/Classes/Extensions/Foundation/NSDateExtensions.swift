@@ -22,7 +22,7 @@ extension NSDate
 {
     // MARK: - Convinience
     
-    public static func dateFromString(fromString: String, format: String = "yyyy-MM-dd HH:mm:ss zzz") -> NSDate?
+    public static func dateFromString(fromString: String, format: String) -> NSDate?
     {
         let formatter = NSDateFormatter()
         
@@ -33,7 +33,7 @@ extension NSDate
         return formatter.dateFromString(fromString)
     }
     
-    public func dateByAddingValue(value: Int, toUnit unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> NSDate
+    public func dateByAddingValue(value: Int, toUnit unit: NSCalendarUnit, onCalendar calendar: NSCalendar = .currentCalendar()) -> NSDate
     {
         let components: NSDateComponents = NSDateComponents()
         
@@ -44,20 +44,24 @@ extension NSDate
     
     // MARK: - Hour date
     
-    public func component(unit: NSCalendarUnit, onCalendar calendar: NSCalendar = NSCalendar.currentCalendar()) -> Int
+    public func component(unit: NSCalendarUnit, onCalendar calendar: NSCalendar = .currentCalendar()) -> Int
     {
         return calendar.component(unit, fromDate: self)
     }
     
-    public func hourDate(initialDate date: NSDate = NSDate(timeIntervalSince1970: 0), includeMinutes: Bool = true, includeSeconds: Bool = false) -> NSDate
+    /// Return a new NSDate base on `initialDate`, only keeping the hour, minutes & seconds
+    public func hourDate(
+        initialDate initialDate: NSDate = NSDate(timeIntervalSince1970: 0),
+        includeMinutes: Bool = true,
+        includeSeconds: Bool = false,
+        onCalendar calendar: NSCalendar = .currentCalendar(),
+        andTimeZone timeZone: NSTimeZone = .systemTimeZone()) -> NSDate
     {
-        let firstDate = date
-        let calendar = NSCalendar.currentCalendar()
         let components = NSDateComponents()
         
-        components.year = firstDate.component(.Year)
-        components.month = firstDate.component(.Month)
-        components.day = firstDate.component(.Day)
+        components.year = initialDate.component(.Year)
+        components.month = initialDate.component(.Month)
+        components.day = initialDate.component(.Day)
         components.hour = self.component(.Hour)
         
         if includeMinutes {
@@ -72,7 +76,7 @@ extension NSDate
             components.second = 0
         }
         
-        components.timeZone = NSTimeZone.systemTimeZone()
+        components.timeZone = timeZone
         
         return calendar.dateFromComponents(components)!
     }
@@ -82,29 +86,6 @@ extension NSDate
     }
     
     // MARK: - String representation
-    
-    public func stringValue(ends ends: NSDate? = nil, format: String = "ha") -> String
-    {
-        // TODO: Am pm for US only
-        let formatter = NSDateFormatter()
-        
-        formatter.dateFormat = "h"
-        
-        let startsString = formatter.stringFromDate(self)
-        
-        formatter.AMSymbol = "am"; formatter.PMSymbol = "pm"
-        formatter.dateFormat = format
-        
-        if let ends = ends {
-            let endsString = formatter.stringFromDate(ends)
-            
-            return "\(startsString)-\(endsString)"
-        } else {
-            let startS = formatter.stringFromDate(self)
-            
-            return "\(startS)"
-        }
-    }
     
     public var relativeValue: String {
         let formatter = NSDateFormatter()

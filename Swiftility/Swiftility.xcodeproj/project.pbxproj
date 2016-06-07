@@ -30,12 +30,10 @@
 		9D1CEEB71C1ECD64006A88C8 /* SpacingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA91C1ECD64006A88C8 /* SpacingExtensions.swift */; };
 		9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAA1C1ECD64006A88C8 /* UINavigationBarExtensions.swift */; };
 		9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAB1C1ECD64006A88C8 /* UINavigationControllerExtensions.swift */; };
-		9D1CEEBA1C1ECD64006A88C8 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAC1C1ECD64006A88C8 /* UINavigationItemExtensions.swift */; };
 		9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAD1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift */; };
 		9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAE1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift */; };
 		9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */; };
 		9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */; };
-		9D1CEEBF1C1ECD64006A88C8 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */; };
 		9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEEC51C1ECD7A006A88C8 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */; };
 		9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */; };
@@ -46,6 +44,8 @@
 		9D3025881C5EA6630063493F /* NibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3025871C5EA6630063493F /* NibTests.swift */; };
 		9D30258B1C5EA9F80063493F /* TestNonExistingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */; };
 		9D3374B91C5D7B30001DE413 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3374B81C5D7B30001DE413 /* MainStoryboard.storyboard */; };
+		9D35C1701D071A7400F52ECF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */; };
+		9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */; };
 		9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
@@ -103,12 +103,10 @@
 		9D1CEEA91C1ECD64006A88C8 /* SpacingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEAA1C1ECD64006A88C8 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEAB1C1ECD64006A88C8 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
-		9D1CEEAC1C1ECD64006A88C8 /* UINavigationItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEAD1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEAE1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarControllerExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEC11C1ECD7A006A88C8 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		9D1CEEC21C1ECD7A006A88C8 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		9D1CEEC31C1ECD7A006A88C8 /* UIImageEffectsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffectsExtension.swift; sourceTree = "<group>"; };
@@ -120,6 +118,8 @@
 		9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestNonExistingCell.xib; sourceTree = "<group>"; };
 		9D3374B51C5D7979001DE413 /* StoryboardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardTests.swift; sourceTree = "<group>"; };
 		9D3374B81C5D7B30001DE413 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
@@ -230,6 +230,7 @@
 				9D1CEEA51C1ECD64006A88C8 /* UIKit */,
 				9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */,
 				9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */,
+				9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,15 +275,14 @@
 				9D1CEEA91C1ECD64006A88C8 /* SpacingExtensions.swift */,
 				9D1CEEAA1C1ECD64006A88C8 /* UINavigationBarExtensions.swift */,
 				9D1CEEAB1C1ECD64006A88C8 /* UINavigationControllerExtensions.swift */,
-				9D1CEEAC1C1ECD64006A88C8 /* UINavigationItemExtensions.swift */,
 				9D1CEEAD1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift */,
 				9D1CEEAE1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift */,
 				9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */,
 				9D1CEEB01C1ECD64006A88C8 /* UIViewExtensions.swift */,
-				9D1CEEB11C1ECD64006A88C8 /* UIWindowExtensions.swift */,
 				9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */,
 				9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */,
 				9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */,
+				9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -515,10 +515,11 @@
 				9D1CEEC61C1ECD7A006A88C8 /* UIImageEffectsExtension.swift in Sources */,
 				9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */,
 				9D1CEE8A1C1ECCB2006A88C8 /* UIView+Extensions.m in Sources */,
+				9D35C1701D071A7400F52ECF /* DictionaryExtensions.swift in Sources */,
 				9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */,
 				9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */,
-				9D1CEEBA1C1ECD64006A88C8 /* UINavigationItemExtensions.swift in Sources */,
 				9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */,
+				9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */,
 				9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */,
 				9D1CEEB71C1ECD64006A88C8 /* SpacingExtensions.swift in Sources */,
 				9DBD88561C5AE29B00A75331 /* UICollectionView.swift in Sources */,
@@ -530,7 +531,6 @@
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
 				9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */,
-				9D1CEEBF1C1ECD64006A88C8 /* UIWindowExtensions.swift in Sources */,
 				9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */,
 				9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */,
 				9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */,

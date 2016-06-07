@@ -17,9 +17,9 @@ extension Array
      
      - returns: Element of Array or nil if out of bounds
      */
-    public func get(index: Int?) -> Element?
+    public func get(index: Int) -> Element?
     {
-        if let index = index where index < self.count && index >= 0 {
+        if index < self.count && index >= 0 {
             return self[index]
         }
         

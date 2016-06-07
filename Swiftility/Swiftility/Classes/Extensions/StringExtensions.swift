@@ -8,19 +8,16 @@
 
 import Foundation
 
+// MARK: - Operations
 extension String
 {
-    // MARK: - Length
-
     /// Get only String length
     public var length: Int { return self.characters.count }
     
     // MARK: - Subscript
 
     public subscript (i: Int) -> Character {
-        get {
-            return self[self.startIndex.advancedBy(i)]
-        }
+        return self[self.startIndex.advancedBy(i)]
     }
     
     public subscript (i: Int) -> String {
@@ -34,10 +31,24 @@ extension String
             
             return self[startIndex..<endIndex]
         }
+        
+        set {
+            let startIndex = self.startIndex.advancedBy(r.startIndex)
+            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
+            
+            self.replaceRange(startIndex..<endIndex, with: newValue)
+        }
     }
     
-    // MARK: - Localized
+    public func trim(set: NSCharacterSet = .whitespaceAndNewlineCharacterSet()) -> String
+    {
+        return self.stringByTrimmingCharactersInSet(set)
+    }
+}
 
+// MARK: - Localized
+extension String
+{
     public var localized: String { return String.localized(self) }
     
     public func localized(comment: String) -> String
@@ -49,9 +60,11 @@ extension String
     {
         return NSLocalizedString(key, comment: comment ?? key)
     }
-    
-    // MARK: - Size
-    
+}
+
+// MARK: - Size
+extension String
+{
     public func sizeWithFont(font: UIFont, constraintWidth: CGFloat = CGFloat(MAXFLOAT), constraintHeight: CGFloat = CGFloat(MAXFLOAT)) -> CGSize
     {
         let attributes = [NSFontAttributeName: font]

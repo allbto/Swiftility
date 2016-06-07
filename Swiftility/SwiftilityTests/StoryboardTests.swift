@@ -45,7 +45,7 @@ class StoryboardTests: XCTestCase
 //        }
         
         // Test view controller that does exist
-        let existingVC = storyboard.instantiateViewController(TestVC)
+        let existingVC: TestVC = storyboard.instantiateViewController()
         
         expect(existingVC).to(beTruthy())
     }
@@ -74,7 +74,7 @@ class StoryboardTests: XCTestCase
 //        }
         
         // Test initial view controller that does exist
-        let existingVC = storyboard.instantiateInitialViewController(TestVC)
+        let existingVC: TestVC = storyboard.instantiateInitialViewController()
         
         expect(existingVC).to(beTruthy())
     }

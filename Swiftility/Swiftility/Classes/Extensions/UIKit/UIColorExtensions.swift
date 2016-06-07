@@ -25,7 +25,7 @@ extension UIColor
     
     public convenience init(_ hexString: String, alpha: CGFloat = 1.0)
     {
-        // Replace #if found
+        // Replace '#' if found
         let hex = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
         let scanner = NSScanner(string: hex)
         var color: UInt32 = 0
@@ -77,7 +77,7 @@ extension UIColor
 // MARK: - Hue
 extension UIColor
 {
-    public func lighter(amount : CGFloat = 0.25) -> UIColor
+    public func lighter(amount: CGFloat = 0.25) -> UIColor
     {
         if amount < 0 { return self }
         
@@ -92,7 +92,7 @@ extension UIColor
         return self.adjust(red: amount, green: amount, blue: amount, alpha: 0)
     }
     
-    public func adjust(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor
+    public func adjust(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor
     {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         

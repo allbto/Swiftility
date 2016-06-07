@@ -10,7 +10,7 @@ import Foundation
 
 extension UITabBarController
 {
-    public func viewController<T: UIViewController>(type: T.Type) -> T?
+    public func viewController<T: UIViewController>() -> T?
     {
         guard let vcs = viewControllers else { return nil }
         
