@@ -15,8 +15,6 @@
 		9D1CEE801C1ECCB2006A88C8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */; };
 		9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */; };
 		9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */; };
-		9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D1CEE861C1ECCB2006A88C8 /* CALayer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE631C1ECCB2006A88C8 /* CALayer+Extensions.m */; };
 		9D1CEE871C1ECCB2006A88C8 /* UIStoryboard+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE641C1ECCB2006A88C8 /* UIStoryboard+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEE881C1ECCB2006A88C8 /* UIStoryboard+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE651C1ECCB2006A88C8 /* UIStoryboard+Extensions.m */; };
 		9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -90,8 +88,6 @@
 		9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Extensions.h"; sourceTree = "<group>"; };
-		9D1CEE631C1ECCB2006A88C8 /* CALayer+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Extensions.m"; sourceTree = "<group>"; };
 		9D1CEE641C1ECCB2006A88C8 /* UIStoryboard+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+Extensions.h"; sourceTree = "<group>"; };
 		9D1CEE651C1ECCB2006A88C8 /* UIStoryboard+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+Extensions.m"; sourceTree = "<group>"; };
 		9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
@@ -241,8 +237,6 @@
 		9D1CEE611C1ECCB2006A88C8 /* Objc */ = {
 			isa = PBXGroup;
 			children = (
-				9D1CEE621C1ECCB2006A88C8 /* CALayer+Extensions.h */,
-				9D1CEE631C1ECCB2006A88C8 /* CALayer+Extensions.m */,
 				9D1CEE641C1ECCB2006A88C8 /* UIStoryboard+Extensions.h */,
 				9D1CEE651C1ECCB2006A88C8 /* UIStoryboard+Extensions.m */,
 				9D1CEE661C1ECCB2006A88C8 /* UIView+Extensions.h */,
@@ -352,7 +346,6 @@
 			files = (
 				9D1CEE871C1ECCB2006A88C8 /* UIStoryboard+Extensions.h in Headers */,
 				9D1CEE891C1ECCB2006A88C8 /* UIView+Extensions.h in Headers */,
-				9D1CEE851C1ECCB2006A88C8 /* CALayer+Extensions.h in Headers */,
 				9D1CEEC41C1ECD7A006A88C8 /* UIImageEffects.h in Headers */,
 				9D1CEDF51C1ECA2D006A88C8 /* Swiftility.h in Headers */,
 			);
@@ -546,7 +539,6 @@
 				9DBD88541C5AE1DA00A75331 /* UITableView.swift in Sources */,
 				9D1CEE9E1C1ECCB2006A88C8 /* Dynamic.swift in Sources */,
 				9D1CEE881C1ECCB2006A88C8 /* UIStoryboard+Extensions.m in Sources */,
-				9D1CEE861C1ECCB2006A88C8 /* CALayer+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
