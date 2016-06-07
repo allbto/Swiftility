@@ -12,7 +12,7 @@ extension FromStoryboard where Self: UIViewController
 {
     public static func instantiateFromStoryboard() -> Self
     {
-        return self.ownStoryboard.storyboard.instantiateViewController(Self)
+        return self.ownStoryboard.storyboard.instantiateViewController()
     }
 }
 

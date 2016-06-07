@@ -26,7 +26,7 @@ extension UIStoryboard
 {
     public func instantiateViewController<T where T: UIViewController, T: ViewModelController>(type: T.Type, vm: T.VM) -> T
     {
-        var vc = self.instantiateViewController(type)
+        var vc: T = self.instantiateViewController()
         
         vc.viewModel = vm
         

@@ -39,19 +39,19 @@ public protocol FromStoryboard
 
 extension UIStoryboard
 {
-    public func instantiateInitialViewController<T: UIViewController>(type: T.Type) -> T
+    public func instantiateInitialViewController<T: UIViewController>() -> T
     {
         guard let vc = self.instantiateInitialViewController() as? T else {
-            fatalError("\(String(type)) could not be instantiated because it was not found in storyboard: \(self)")
+            fatalError("\(String(T)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc
     }
 
-    public func instantiateViewController<T: UIViewController>(type: T.Type) -> T
+    public func instantiateViewController<T: UIViewController>() -> T
     {
-        guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(type)) as? T else {
-            fatalError("\(String(type)) could not be instantiated because it was not found in storyboard: \(self)")
+        guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(T)) as? T else {
+            fatalError("\(String(T)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc
