@@ -10,9 +10,9 @@
 
 @implementation UIView (Extensions)
 
-+ (instancetype)appearanceWhenContainedInClass:(Class<UIAppearanceContainer>)ContainerClass
++ (nonnull instancetype)appearanceWhenContainedInClass:(nonnull Class<UIAppearanceContainer>)containerClass;
 {
-    return [self appearanceWhenContainedIn:ContainerClass, nil];
+    return [self appearanceWhenContainedIn:containerClass, nil];
 }
 
 @end

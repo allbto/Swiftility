@@ -10,6 +10,6 @@
 
 @interface UIView (Extensions)
 
-+ (instancetype)appearanceWhenContainedInClass:(Class<UIAppearanceContainer>)ContainerClass;
++ (nonnull instancetype)appearanceWhenContainedInClass:(nonnull Class<UIAppearanceContainer>)ContainerClass;
 
 @end
