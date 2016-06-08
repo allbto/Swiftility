@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "Swiftility"
-  s.version      = "0.8"
-  s.summary      = "allbto utility libs to use across projects."
+  s.version      = "0.8.1"
+  s.summary      = "allbto utility library to use across my projects."
   s.homepage     = "https://github.com/allbto/ios-swiftility"
   s.license      = { :type => "MIT" }
   s.author    	 = "Allan Bto"
