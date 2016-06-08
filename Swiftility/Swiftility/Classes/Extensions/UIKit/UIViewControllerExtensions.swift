@@ -35,38 +35,67 @@ extension UIViewController
     /**
     Subscribe to keyboard updates notifications.
     
-    - parameter update: Closure called when keyboard change frame or hide. One can call self.adjustKeyboard with the notification.
+    - parameter update: Closure called when keyboard change frame or hide. One can update constraints and then call self.animateWithKeyboard with the notification.
     */
-    public func observeKeyboardChanges(update: (NSNotification -> Void)) -> [NSObjectProtocol]
+    public func observeKeyboardChanges(update: KeyboardUpdateClosure) -> [NSObjectProtocol]
     {
         return NSNotificationCenter
             .defaultCenter()
-            .addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification], usingBlock: update)
+            .addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { n in
+                guard let
+                    userInfo = n.userInfo,
+                    keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size
+                    else { return }
+                
+                update(keyboardSize, n)
+            }
     }
     
     /**
-     Perform animation in the `update` closure with the same settings as the notification's animation settings.
+     Perform animations with the same settings as the notification's animation settings.
+     Performs animations only if `notification` is a valid UIKeyboardXXXNotification.
      
-     - parameter notification: UIKeyboardXXXXXNotification. Such as UIKeyboardWillChangeFrameNotification for example
-     - parameter animate: Should animate the changes
-     - parameter update: One should update constraints in this closure, the animation will run after it.
+     - parameter notification:  UIKeyboardXXXNotification. Such as UIKeyboardWillChangeFrameNotification for example
+     - parameter animations:    Optional custom animations to perform. Default is { self.view.layoutIfNeeded() }
+     - parameter completion:    Optional completion handler to animations
      */
-    public func adjustWithKeyboard(notification n: NSNotification, animate: Bool, update: KeyboardUpdateClosure)
+    public func animateWithKeyboardNotification(notification: NSNotification,
+                     animations: (() -> Void)? = nil,
+                     completion: ((Bool) -> Void)? = nil)
     {
-        guard let userInfo = n.userInfo,
-            keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size,
+        guard let
+            userInfo = notification.userInfo,
             duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue,
             curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.unsignedIntValue
             else { return }
         
-        update(keyboardSize, n)
-        
         let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
         
-        if animate {
-            UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        }
+        UIView.animateWithDuration(
+            duration,
+            delay: 0,
+            options: options,
+            animations: {
+                if let animations = animations {
+                    animations()
+                } else {
+                    self.view.layoutIfNeeded()
+                }
+            },
+            completion: completion
+        )
     }
+    
+    /*
+     
+     Usage example:
+     
+     let observers = self.observeKeyboardChanges { [weak self] keyboardSize, n in
+
+        self?.someConstraints.constant = keyboardSize.height
+         
+        self?.animateWithKeyboardNotification(n)
+     }
+     
+     */
 }
