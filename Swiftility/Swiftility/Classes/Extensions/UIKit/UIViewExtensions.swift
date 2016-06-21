@@ -57,7 +57,7 @@ extension UIView
         
         guard animated else {
             self.hidden = hidden
-            self.alpha = hidden ? 1 : 0
+            self.alpha = hidden ? 0 : 1
             customAnimations?()
             return
         }
