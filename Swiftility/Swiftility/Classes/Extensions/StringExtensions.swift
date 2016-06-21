@@ -65,10 +65,24 @@ extension String
 // MARK: - Size
 extension String
 {
-    public func sizeWithFont(font: UIFont, constraintWidth: CGFloat = CGFloat(MAXFLOAT), constraintHeight: CGFloat = CGFloat(MAXFLOAT)) -> CGSize
+    public func size(withFont
+        font: UIFont,
+        constraintSize: CGSize,
+        options: NSStringDrawingOptions = .UsesLineFragmentOrigin,
+        context: NSStringDrawingContext? = nil) -> CGSize
     {
         let attributes = [NSFontAttributeName: font]
-        var rect = (self as NSString).boundingRectWithSize(CGSizeMake(constraintWidth, constraintHeight), options:.UsesLineFragmentOrigin, attributes:attributes, context:nil)
+        
+        return self.size(withAttributes: attributes, constraintSize: constraintSize, options: options, context: context)
+    }
+    
+    public func size(withAttributes
+        attributes: [String: AnyObject],
+        constraintSize: CGSize,
+        options: NSStringDrawingOptions = .UsesLineFragmentOrigin,
+        context: NSStringDrawingContext? = nil) -> CGSize
+    {
+        var rect = (self as NSString).boundingRectWithSize(constraintSize, options: options, attributes: attributes, context: context)
         
         rect.size.height = CGFloat(ceilf(Float(rect.height)))
         rect.size.width = CGFloat(ceilf(Float(rect.width)))
