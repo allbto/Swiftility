@@ -98,3 +98,21 @@ public struct Dynamic<T>
         shouldFire = originalShouldFire
     }
 }
+
+// MARK: - Convenience
+
+infix operator .= {
+    associativity right
+    precedence 110
+    assignment
+}
+
+public func .= <T>(inout lhs: Dynamic<T>, rhs: T)
+{
+    lhs.value = rhs
+}
+
+public func .= <T>(inout lhs: Dynamic<T>?, rhs: T)
+{
+    lhs?.value = rhs
+}
