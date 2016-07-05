@@ -44,6 +44,36 @@ extension String
     {
         return self.stringByTrimmingCharactersInSet(set)
     }
+
+    var words: [String] {
+        var result = [String]()
+        
+        enumerateSubstringsInRange(startIndex..<endIndex, options: .ByWords) {
+            (substring, substringRange, enclosingRange, stop) in
+            
+            if let substring = substring {
+                result.append(substring)
+            }
+        }
+        
+        return result
+    }
+    
+    func inserting(string: String, index: Int) -> String
+    {
+        return String(self.characters.prefix(index)) + string + String(self.characters.suffix(self.characters.count - index))
+    }
+
+    func URLEncoding() -> String?
+    {
+        guard let characters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as? NSMutableCharacterSet else { return nil }
+        
+        characters.removeCharactersInString("&")
+        
+        guard let encodedString = self.stringByAddingPercentEncodingWithAllowedCharacters(characters) else { return nil }
+        
+        return encodedString
+    }
 }
 
 // MARK: - Localized
