@@ -47,6 +47,7 @@
 		9D35C1701D071A7400F52ECF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */; };
 		9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */; };
 		9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */; };
+		9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
@@ -121,6 +122,7 @@
 		9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				9D1CEE5E1C1ECCB2006A88C8 /* ArrayExtensions.swift */,
 				9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */,
 				9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */,
+				9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				9D1CEE8A1C1ECCB2006A88C8 /* UIView+Extensions.m in Sources */,
 				9D35C1701D071A7400F52ECF /* DictionaryExtensions.swift in Sources */,
 				9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */,
+				9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */,
 				9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */,
 				9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */,
 				9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */,
