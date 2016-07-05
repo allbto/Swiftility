@@ -105,7 +105,7 @@ extension UIColor
 // MARK: - Image
 extension UIColor
 {
-    var image: UIImage {
+    public var image: UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
 
         UIGraphicsBeginImageContext(rect.size)

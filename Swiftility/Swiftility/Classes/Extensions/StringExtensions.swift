@@ -45,7 +45,7 @@ extension String
         return self.stringByTrimmingCharactersInSet(set)
     }
 
-    var words: [String] {
+    public var words: [String] {
         var result = [String]()
         
         enumerateSubstringsInRange(startIndex..<endIndex, options: .ByWords) {
@@ -59,12 +59,12 @@ extension String
         return result
     }
     
-    func inserting(string: String, index: Int) -> String
+    public func inserting(string: String, index: Int) -> String
     {
         return String(self.characters.prefix(index)) + string + String(self.characters.suffix(self.characters.count - index))
     }
 
-    func URLEncoding() -> String?
+    public func URLEncoding() -> String?
     {
         guard let characters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as? NSMutableCharacterSet else { return nil }
         
