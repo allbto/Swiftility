@@ -52,38 +52,63 @@ infix operator =~ {}
 
 public func =~ (input: String, pattern: String) -> Bool
 {
-    return input.match(pattern)
+    return input.match(pattern: pattern)
 }
 
 extension String
 {
-    public func matchRegex(pattern: Regex) -> Bool
+    public func match(regex regex: Regex) -> Bool
     {
-        let range: NSRange = NSMakeRange(0, self.length)
-
-        if let regex = pattern.regex {
-            let matches: [AnyObject] = regex.matchesInString(self, options: pattern.matchingOptions, range: range)
-            return matches.count > 0
-        }
-        return false
+        return !matches(forRegex: regex).isEmpty
     }
     
-    public func match(patternString: String) -> Bool
+    public func match(pattern pattern: String) -> Bool
     {
         do {
-            return self.matchRegex(try Regex(pattern: patternString))
+            return self.match(regex: try Regex(pattern: pattern))
         } catch {
             return false
         }
     }
     
-    public func replaceRegex(pattern: Regex, template: String) -> String
+    public func matches(forRegex pattern: Regex) -> [[String]]
     {
-        if self.matchRegex(pattern) {
+        let range: NSRange = NSMakeRange(0, self.length)
+        let nsString = self as NSString
+        
+        if let regex = pattern.regex {
+            let matches = regex.matchesInString(self, options: pattern.matchingOptions, range: range)
+            
+            return matches.map {
+                var ranges = [String]()
+                
+                for i in 0 ..< $0.numberOfRanges {
+                    ranges.append(nsString.substringWithRange($0.rangeAtIndex(i)))
+                }
+                
+                return ranges
+            }
+        }
+        
+        return []
+    }
+    
+    public func matches(forPattern patternString: String) -> [[String]]
+    {
+        do {
+            return self.matches(forRegex: try Regex(pattern: patternString))
+        } catch {
+            return []
+        }
+    }
+    
+    public func replace(regex regex: Regex, template: String) -> String
+    {
+        if self.match(regex: regex) {
             let range: NSRange = NSMakeRange(0, self.length)
             
-            if let regex = pattern.regex {
-                return regex.stringByReplacingMatchesInString(self, options: pattern.matchingOptions, range: range, withTemplate: template)
+            if let reg = regex.regex {
+                return reg.stringByReplacingMatchesInString(self, options: regex.matchingOptions, range: range, withTemplate: template)
             }
         }
         return self
@@ -92,7 +117,7 @@ extension String
     public func replace(pattern: String, template: String) -> String
     {
         do {
-            return self.replaceRegex(try Regex(pattern: pattern), template: template)
+            return self.replace(regex: try Regex(pattern: pattern), template: template)
         } catch {
             return self
         }
