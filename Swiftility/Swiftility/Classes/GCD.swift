@@ -79,19 +79,19 @@ public func delay(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosu
 
 /**
  Debounce will fire method when delay passed, but if there was request before that, then it invalidates the previous method and uses only the last
-
-- parameter delay:  delay before each debounce
-- parameter queue:  =.Main; Queue to fire to
-- parameter action: closure called when debouncing
-
-- returns: closure to call to fire the debouncing
-*/
-public func debounce(delay: NSTimeInterval, queue: GCDQueue = .Main, action: DispatchClosure) -> DispatchClosure
+ 
+ - parameter delay:  delay before each debounce
+ - parameter queue:  =.Main; Queue to fire to
+ - parameter action: closure called when debouncing
+ 
+ - returns: closure to call to fire the debouncing
+ */
+public func debounce<T>(delay: NSTimeInterval, queue: GCDQueue = .Main, action: (T) -> Void) -> (T) -> Void
 {
     var lastCall : Int = 0
     let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
     
-    return {
+    return { t in
         // Increase call counter and invalidate the call if it is not the last one
         lastCall += 1
         let currentCall = lastCall
@@ -102,7 +102,7 @@ public func debounce(delay: NSTimeInterval, queue: GCDQueue = .Main, action: Dis
             ),
             queue.queue) {
                 if lastCall == currentCall {
-                    action()
+                    action(t)
                 }
         }
     }
