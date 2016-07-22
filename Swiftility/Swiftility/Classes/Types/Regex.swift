@@ -83,7 +83,11 @@ extension String
                 var ranges = [String]()
                 
                 for i in 0 ..< $0.numberOfRanges {
-                    ranges.append(nsString.substringWithRange($0.rangeAtIndex(i)))
+                    let range = $0.rangeAtIndex(i)
+                    
+                    guard range.location != NSNotFound else { break }
+                    
+                    ranges.append(nsString.substringWithRange(range))
                 }
                 
                 return ranges
