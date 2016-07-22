@@ -57,9 +57,15 @@ public func =~ (input: String, pattern: String) -> Bool
 
 extension String
 {
-    public func match(regex regex: Regex) -> Bool
+    public func match(regex pattern: Regex) -> Bool
     {
-        return !matches(forRegex: regex).isEmpty
+        let range: NSRange = NSMakeRange(0, self.length)
+        
+        if let regex = pattern.regex {
+            return !regex.matchesInString(self, options: pattern.matchingOptions, range: range).isEmpty
+        }
+
+        return false
     }
     
     public func match(pattern pattern: String) -> Bool
