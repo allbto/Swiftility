@@ -31,13 +31,6 @@ extension String
             
             return self[startIndex..<endIndex]
         }
-        
-        set {
-            let startIndex = self.startIndex.advancedBy(r.startIndex)
-            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
-            
-            self.replaceRange(startIndex..<endIndex, with: newValue)
-        }
     }
     
     public func trim(set: NSCharacterSet = .whitespaceAndNewlineCharacterSet()) -> String
@@ -64,7 +57,7 @@ extension String
         return String(self.characters.prefix(index)) + string + String(self.characters.suffix(self.characters.count - index))
     }
 
-    public func URLEncoding() -> String?
+    public func URLEncoded() -> String?
     {
         guard let characters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as? NSMutableCharacterSet else { return nil }
         
