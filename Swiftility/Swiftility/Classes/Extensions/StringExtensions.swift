@@ -67,6 +67,21 @@ extension String
         
         return encodedString
     }
+    
+    public func range(from nsRange: NSRange) -> Range<Index>?
+    {
+        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
+        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+        
+        if let
+            from = Index(from16, within: self),
+            to = Index(to16, within: self)
+        {
+            return from ..< to
+        }
+        
+        return nil
+    }
 }
 
 // MARK: - Localized
