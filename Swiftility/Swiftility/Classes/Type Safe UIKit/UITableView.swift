@@ -8,14 +8,9 @@
 
 import Foundation
 
-public protocol TableViewCell: FromNib
+extension UITableViewCell
 {
-    static var DefaultHeight: CGFloat { get }
-}
-
-extension TableViewCell
-{
-    public static var DefaultHeight: CGFloat { return 44 }
+    public class var DefaultHeight: CGFloat { return 44 }
 }
 
 extension UITableView
