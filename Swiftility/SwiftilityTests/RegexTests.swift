@@ -18,11 +18,11 @@ class RegexTests: XCTestCase
         XCTAssert("allan.bto+test34@allan.com" =~ emailRegEx, "regex doesn't validate email")
         XCTAssert(!("allan.bto+test34@" =~ emailRegEx), "regex validates wrong email")
 
-        XCTAssert("allan.bto+test34@allan.com".match(emailRegEx), "regex doesn't validate email")
+        XCTAssert("allan.bto+test34@allan.com".match(pattern: emailRegEx), "regex doesn't validate email")
         
         do {
             let regex = try Regex(pattern: emailRegEx)
-            XCTAssert("allan.bto+test34@allan.com".matchRegex(regex), "regex doesn't validate email")
+            XCTAssert("allan.bto+test34@allan.com".match(regex: regex), "regex doesn't validate email")
         } catch {
             XCTAssert(false, "Regex fails to instantiate")
         }
@@ -30,20 +30,20 @@ class RegexTests: XCTestCase
     
     func testReplace()
     {
-        XCTAssertEqual("I am a developer fixing bugs".replace("fixing bugs", template: "implementing features"),
+        XCTAssertEqual("I am a developer fixing bugs".replace(pattern: "fixing bugs", template: "implementing features"),
             "I am a developer implementing features",
             "regex doesn't replace correctly")
         
         do {
             let regex = try Regex(pattern:"fixing bugs")
-            XCTAssertEqual("I am a developer fixing bugs".replaceRegex(regex, template: "implementing features"),
+            XCTAssertEqual("I am a developer fixing bugs".replace(regex: regex, template: "implementing features"),
                 "I am a developer implementing features",
                 "regex doesn't replace correctly")
         } catch {
             XCTAssert(false, "Regex fails to instantiate")
         }
         
-        XCTAssertEqual("I am a developer doing <weird>stuff</weird>".replace("<[a-z]+>([a-z]+)</[a-z]+>", template: "normal $1"),
+        XCTAssertEqual("I am a developer doing <weird>stuff</weird>".replace(pattern: "<[a-z]+>([a-z]+)</[a-z]+>", template: "normal $1"),
             "I am a developer doing normal stuff",
             "regex doesn't replace correctly")
     }
