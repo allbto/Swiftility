@@ -10,15 +10,31 @@ import Foundation
 
 extension UICollectionView
 {
+    // MARK: - Cell
+    
     public func registerCell<T where T: UICollectionViewCell, T: FromNib>(type: T.Type)
     {
         self.registerNib(type.ownNib.nib, forCellWithReuseIdentifier: type.ownNib.nibName)
     }
     
+    public func registerClass<T: UICollectionViewCell>(type: T.Type)
+    {
+        self.registerClass(T.self, forCellWithReuseIdentifier: String(T))
+    }
+    
+    // MARK: - Supplementary view
+    
     public func registerSupplementaryView<T where T: UICollectionReusableView, T: FromNib>(type: T.Type, forSupplementaryViewOfKind elementKind: String)
     {
         self.registerNib(type.ownNib.nib, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: type.ownNib.nibName)
     }
+
+    public func registerClass<T: UICollectionReusableView>(type: T.Type, forSupplementaryViewOfKind elementKind: String)
+    {
+        self.registerClass(T.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: String(T))
+    }
+    
+    // MARK: - Dequeue 
     
     public func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: NSIndexPath) -> T
     {

@@ -20,10 +20,19 @@ extension TableViewCell
 
 extension UITableView
 {
+    // MARK: - Register
+    
     public func registerCell<T where T: UITableViewCell, T: FromNib>(type: T.Type)
     {
         self.registerNib(type.ownNib.nib, forCellReuseIdentifier: String(type))
     }
+    
+    public func registerClass<T: UITableViewCell>(type: T.Type)
+    {
+        self.registerClass(T.self, forCellReuseIdentifier: String(T))
+    }
+    
+    // MARK: - Dequeue
     
     public func dequeueReusableCell<T: UITableViewCell>() -> T
     {
