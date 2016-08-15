@@ -124,7 +124,7 @@ extension String
         return self
     }
     
-    public func replace(pattern: String, template: String) -> String
+    public func replace(pattern pattern: String, template: String) -> String
     {
         do {
             return self.replace(regex: try Regex(pattern: pattern), template: template)
