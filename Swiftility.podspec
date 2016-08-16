@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => s.version}
 
-  s.public_header_files = "Swiftility/Swiftility/**/*.h"
-  s.source_files  = "Swiftility/Swiftility/Classes/**/*.{h,m,swift}"
+  s.public_header_files = "Swiftility/**/*.h"
+  s.source_files  = "Swiftility/Classes/**/*.{h,m,swift}"
 
   s.requires_arc = true
 

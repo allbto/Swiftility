@@ -47,6 +47,7 @@
 		9D35C1701D071A7400F52ECF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */; };
 		9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */; };
 		9D5E9B1F1C40121C008D14B6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */; };
+		9D67D8E11D63683900FB4758 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9D67D8E01D63683900FB4758 /* README.md */; };
 		9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
@@ -125,6 +126,7 @@
 		9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		9D35C1711D071AB400F52ECF /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		9D5E9B1E1C40121C008D14B6 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		9D67D8E01D63683900FB4758 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
@@ -139,7 +141,6 @@
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerTests.swift; sourceTree = "<group>"; };
 		9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeUIKitTestsCommon.swift; sourceTree = "<group>"; };
-		9DE377111C6E1FEB00A12A42 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 		AA9A63032B521B54427FFEAF /* Pods-Swiftility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swiftility/Pods-Swiftility.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,7 +173,7 @@
 				9D1CEDFF1C1ECA2D006A88C8 /* SwiftilityTests */,
 				9D1CEDF21C1ECA2D006A88C8 /* Products */,
 				9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */,
-				9DE377111C6E1FEB00A12A42 /* README.md */,
+				9D67D8E01D63683900FB4758 /* README.md */,
 				C87DEB8F6705EBB08D7F399B /* Pods */,
 				F3A7C224DC712AEEF84C3B7C /* Frameworks */,
 			);
@@ -576,6 +577,7 @@
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
 				9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */,
 				9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */,
+				9D67D8E11D63683900FB4758 /* README.md in Sources */,
 				9D1CEEB81C1ECD64006A88C8 /* UINavigationBarExtensions.swift in Sources */,
 				9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */,
 				9D1CEE811C1ECCB2006A88C8 /* DeviceInfo.swift in Sources */,
