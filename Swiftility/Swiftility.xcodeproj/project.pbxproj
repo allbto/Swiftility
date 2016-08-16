@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73F0203316B3D53A598DC882 /* Pods_SwiftilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DF1FD166B7482AAA848529 /* Pods_SwiftilityTests.framework */; };
+		0C6D1FBEEBBCA5B65E4B3F3D /* Pods_Swiftility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BA8EDD28EFE95BF78BEC95 /* Pods_Swiftility.framework */; };
 		9D0A0C701CA439B000DC7335 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */; };
 		9D1CEDF51C1ECA2D006A88C8 /* Swiftility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D1CEDFC1C1ECA2D006A88C8 /* Swiftility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */; };
@@ -63,6 +63,7 @@
 		9DD8935E1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */; };
 		9DD893601C5E51520083EBFF /* StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3374B51C5D7979001DE413 /* StoryboardTests.swift */; };
 		9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */; };
+		DB9F3953743B6F1607DD32EB /* Pods_SwiftilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D2779A8063C0E3986456A /* Pods_SwiftilityTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,9 +77,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		547385DAAFCC26C95E586651 /* Pods-SwiftilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6D45AEEFCC311C2C516E6343 /* Pods-SwiftilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.release.xcconfig"; sourceTree = "<group>"; };
-		80DF1FD166B7482AAA848529 /* Pods_SwiftilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28BA8EDD28EFE95BF78BEC95 /* Pods_Swiftility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35444CAA4F18FEB387D65529 /* Pods-SwiftilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.release.xcconfig"; sourceTree = "<group>"; };
+		5423EFF66C8DF0524C595A8C /* Pods-Swiftility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftility.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swiftility/Pods-Swiftility.release.xcconfig"; sourceTree = "<group>"; };
+		688D2779A8063C0E3986456A /* Pods_SwiftilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DDCFC5AA10EAE68A7FE0D6C /* Pods-SwiftilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swiftility.h; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeUIKitTestsCommon.swift; sourceTree = "<group>"; };
 		9DE377111C6E1FEB00A12A42 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
+		AA9A63032B521B54427FFEAF /* Pods-Swiftility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swiftility/Pods-Swiftility.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6D1FBEEBBCA5B65E4B3F3D /* Pods_Swiftility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,31 +158,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1CEDFC1C1ECA2D006A88C8 /* Swiftility.framework in Frameworks */,
-				73F0203316B3D53A598DC882 /* Pods_SwiftilityTests.framework in Frameworks */,
+				DB9F3953743B6F1607DD32EB /* Pods_SwiftilityTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		785930338E8FC1E299ECBA06 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				80DF1FD166B7482AAA848529 /* Pods_SwiftilityTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9D1CEDE71C1ECA2D006A88C8 = {
 			isa = PBXGroup;
 			children = (
 				9D1CEDF31C1ECA2D006A88C8 /* Swiftility */,
 				9D1CEDFF1C1ECA2D006A88C8 /* SwiftilityTests */,
 				9D1CEDF21C1ECA2D006A88C8 /* Products */,
-				C3CD426AABC96B8C755433E3 /* Pods */,
-				785930338E8FC1E299ECBA06 /* Frameworks */,
 				9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */,
 				9DE377111C6E1FEB00A12A42 /* README.md */,
+				C87DEB8F6705EBB08D7F399B /* Pods */,
+				F3A7C224DC712AEEF84C3B7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,13 +328,24 @@
 			path = "Type Safe UIKit";
 			sourceTree = "<group>";
 		};
-		C3CD426AABC96B8C755433E3 /* Pods */ = {
+		C87DEB8F6705EBB08D7F399B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				547385DAAFCC26C95E586651 /* Pods-SwiftilityTests.debug.xcconfig */,
-				6D45AEEFCC311C2C516E6343 /* Pods-SwiftilityTests.release.xcconfig */,
+				AA9A63032B521B54427FFEAF /* Pods-Swiftility.debug.xcconfig */,
+				5423EFF66C8DF0524C595A8C /* Pods-Swiftility.release.xcconfig */,
+				8DDCFC5AA10EAE68A7FE0D6C /* Pods-SwiftilityTests.debug.xcconfig */,
+				35444CAA4F18FEB387D65529 /* Pods-SwiftilityTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F3A7C224DC712AEEF84C3B7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28BA8EDD28EFE95BF78BEC95 /* Pods_Swiftility.framework */,
+				688D2779A8063C0E3986456A /* Pods_SwiftilityTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,10 +369,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D1CEE051C1ECA2D006A88C8 /* Build configuration list for PBXNativeTarget "Swiftility" */;
 			buildPhases = (
+				9AE18A728FCCF93196AE9ABA /* [CP] Check Pods Manifest.lock */,
 				9D1CEDEC1C1ECA2D006A88C8 /* Sources */,
 				9D1CEDED1C1ECA2D006A88C8 /* Frameworks */,
 				9D1CEDEE1C1ECA2D006A88C8 /* Headers */,
 				9D1CEDEF1C1ECA2D006A88C8 /* Resources */,
+				C07A25AECAAED37D080455FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,12 +389,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D1CEE081C1ECA2D006A88C8 /* Build configuration list for PBXNativeTarget "SwiftilityTests" */;
 			buildPhases = (
-				0B62CFC42101061A13886FFA /* Check Pods Manifest.lock */,
+				BDC255F3674AE5CCC59E17EA /* [CP] Check Pods Manifest.lock */,
 				9D1CEDF71C1ECA2D006A88C8 /* Sources */,
 				9D1CEDF81C1ECA2D006A88C8 /* Frameworks */,
 				9D1CEDF91C1ECA2D006A88C8 /* Resources */,
-				29EBFB2C27A6DF65910B37F1 /* Embed Pods Frameworks */,
-				DF3369027333621ADFEA75EC /* Copy Pods Resources */,
+				D3C67E1B30FAC1E8F13EF17B /* [CP] Embed Pods Frameworks */,
+				0D482297D7A0741B9D62F758 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,14 +465,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B62CFC42101061A13886FFA /* Check Pods Manifest.lock */ = {
+		0D482297D7A0741B9D62F758 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AE18A728FCCF93196AE9ABA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,34 +495,49 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		29EBFB2C27A6DF65910B37F1 /* Embed Pods Frameworks */ = {
+		BDC255F3674AE5CCC59E17EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C07A25AECAAED37D080455FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swiftility/Pods-Swiftility-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3C67E1B30FAC1E8F13EF17B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF3369027333621ADFEA75EC /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftilityTests/Pods-SwiftilityTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -664,6 +704,7 @@
 		};
 		9D1CEE061C1ECA2D006A88C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9A63032B521B54427FFEAF /* Pods-Swiftility.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -681,6 +722,7 @@
 		};
 		9D1CEE071C1ECA2D006A88C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5423EFF66C8DF0524C595A8C /* Pods-Swiftility.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -698,7 +740,7 @@
 		};
 		9D1CEE091C1ECA2D006A88C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 547385DAAFCC26C95E586651 /* Pods-SwiftilityTests.debug.xcconfig */;
+			baseConfigurationReference = 8DDCFC5AA10EAE68A7FE0D6C /* Pods-SwiftilityTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftilityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -709,7 +751,7 @@
 		};
 		9D1CEE0A1C1ECA2D006A88C8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D45AEEFCC311C2C516E6343 /* Pods-SwiftilityTests.release.xcconfig */;
+			baseConfigurationReference = 35444CAA4F18FEB387D65529 /* Pods-SwiftilityTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftilityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
