@@ -49,7 +49,8 @@ extension UIView
         hidden: Bool,
         animated: Bool,
         duration: NSTimeInterval = 0.2,
-        customAnimations: (() -> Void)? = nil)
+        customAnimations: (() -> Void)? = nil,
+        completion: (Void -> Void)? = nil)
     {
         guard hidden != self.hidden else {
             return
@@ -59,6 +60,7 @@ extension UIView
             self.hidden = hidden
             self.alpha = hidden ? 0 : 1
             customAnimations?()
+            completion?()
             return
         }
         
@@ -80,6 +82,8 @@ extension UIView
                 if hidden {
                     self.hidden = true
                 }
+                
+                completion?()
             }
         )
     }
