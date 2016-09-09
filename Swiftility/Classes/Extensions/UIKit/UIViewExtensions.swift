@@ -72,6 +72,8 @@ extension UIView
         
         UIView.animateWithDuration(
             duration,
+            delay: 0,
+            options: .BeginFromCurrentState,
             animations: {
                 self.alpha = hidden ? 0 : 1
                 customAnimations?()
