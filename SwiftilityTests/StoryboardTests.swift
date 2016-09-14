@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class StoryboardTests: XCTestCase
@@ -29,12 +28,12 @@ class StoryboardTests: XCTestCase
         // Test view controller that doesn't exist
         let nonExistingVC = storyboard.silentlyInstantiateViewControllerWithIdentifier("TestViewController")
         
-        expect(nonExistingVC).to(beNil())
+        XCTAssert(nonExistingVC == nil)
         
         // Test view controller that does exist
         let existingVC = storyboard.silentlyInstantiateViewControllerWithIdentifier("TestVC")
         
-        expect(existingVC).toNot(beNil())
+        XCTAssert(existingVC != nil)
     }
     
     func testStoryboardSafeTypeInstantiation()
@@ -47,7 +46,7 @@ class StoryboardTests: XCTestCase
         // Test view controller that does exist
         let existingVC: TestVC = storyboard.instantiateViewController()
         
-        expect(existingVC).to(beTruthy())
+        XCTAssert(true, "existingVC(\(existingVC)) instantiation should not crash")
     }
     
     func testStoryboardCompatible()
@@ -55,15 +54,18 @@ class StoryboardTests: XCTestCase
         // Define default storyboard convertible type
         let sbc: StoryboardConvertible = StoryboardsDefault.MainStoryboard
         
-        expect(sbc.storyboardName) == "MainStoryboard"
-        expect(sbc.bundle).to(beNil())
+        XCTAssert(sbc.storyboardName == "MainStoryboard")
+        XCTAssert(sbc.bundle == nil)
         
         // Define test storyboard convertible type
         let sbc2: StoryboardConvertible = StoryboardsTests.MainStoryboard
 
-        expect(sbc2.storyboardName) == "MainStoryboard"
-        expect(sbc2.bundle).toNot(beNil())
-        expect(sbc2.storyboard).toNot(raiseException())
+        XCTAssert(sbc2.storyboardName == "MainStoryboard")
+        XCTAssert(sbc2.bundle != nil)
+        
+        let storyboard = sbc2.storyboard
+        
+        XCTAssert(true, "storyboard(\(storyboard)) instantiation should not crash")
     }
     
     func testInitialViewController()
@@ -76,7 +78,7 @@ class StoryboardTests: XCTestCase
         // Test initial view controller that does exist
         let existingVC: TestVC = storyboard.instantiateInitialViewController()
         
-        expect(existingVC).to(beTruthy())
+        XCTAssert(true, "existingVC(\(existingVC)) instantiation should not crash")
     }
 }
 

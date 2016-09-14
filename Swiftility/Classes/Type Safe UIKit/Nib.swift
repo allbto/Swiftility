@@ -41,7 +41,7 @@ extension FromNib
         let nibName: String = nib?.nibName ?? self.ownNib.nibName
         let bundle: NSBundle = nib?.bundle ?? self.ownNib.bundle ?? NSBundle.mainBundle()
         
-        guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options).first as? Self else {
+        guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options)?.first as? Self else {
             fatalError("\(String(self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(self))")
         }
         

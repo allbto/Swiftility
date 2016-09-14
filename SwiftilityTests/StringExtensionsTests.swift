@@ -8,7 +8,6 @@
 
 import Foundation
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class StringExtensionsTests: XCTestCase
@@ -17,8 +16,8 @@ class StringExtensionsTests: XCTestCase
     {
         let str = "123"
         
-        expect(str.length) == 3
-        expect(str.length) == str.characters.count
+        XCTAssert(str.length == 3)
+        XCTAssert(str.length == str.characters.count)
     }
     
     func testSubscript()
@@ -26,12 +25,12 @@ class StringExtensionsTests: XCTestCase
         let str = "012345"
         let char: Character = str[0]
         
-        expect(char) == Character("0")
-        expect(str[0]) == "0"
+        XCTAssert(char == Character("0"))
+        XCTAssert(str[0] == "0")
         
-        expect(str[0...1]) == "01"
-        expect(str[0...2]) == "012"
-        expect(str[2...4]) == "234"
-        expect(str[0..<2]) == "01"
+        XCTAssert(str[0...1] == "01")
+        XCTAssert(str[0...2] == "012")
+        XCTAssert(str[2...4] == "234")
+        XCTAssert(str[0..<2] == "01")
     }
 }

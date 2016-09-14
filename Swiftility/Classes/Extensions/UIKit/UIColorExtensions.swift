@@ -105,12 +105,15 @@ extension UIColor
 // MARK: - Image
 extension UIColor
 {
-    public var image: UIImage {
+    public var image: UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
 
         UIGraphicsBeginImageContext(rect.size)
         
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
         
         CGContextSetFillColorWithColor(context, self.CGColor)
         CGContextFillRect(context, rect)

@@ -9,8 +9,7 @@
 import XCTest
 @testable import Swiftility
 
-// TODO: Replace expectFatalError closures with Nimble throwAssersion()
-// https://github.com/Quick/Nimble/pull/248
+// TODO: Replace expectFatalError closures with something that works
 
 class SwiftilityTests: XCTestCase {
     

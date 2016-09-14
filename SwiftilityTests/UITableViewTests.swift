@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class UITableViewTests: XCTestCase
@@ -26,7 +25,9 @@ class UITableViewTests: XCTestCase
     {
         let tableView = UITableView(frame: CGRectZero, style: .Grouped)
         
-        expect(tableView.registerCell(TestCell)).toNot(raiseException())
+        tableView.registerCell(TestCell)
+        
+        XCTAssert(true, "registerCell should not crash")
         
 //        expectFatalError {
 //            tableView.dequeueReusableCell(TestNonExistingCell)
@@ -34,14 +35,14 @@ class UITableViewTests: XCTestCase
         
         let cell: TestCell = tableView.dequeueReusableCell()
         
-        expect(cell).to(beTruthy())
+        XCTAssert(true, "dequeueReusableCell should not crash")
     }
 
     func testDequeueCellOnViewController()
     {
         let tableVC = TestTableVC.instantiateFromStoryboard()
         
-        expect(tableVC).to(beTruthy())
+        XCTAssert(true, "tableVC instatiation should not crash")
 
 //        expectFatalError {
 //            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
@@ -49,6 +50,6 @@ class UITableViewTests: XCTestCase
 
         let cell: TestCell = tableVC.tableView.dequeueReusableCell()
         
-        expect(cell).to(beTruthy())
+        XCTAssert(true, "dequeueReusableCell should not crash")
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class UICollectionViewTests: XCTestCase
@@ -29,13 +28,15 @@ class UICollectionViewTests: XCTestCase
     {
         let collectionView = self.collectionVC.collectionView
         
-        expect(collectionView).toNot(beNil())
+        XCTAssert(collectionView != nil)
         
-        expect(collectionView!.registerCell(TestCollectionViewCell)).toNot(raiseException())
+        collectionView!.registerCell(TestCollectionViewCell)
+        
+        XCTAssert(true, "registerCell should not crash")
         
         let cell: TestCollectionViewCell = collectionView!.dequeueReusableCell(forIndexPath: NSIndexPath(forRow: 0, inSection: 0))
 
-        expect(cell).to(beTruthy())
+        XCTAssert(true, "dequeueReusableCell should not crash")
     }
 
     // TODO: Add test for reusableSupplementaryView

@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class UIViewControllerTests: XCTestCase
@@ -24,18 +23,19 @@ class UIViewControllerTests: XCTestCase
     
     func testInstantiateFromStoryboard()
     {
-        expect(TestVC.instantiateFromStoryboard()).to(beTruthy())
+        TestVC.instantiateFromStoryboard()
+        XCTAssert(true, "vc instantiation should not crash")
     }
     
     func testNibConvertible()
     {
-        expect(TestVC.ownNib.nibName) == "TestVC"
-        expect(TestVC.ownNib.bundle).to(beNil())
+        XCTAssert(TestVC.ownNib.nibName == "TestVC")
+        XCTAssert(TestVC.ownNib.bundle == nil)
     }
     
     func testViewNibConvertible()
     {
-        expect(TestView.ownNib.nibName) == "TestView"
-        expect(TestView.ownNib.bundle).to(beNil())
+        XCTAssert(TestView.ownNib.nibName == "TestView")
+        XCTAssert(TestView.ownNib.bundle == nil)
     }
 }

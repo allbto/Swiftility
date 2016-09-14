@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 @testable import Swiftility
 
 class NibTests: XCTestCase
@@ -28,8 +27,8 @@ class NibTests: XCTestCase
     {
         let nib = NibsDefault.TestCell
         
-        expect(nib.nibName) == "TestCell"
-        expect(nib.bundle).to(beNil())
+        XCTAssert(nib.nibName == "TestCell")
+        XCTAssert(nib.bundle == nil)
     }
     
     func testInstantiateFromNib()
@@ -37,8 +36,10 @@ class NibTests: XCTestCase
 //        expectFatalError {
 //            TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: NSBundle(forClass: self.dynamicType)))
 //        }
+        
+        let cell = TestCell.instantiateFromNib()
 
-        expect(TestCell.instantiateFromNib()).to(beTruthy())
+        XCTAssert(true, "cell instantiation should not crash")
     }
 }
 
