@@ -23,7 +23,7 @@ class UIViewControllerTests: XCTestCase
     
     func testInstantiateFromStoryboard()
     {
-        TestVC.instantiateFromStoryboard()
+        _ = TestVC.instantiateFromStoryboard()
         XCTAssert(true, "vc instantiation should not crash")
     }
     

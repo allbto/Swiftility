@@ -28,12 +28,12 @@ class TestCollectionViewVC: UICollectionViewController, FromStoryboard
 {
     static let ownStoryboard: StoryboardConvertible = StoryboardsTests.MainStoryboard
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return 1
     }
@@ -58,7 +58,7 @@ class TestView: UIView {}
 class TestCell: UITableViewCell, FromNib
 {
     static var ownNib: NibConvertible {
-        return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
+        return NibContainer(String(describing: self), bundle: Bundle(for: StoryboardTests.self))
     }
 }
 
@@ -69,7 +69,7 @@ class TestNonExistingCell: UITableViewCell, FromNib {}
 class TestCollectionViewCell: UICollectionViewCell, FromNib
 {
     static var ownNib: NibConvertible {
-        return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
+        return NibContainer(String(describing: self), bundle: Bundle(for: StoryboardTests.self))
     }
 }
 
@@ -78,7 +78,7 @@ class TestNonExistingCollectionViewCell: UICollectionViewCell, FromNib {}
 class TestCollectionViewView: UICollectionReusableView, FromNib
 {
     static var ownNib: NibConvertible {
-        return NibContainer(String(self), bundle: NSBundle(forClass: StoryboardTests.self))
+        return NibContainer(String(describing: self), bundle: Bundle(for: StoryboardTests.self))
     }
 }
 
@@ -101,8 +101,8 @@ enum StoryboardsTests: String, StoryboardConvertible
         return self.rawValue
     }
     
-    var bundle: NSBundle? {
-        return NSBundle(forClass: StoryboardTests.self)
+    var bundle: Bundle? {
+        return Bundle(for: StoryboardTests.self)
     }
 }
 
@@ -125,8 +125,8 @@ enum NibsTests: String, NibConvertible
         return self.rawValue
     }
     
-    var bundle: NSBundle? {
-        return NSBundle(forClass: StoryboardTests.self)
+    var bundle: Bundle? {
+        return Bundle(for: StoryboardTests.self)
     }
 }
 

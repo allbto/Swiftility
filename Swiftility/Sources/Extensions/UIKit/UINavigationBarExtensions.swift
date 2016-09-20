@@ -16,10 +16,10 @@ extension UINavigationBar
      - parameter transparent: Is transparent
      - parameter translucent: =`transparent`; Is translucent, default is value of `transparent`
      */
-    public func setTransparent(transparent: Bool, translucent: Bool? = nil)
+    public func setTransparent(_ transparent: Bool, translucent: Bool? = nil)
     {
-        self.setBackgroundImage((transparent ? UIImage() : nil), forBarMetrics: .Default)
+        self.setBackgroundImage((transparent ? UIImage() : nil), for: .default)
         self.shadowImage = (transparent ? UIImage() : nil)
-        self.translucent = translucent ?? transparent
+        self.isTranslucent = translucent ?? transparent
     }
 }

@@ -22,8 +22,8 @@
 		9D1CEE9E1C1ECCB2006A88C8 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7D1C1ECCB2006A88C8 /* Dynamic.swift */; };
 		9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7E1C1ECCB2006A88C8 /* Weak.swift */; };
 		9D1CEEA01C1ECCB2006A88C8 /* WeakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */; };
-		9D1CEEB21C1ECD64006A88C8 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA31C1ECD64006A88C8 /* NSDateExtensions.swift */; };
-		9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA41C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift */; };
+		9D1CEEB21C1ECD64006A88C8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA31C1ECD64006A88C8 /* DateExtensions.swift */; };
+		9D1CEEB31C1ECD64006A88C8 /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA41C1ECD64006A88C8 /* NotificationCenterExtensions.swift */; };
 		9D1CEEB41C1ECD64006A88C8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA61C1ECD64006A88C8 /* UIColorExtensions.swift */; };
 		9D1CEEB61C1ECD64006A88C8 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA81C1ECD64006A88C8 /* UIImageViewExtensions.swift */; };
 		9D1CEEB71C1ECD64006A88C8 /* SpacingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CEEA91C1ECD64006A88C8 /* SpacingExtensions.swift */; };
@@ -95,8 +95,8 @@
 		9D1CEE7D1C1ECCB2006A88C8 /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		9D1CEE7E1C1ECCB2006A88C8 /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTimer.swift; sourceTree = "<group>"; };
-		9D1CEEA31C1ECD64006A88C8 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
-		9D1CEEA41C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterExtensions.swift; sourceTree = "<group>"; };
+		9D1CEEA31C1ECD64006A88C8 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		9D1CEEA41C1ECD64006A88C8 /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEA61C1ECD64006A88C8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEA81C1ECD64006A88C8 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		9D1CEEA91C1ECD64006A88C8 /* SpacingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingExtensions.swift; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 		9D1CEEA21C1ECD64006A88C8 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				9D1CEEA31C1ECD64006A88C8 /* NSDateExtensions.swift */,
-				9D1CEEA41C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift */,
+				9D1CEEA31C1ECD64006A88C8 /* DateExtensions.swift */,
+				9D1CEEA41C1ECD64006A88C8 /* NotificationCenterExtensions.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -463,7 +463,7 @@
 				9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */,
 				9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */,
 				9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */,
-				9D1CEEB31C1ECD64006A88C8 /* NSNotificationCenterExtensions.swift in Sources */,
+				9D1CEEB31C1ECD64006A88C8 /* NotificationCenterExtensions.swift in Sources */,
 				9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */,
 				9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */,
 				9D1CEEB71C1ECD64006A88C8 /* SpacingExtensions.swift in Sources */,
@@ -471,7 +471,7 @@
 				9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */,
 				9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */,
 				9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */,
-				9D1CEEB21C1ECD64006A88C8 /* NSDateExtensions.swift in Sources */,
+				9D1CEEB21C1ECD64006A88C8 /* DateExtensions.swift in Sources */,
 				9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */,
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
@@ -623,7 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.allbto.Swiftility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -642,7 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.allbto.Swiftility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -654,7 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allbto.SwiftilityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -666,7 +666,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allbto.SwiftilityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

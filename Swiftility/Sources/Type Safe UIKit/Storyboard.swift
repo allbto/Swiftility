@@ -14,12 +14,12 @@ import UIKit
 public protocol StoryboardConvertible
 {
     var storyboardName: String { get }
-    var bundle: NSBundle? { get }
+    var bundle: Bundle? { get }
 }
 
 extension StoryboardConvertible
 {
-    public var bundle: NSBundle? {
+    public var bundle: Bundle? {
         return nil
     }
     
@@ -42,7 +42,7 @@ extension UIStoryboard
     public func instantiateInitialViewController<T: UIViewController>() -> T
     {
         guard let vc = self.instantiateInitialViewController() as? T else {
-            fatalError("\(String(T)) could not be instantiated because it was not found in storyboard: \(self)")
+            fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc
@@ -50,8 +50,8 @@ extension UIStoryboard
 
     public func instantiateViewController<T: UIViewController>() -> T
     {
-        guard let vc = self.silentlyInstantiateViewControllerWithIdentifier(String(T)) as? T else {
-            fatalError("\(String(T)) could not be instantiated because it was not found in storyboard: \(self)")
+        guard let vc = self.silentlyInstantiateViewController(withIdentifier: String(describing: T.self)) as? T else {
+            fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc

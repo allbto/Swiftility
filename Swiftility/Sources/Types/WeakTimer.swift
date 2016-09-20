@@ -13,26 +13,26 @@ private extension Selector
     static let invokeCallback = #selector(WeakTimer.invokeCallback)
 }
 
-public class WeakTimer: NSObject
+public final class WeakTimer: NSObject
 {
     // MARK: - Properties
     
-    private var timer: NSTimer!
-    private let callback: () -> Void
+    fileprivate var timer: Timer!
+    fileprivate let callback: () -> Void
 
     // MARK: - Life cycle
     
-    private init(timeInterval: NSTimeInterval,
+    fileprivate init(timeInterval: TimeInterval,
                  userInfo: AnyObject?,
                  repeats: Bool,
-                 callback: () -> Void)
+                 callback: @escaping () -> Void)
     {
         self.callback = callback
         
         super.init()
 
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(
-            timeInterval,
+        self.timer = Timer.scheduledTimer(
+            timeInterval: timeInterval,
             target: self,
             selector: .invokeCallback,
             userInfo: userInfo,
@@ -59,11 +59,11 @@ public class WeakTimer: NSObject
     
     - returns: new scheduled timer. More info, see: NSTimer.scheduledTimerWithTimeInterval
     */
-    public static func scheduledTimerWithTimeInterval(
-        timeInterval: NSTimeInterval,
+    open static func scheduledTimerWithTimeInterval(
+        _ timeInterval: TimeInterval,
         userInfo: AnyObject? = nil,
         repeats: Bool = false,
-        callback: () -> Void) -> NSTimer
+        callback: @escaping () -> Void) -> Timer
     {
         return WeakTimer(
             timeInterval: timeInterval,

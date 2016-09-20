@@ -10,17 +10,17 @@ import UIKit
 
 public enum UINavigationControllerAnimationStyle
 {
-    case Fade, MoveIn, Push, Reveal
+    case fade, moveIn, push, reveal
     
     public var CATransitionValue: String {
             switch self {
-            case .Fade:
+            case .fade:
                 return kCATransitionFade
-            case .MoveIn:
+            case .moveIn:
                 return kCATransitionMoveIn
-            case .Push:
+            case .push:
                 return kCATransitionPush
-            case .Reveal:
+            case .reveal:
                 return kCATransitionReveal
             }
     }
@@ -30,7 +30,7 @@ extension UINavigationController
 {
     // MARK: - Animation
     
-    public func pushViewController(vc: UIViewController, animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval = 0.2)
+    public func pushViewController(_ vc: UIViewController, animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval = 0.2)
     {
         self.addAnimation(animationType, duration: duration)
         return self.pushViewController(vc, animated: false)
@@ -39,23 +39,23 @@ extension UINavigationController
     public func popViewController(animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval = 0.2) -> UIViewController?
     {
         self.addAnimation(animationType, duration: duration)
-        return self.popViewControllerAnimated(false)
+        return self.popViewController(animated: false)
     }
 
     public func popToRootViewController(animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval = 0.2) -> [UIViewController]?
     {
         self.addAnimation(animationType, duration: duration)
-        return self.popToRootViewControllerAnimated(false)
+        return self.popToRootViewController(animated: false)
     }
 
-    private func addAnimation(animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval)
+    fileprivate func addAnimation(_ animationType: UINavigationControllerAnimationStyle, duration: CFTimeInterval)
     {
         let transition = CATransition()
         
         transition.duration = duration;
         transition.type = animationType.CATransitionValue;
         
-        self.view.layer.addAnimation(transition, forKey:nil)
+        self.view.layer.add(transition, forKey:nil)
     }
     
 }

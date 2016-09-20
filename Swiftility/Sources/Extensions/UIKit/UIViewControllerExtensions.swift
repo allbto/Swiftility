@@ -15,14 +15,14 @@ extension UIViewController
     public typealias UIAlertControllerButtonHandler = ((UIAlertAction) -> Void)
     public typealias UIAlertControllerCompletion = (() -> Void)
     
-    public func alert(message: String, title: String? = nil, handler: UIAlertControllerButtonHandler? = nil)
+    public func alert(_ message: String, title: String? = nil, handler: UIAlertControllerButtonHandler? = nil)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: handler)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: handler)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -30,21 +30,21 @@ extension UIViewController
 extension UIViewController
 {
     /// Update closure, params are keyboard size and the keyboard notification
-    public typealias KeyboardUpdateClosure = ((CGSize, NSNotification) -> Void)
+    public typealias KeyboardUpdateClosure = ((CGSize, Notification) -> Void)
 
     /**
     Subscribe to keyboard updates notifications.
     
     - parameter update: Closure called when keyboard change frame or hide. One can update constraints and then call self.animateWithKeyboard with the notification.
     */
-    public func observeKeyboardChanges(update: KeyboardUpdateClosure) -> [NSObjectProtocol]
+    public func observeKeyboardChanges(_ update: @escaping KeyboardUpdateClosure) -> [NSObjectProtocol]
     {
-        return NSNotificationCenter
-            .defaultCenter()
-            .addObserverWithNames([UIKeyboardWillChangeFrameNotification, UIKeyboardWillHideNotification]) { n in
-                guard let
-                    userInfo = n.userInfo,
-                    keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size
+        return NotificationCenter
+            .default
+            .addObserver(withNames: [NSNotification.Name.UIKeyboardWillChangeFrame, NSNotification.Name.UIKeyboardWillHide]) { n in
+                guard
+                    let userInfo = n.userInfo,
+                    let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
                     else { return }
                 
                 update(keyboardSize, n)
@@ -59,20 +59,20 @@ extension UIViewController
      - parameter animations:    Optional custom animations to perform. Default is { self.view.layoutIfNeeded() }
      - parameter completion:    Optional completion handler to animations
      */
-    public func animateWithKeyboardNotification(notification: NSNotification,
+    public func animateWithKeyboardNotification(_ notification: Notification,
                      animations: (() -> Void)? = nil,
                      completion: ((Bool) -> Void)? = nil)
     {
-        guard let
-            userInfo = notification.userInfo,
-            duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue,
-            curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.unsignedIntValue
+        guard
+            let userInfo = notification.userInfo,
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as AnyObject).uint32Value
             else { return }
         
         let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
         
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration,
             delay: 0,
             options: options,
             animations: {

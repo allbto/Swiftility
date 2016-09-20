@@ -17,7 +17,7 @@ extension UITabBarController
         for vc in vcs {
             if let vc = vc as? T {
                 return vc
-            } else if let navVC = vc as? UINavigationController, vc = navVC.viewControllers.first as? T {
+            } else if let navVC = vc as? UINavigationController, let vc = navVC.viewControllers.first as? T {
                 return vc
             }
         }

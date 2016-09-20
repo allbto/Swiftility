@@ -8,7 +8,7 @@
 
 import UIKit
 
-private func _attributedSpacingString(text: String?,
+private func _attributedSpacingString(_ text: String?,
     characterSpacing: CGFloat,
     lineSpacing: CGFloat,
     ownAttributes: [String : AnyObject]?,
@@ -58,7 +58,7 @@ extension UITextView
      - parameter preserveColor:    =true; Preserve color after change
      - parameter preserveAlignment:=true; If alignment should be preserved after setting attributedText
      */
-    public func setTextWithSpacing(text: String?,
+    public func setTextWithSpacing(_ text: String?,
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         ownAttributes: [String : AnyObject]? = nil,
@@ -90,7 +90,7 @@ extension UITextView
     }
     
     /// self.setTextWithSpacing with own text
-    public func setSpacing(characterSpacing: CGFloat = 0,
+    public func setSpacing(_ characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         ownAttributes: [String : AnyObject]? = nil,
         range: NSRange? = nil,
@@ -121,7 +121,7 @@ extension UILabel
      - parameter ownAttributes:    =nil; Add your own attributes to the text. Ignored if == nil
      - parameter range:            ={0, text.length}; Range of the string to set attributes to.
      */
-    public func setTextWithSpacing(text: String?,
+    public func setTextWithSpacing(_ text: String?,
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
@@ -140,7 +140,7 @@ extension UILabel
     }
     
     /// self.setTextWithSpacing with own text
-    public func setSpacing(characterSpacing characterSpacing: CGFloat = 0,
+    public func setSpacing(characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
         ownAttributes: [String : AnyObject]? = nil,
@@ -149,8 +149,8 @@ extension UILabel
         self.setTextWithSpacing(self.text,
             characterSpacing: characterSpacing,
             lineSpacing: lineSpacing,
-            ownAttributes: ownAttributes,
             preserveAlignment: preserveAlignment,
+            ownAttributes: ownAttributes,
             range: range)
     }
 }

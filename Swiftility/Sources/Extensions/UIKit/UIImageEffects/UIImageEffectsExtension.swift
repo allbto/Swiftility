@@ -10,28 +10,28 @@ import UIKit
 
 extension UIImage
 {
-    public func applyLightEffect() -> UIImage?
+    public func applyingLightEffect() -> UIImage?
     {
-        return UIImageEffects.imageByApplyingLightEffectToImage(self)
+        return UIImageEffects.imageByApplyingLightEffect(to: self)
     }
 
-    public func applyExtraLightEffect() -> UIImage?
+    public func applyingExtraLightEffect() -> UIImage?
     {
-        return UIImageEffects.imageByApplyingExtraLightEffectToImage(self)
+        return UIImageEffects.imageByApplyingExtraLightEffect(to: self)
     }
 
-    public func applyDarkEffect() -> UIImage?
+    public func applyingDarkEffect() -> UIImage?
     {
-        return UIImageEffects.imageByApplyingDarkEffectToImage(self)
+        return UIImageEffects.imageByApplyingDarkEffect(to: self)
     }
 
-    public func applyTintEffectWithColor(color: UIColor) -> UIImage?
+    public func applyingTintEffect(with color: UIColor) -> UIImage?
     {
-        return UIImageEffects.imageByApplyingTintEffectWithColor(color, toImage: self)
+        return UIImageEffects.imageByApplyingTintEffect(with: color, to: self)
     }
 
-    public func applyBlurWithRadius(radius: CGFloat, tintColor: UIColor? = nil, saturationDeltaFactor: CGFloat = 1.8, maskImage: UIImage? = nil) -> UIImage?
+    public func applyingBlur(withRadius radius: CGFloat, tintColor: UIColor? = nil, saturationDeltaFactor: CGFloat = 1.8, maskImage: UIImage? = nil) -> UIImage?
     {
-        return UIImageEffects.imageByApplyingBlurToImage(self, withRadius: radius, tintColor: tintColor, saturationDeltaFactor: saturationDeltaFactor, maskImage: maskImage)
+        return UIImageEffects.imageByApplyingBlur(to: self, withRadius: radius, tintColor: tintColor, saturationDeltaFactor: saturationDeltaFactor, maskImage: maskImage)
     }
 }

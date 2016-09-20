@@ -21,20 +21,20 @@ extension UIView
 // MARK: - Constraints
 extension UIView
 {
-    public func addConstraintsWithVisualFormat(
-        format: String,
+    public func addConstraints(
+        withVisualFormat format: String,
         views: [String : UIView] = [:],
-        options: NSLayoutFormatOptions = NSLayoutFormatOptions.DirectionLeadingToTrailing,
+        options: NSLayoutFormatOptions =  NSLayoutFormatOptions.directionLeadingToTrailing,
         metrics: [String : AnyObject]? = nil)
     {
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: metrics, views: views))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: options, metrics: metrics, views: views))
     }
 }
 
 // MARK: - Animations
 extension UIView
 {
-    public func addFadeTransition(duration: CFTimeInterval)
+    public func addFadeTransition(_ duration: CFTimeInterval)
     {
         let animation:CATransition = CATransition()
         
@@ -42,22 +42,22 @@ extension UIView
         animation.type = kCATransitionFade
         animation.duration = duration
 
-        self.layer.addAnimation(animation, forKey: kCATransitionFade)
+        self.layer.add(animation, forKey: kCATransitionFade)
     }
     
     public func setHidden(
-        hidden: Bool,
+        _ hidden: Bool,
         animated: Bool,
-        duration: NSTimeInterval = 0.2,
+        duration: TimeInterval = 0.2,
         customAnimations: (() -> Void)? = nil,
-        completion: (Void -> Void)? = nil)
+        completion: ((Void) -> Void)? = nil)
     {
-        guard hidden != self.hidden else {
+        guard hidden != self.isHidden else {
             return
         }
         
         guard animated else {
-            self.hidden = hidden
+            self.isHidden = hidden
             self.alpha = hidden ? 0 : 1
             customAnimations?()
             completion?()
@@ -67,13 +67,13 @@ extension UIView
         self.alpha = hidden ? 1 : 0
         
         if !hidden {
-            self.hidden = false
+            self.isHidden = false
         }
         
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration,
             delay: 0,
-            options: .BeginFromCurrentState,
+            options: .beginFromCurrentState,
             animations: {
                 self.alpha = hidden ? 0 : 1
                 customAnimations?()
@@ -82,7 +82,7 @@ extension UIView
                 guard finished else { return }
                 
                 if hidden {
-                    self.hidden = true
+                    self.isHidden = true
                 }
                 
                 completion?()
@@ -105,7 +105,7 @@ extension UIView
             return nil
         }
         
-        self.layer.renderInContext(context)
+        self.layer.render(in: context)
         
         let img = UIGraphicsGetImageFromCurrentImageContext()
         
@@ -120,7 +120,7 @@ extension UIView
 {
     public func makeFrameIntegral()
     {
-        self.frame = CGRectIntegral(self.frame)
+        self.frame = self.frame.integral
     }
 
     public var size: CGSize {
@@ -199,7 +199,7 @@ extension UIView
         get { return self.center.y }
         
         set(value) {
-            self.center = CGPointMake(self.center.x, value)
+            self.center = CGPoint(x: self.center.x, y: value)
         }
     }
     
@@ -207,7 +207,7 @@ extension UIView
         get { return self.center.x }
         
         set(value) {
-            self.center = CGPointMake(value, self.center.y);
+            self.center = CGPoint(x: value, y: self.center.y);
         }
     }
     
@@ -255,27 +255,27 @@ extension UIView
     public func centerInSuperview()
     {
         if let u = self.superview {
-            self.center = CGPointMake(CGRectGetMidX(u.bounds), CGRectGetMidY(u.bounds));
+            self.center = CGPoint(x: u.bounds.midX, y: u.bounds.midY);
         }
     }
     
     public func centerVertically()
     {
         if let unwrappedOptional = self.superview {
-            self.center = CGPointMake(self.center.x, CGRectGetMidY(unwrappedOptional.bounds));
+            self.center = CGPoint(x: self.center.x, y: unwrappedOptional.bounds.midY);
         }
     }
     
     public func centerHorizontally()
     {
         if let unwrappedOptional = self.superview {
-            self.center = CGPointMake(CGRectGetMidX(unwrappedOptional.bounds), self.center.y);
+            self.center = CGPoint(x: unwrappedOptional.bounds.midX, y: self.center.y);
         }
     }
     
     // MARK: - Subviews
     
-    public func removeAllSubviews(recursively recursively: Bool = false)
+    public func removeAllSubviews(recursively: Bool = false)
     {
         while self.subviews.count > 0 {
             if let view = self.subviews.last {

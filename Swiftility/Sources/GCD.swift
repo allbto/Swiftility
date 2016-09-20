@@ -8,67 +8,34 @@
 
 import Foundation
 
-public typealias DispatchClosure = dispatch_block_t
-public typealias DispatchQueue = dispatch_queue_t
+public typealias DispatchClosure = () -> Void
 
-public enum GCDQueue
-{
-    case Main
-    case High
-    case Default
-    case Low
-    case Background
-    case Custom(DispatchQueue)
-    
-    var queue: DispatchQueue {
-        switch self {
-        case .Main:
-            return dispatch_get_main_queue()
-        case .High:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-        case .Default:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        case .Low:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-        case .Background:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-        case .Custom(let queue):
-            return queue
-        }
-    }
-}
 
 // MARK: - Async
 
 /// Convenience call to dispatch_async
-public func async(queue: GCDQueue = .Default, closure: DispatchClosure)
+public func async(queue: DispatchQueue = .global(qos: .background), closure: @escaping DispatchClosure)
 {
-    dispatch_async(queue.queue, closure)
+    queue.async(execute: closure)
 }
 
-/// Convenience call to async(.Main)
-public func async_main(closure: DispatchClosure)
+/// Convenience call to async(queue: .main)
+public func async_main(_ closure: @escaping DispatchClosure)
 {
-    async(.Main, closure: closure)
+    async(queue: .main, closure: closure)
 }
 
 /// Convenience call to dispatch_after (time is in seconds)
-public func after(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
+public func after(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: @escaping DispatchClosure)
 {
-    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
-
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            dispatchDelay
-        ),
-        queue.queue,
-        closure
+    queue.asyncAfter(
+        deadline: .now() + delay,
+        execute: closure
     )
 }
 
 /// Same as after
-public func delay(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosure)
+public func delay(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: @escaping DispatchClosure)
 {
     after(delay, queue: queue, closure: closure)
 }
@@ -86,54 +53,18 @@ public func delay(delay: Double, queue: GCDQueue = .Main, closure: DispatchClosu
  
  - returns: closure to call to fire the debouncing
  */
-public func debounce<T>(delay: NSTimeInterval, queue: GCDQueue = .Main, action: (T) -> Void) -> (T) -> Void
+public func debounce<T>(_ delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping (T) -> Void) -> (T) -> Void
 {
     var lastCall : Int = 0
-    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
     
     return { t in
         // Increase call counter and invalidate the call if it is not the last one
         lastCall += 1
         let currentCall = lastCall
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                dispatchDelay
-            ),
-            queue.queue) {
+        queue.asyncAfter(
+            deadline: .now() + delay) {
                 if lastCall == currentCall {
                     action(t)
-                }
-        }
-    }
-}
-
-/**
- Throttled method will be fired only if some time passed after you called it before
- 
- - parameter delay:  delay before each throttle
- - parameter queue:  =.Main; Queue to fire to
- - parameter action: closure called when throttling
- 
- - returns: closure to call to fire the throttleing
- */
-public func throttle(delay: NSTimeInterval, queue: GCDQueue = .Main, action: DispatchClosure) -> DispatchClosure
-{
-    var lastFireTime : dispatch_time_t = 0
-    let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
-    
-    return {
-        lastFireTime = dispatch_time(DISPATCH_TIME_NOW,0)
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                dispatchDelay
-            ),
-            queue.queue) {
-                let now = dispatch_time(DISPATCH_TIME_NOW,0)
-                let when = dispatch_time(lastFireTime, dispatchDelay)
-                if now >= when {
-                    action()
                 }
         }
     }

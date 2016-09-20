@@ -30,11 +30,11 @@ class UICollectionViewTests: XCTestCase
         
         XCTAssert(collectionView != nil)
         
-        collectionView!.registerCell(TestCollectionViewCell)
+        collectionView!.register(TestCollectionViewCell.self)
         
         XCTAssert(true, "registerCell should not crash")
         
-        let cell: TestCollectionViewCell = collectionView!.dequeueReusableCell(forIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestCollectionViewCell
 
         XCTAssert(true, "dequeueReusableCell should not crash")
     }

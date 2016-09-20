@@ -20,7 +20,7 @@ public struct Regex
         }
     }
     
-    public var expressionOptions: NSRegularExpressionOptions {
+    public var expressionOptions: NSRegularExpression.Options {
         didSet {
             do {
                 try updateRegex()
@@ -30,11 +30,11 @@ public struct Regex
         }
     }
     
-    public var matchingOptions: NSMatchingOptions
+    public var matchingOptions: NSRegularExpression.MatchingOptions
     
-    public private(set) var regex: NSRegularExpression?
+    public fileprivate(set) var regex: NSRegularExpression?
     
-    public init(pattern: String, expressionOptions: NSRegularExpressionOptions = NSRegularExpressionOptions(rawValue: 0), matchingOptions: NSMatchingOptions = NSMatchingOptions(rawValue: 0)) throws
+    public init(pattern: String, expressionOptions: NSRegularExpression.Options = NSRegularExpression.Options(rawValue: 0), matchingOptions: NSRegularExpression.MatchingOptions = NSRegularExpression.MatchingOptions(rawValue: 0)) throws
     {
         self.pattern = pattern
         self.expressionOptions = expressionOptions
@@ -48,7 +48,7 @@ public struct Regex
     }
 }
 
-infix operator =~ {}
+infix operator =~
 
 public func =~ (input: String, pattern: String) -> Bool
 {
@@ -62,13 +62,13 @@ extension String
         let range: NSRange = NSMakeRange(0, self.length)
         
         if let regex = pattern.regex {
-            return !regex.matchesInString(self, options: pattern.matchingOptions, range: range).isEmpty
+            return !regex.matches(in: self, options: pattern.matchingOptions, range: range).isEmpty
         }
 
         return false
     }
     
-    public func match(pattern pattern: String) -> Bool
+    public func match(pattern: String) -> Bool
     {
         do {
             return self.match(regex: try Regex(pattern: pattern))
@@ -83,17 +83,17 @@ extension String
         let nsString = self as NSString
         
         if let regex = pattern.regex {
-            let matches = regex.matchesInString(self, options: pattern.matchingOptions, range: range)
+            let matches = regex.matches(in: self, options: pattern.matchingOptions, range: range)
             
             return matches.map {
                 var ranges = [String]()
                 
                 for i in 0 ..< $0.numberOfRanges {
-                    let range = $0.rangeAtIndex(i)
+                    let range = $0.rangeAt(i)
                     
                     guard range.location != NSNotFound else { break }
                     
-                    ranges.append(nsString.substringWithRange(range))
+                    ranges.append(nsString.substring(with: range))
                 }
                 
                 return ranges
@@ -112,19 +112,19 @@ extension String
         }
     }
     
-    public func replace(regex regex: Regex, template: String) -> String
+    public func replace(regex: Regex, template: String) -> String
     {
         if self.match(regex: regex) {
             let range: NSRange = NSMakeRange(0, self.length)
             
             if let reg = regex.regex {
-                return reg.stringByReplacingMatchesInString(self, options: regex.matchingOptions, range: range, withTemplate: template)
+                return reg.stringByReplacingMatches(in: self, options: regex.matchingOptions, range: range, withTemplate: template)
             }
         }
         return self
     }
     
-    public func replace(pattern pattern: String, template: String) -> String
+    public func replace(pattern: String, template: String) -> String
     {
         do {
             return self.replace(regex: try Regex(pattern: pattern), template: template)

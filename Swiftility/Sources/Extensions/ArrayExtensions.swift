@@ -17,7 +17,7 @@ extension Array
      
      - returns: Element of Array or nil if out of bounds
      */
-    public func get(index: Int) -> Element?
+    public func get(_ index: Int) -> Element?
     {
         if index < self.count && index >= 0 {
             return self[index]
@@ -33,12 +33,12 @@ extension Array
      
      - returns: index of the removed element or nil if not found
      */
-    public mutating func remove<U: Equatable>(object: U) -> Int?
+    public mutating func remove<U: Equatable>(_ object: U) -> Int?
     {
-        for (index, objectToCompare) in enumerate() {
+        for (index, objectToCompare) in enumerated() {
             if let to = objectToCompare as? U {
                 if object == to {
-                    self.removeAtIndex(index)
+                    self.remove(at: index)
                     return index
                 }
             }

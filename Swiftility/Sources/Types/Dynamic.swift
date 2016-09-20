@@ -10,11 +10,11 @@ import Foundation
 
 public struct Dynamic<T>
 {
-    public typealias Listener = T -> Void
+    public typealias Listener = (T) -> Void
 
     // MARK: - Private
 
-    private var _listener: Listener?
+    fileprivate var _listener: Listener?
     
     // MARK: - Properties
     
@@ -53,7 +53,7 @@ public struct Dynamic<T>
     
     - parameter listener: Closure called when value changes
     */
-    public mutating func bind(listener: Listener?)
+    public mutating func bind(_ listener: Listener?)
     {
         _listener = listener
     }
@@ -63,7 +63,7 @@ public struct Dynamic<T>
      
      - parameter listener: Closure called immediately and when value changes
      */
-    public mutating func bindAndFire(listener: Listener?)
+    public mutating func bindAndFire(_ listener: Listener?)
     {
         self.bind(listener)
         self.fire()
@@ -74,10 +74,10 @@ public struct Dynamic<T>
     // Fires listener if not nil. Regardless of `self.shouldFire`
     public func fire()
     {
-        if fireOnMainThread && !NSThread.isMainThread() {
-            dispatch_async(dispatch_get_main_queue(), {
+        if fireOnMainThread && !Thread.isMainThread {
+            async_main {
                 self._listener?(self.value)
-            })
+            }
         } else {
             self._listener?(self.value)
         }
@@ -89,7 +89,7 @@ public struct Dynamic<T>
      - parameter value: Value to update to
      - parameter =true;fire:  Should fire changes of value
      */
-    public mutating func setValue(value: T, fire: Bool = true)
+    public mutating func setValue(_ value: T, fire: Bool = true)
     {
         let originalShouldFire = shouldFire
         
@@ -101,18 +101,14 @@ public struct Dynamic<T>
 
 // MARK: - Convenience
 
-infix operator .= {
-    associativity right
-    precedence 110
-    assignment
+precedencegroup Assignement {
+    associativity: left
+    assignment: true
 }
 
-public func .= <T>(inout lhs: Dynamic<T>, rhs: T)
+infix operator .= : Assignement
+
+public func .= <T>(lhs: inout Dynamic<T>, rhs: T)
 {
     lhs.value = rhs
-}
-
-public func .= <T>(inout lhs: Dynamic<T>?, rhs: T)
-{
-    lhs?.value = rhs
 }

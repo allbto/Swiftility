@@ -17,31 +17,31 @@ extension UITableView
 {
     // MARK: - Register
     
-    public func registerCell<T where T: UITableViewCell, T: FromNib>(type: T.Type)
+    public func register<T>(_ type: T.Type) where T: UITableViewCell, T: FromNib
     {
-        self.registerNib(type.ownNib.nib, forCellReuseIdentifier: String(type))
+        self.register(type.ownNib.nib, forCellReuseIdentifier: String(describing: type))
     }
     
-    public func registerClass<T: UITableViewCell>(type: T.Type)
+    public func register<T: UITableViewCell>(_ type: T.Type)
     {
-        self.registerClass(T.self, forCellReuseIdentifier: String(T))
+        self.register(T.self, forCellReuseIdentifier: String(describing: T.self))
     }
     
     // MARK: - Dequeue
     
     public func dequeueReusableCell<T: UITableViewCell>() -> T
     {
-        guard let cell = self.dequeueReusableCellWithIdentifier(String(T)) as? T else {
-            fatalError("\(String(T)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self)) as? T else {
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return cell
     }
 
-    public func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: NSIndexPath) -> T
+    public func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T
     {
-        guard let cell = self.dequeueReusableCellWithIdentifier(String(T), forIndexPath: indexPath) as? T else {
-            fatalError("\(String(T)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return cell

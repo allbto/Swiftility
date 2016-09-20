@@ -12,43 +12,43 @@ extension UICollectionView
 {
     // MARK: - Cell
     
-    public func registerCell<T where T: UICollectionViewCell, T: FromNib>(type: T.Type)
+    public func register<T>(_ type: T.Type) where T: UICollectionViewCell, T: FromNib
     {
-        self.registerNib(type.ownNib.nib, forCellWithReuseIdentifier: type.ownNib.nibName)
+        self.register(type.ownNib.nib, forCellWithReuseIdentifier: type.ownNib.nibName)
     }
     
-    public func registerClass<T: UICollectionViewCell>(type: T.Type)
+    public func register<T: UICollectionViewCell>(_ type: T.Type)
     {
-        self.registerClass(T.self, forCellWithReuseIdentifier: String(T))
+        self.register(T.self, forCellWithReuseIdentifier: String(describing: T.self))
     }
     
     // MARK: - Supplementary view
     
-    public func registerSupplementaryView<T where T: UICollectionReusableView, T: FromNib>(type: T.Type, forSupplementaryViewOfKind elementKind: String)
+    public func register<T>(_ type: T.Type, forSupplementaryViewOfKind elementKind: String) where T: UICollectionReusableView, T: FromNib
     {
-        self.registerNib(type.ownNib.nib, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: type.ownNib.nibName)
+        self.register(type.ownNib.nib, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: type.ownNib.nibName)
     }
 
-    public func registerClass<T: UICollectionReusableView>(type: T.Type, forSupplementaryViewOfKind elementKind: String)
+    public func register<T: UICollectionReusableView>(_ type: T.Type, forSupplementaryViewOfKind elementKind: String)
     {
-        self.registerClass(T.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: String(T))
+        self.register(T.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: String(describing: T.self))
     }
     
     // MARK: - Dequeue 
     
-    public func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: NSIndexPath) -> T
+    public func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T
     {
-        guard let cell = self.dequeueReusableCellWithReuseIdentifier(String(T), forIndexPath: indexPath) as? T else {
-            fatalError("\(String(T)) cell could not be instantiated because it was not found on the collectionView(\(self))")
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the collectionView(\(self))")
         }
         
         return cell
     }
     
-    public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(kind elementKind: String, forIndexPath indexPath: NSIndexPath) -> T
+    public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind elementKind: String, for indexPath: IndexPath) -> T
     {
-        guard let view = self.dequeueReusableSupplementaryViewOfKind(elementKind, withReuseIdentifier: String(T), forIndexPath: indexPath) as? T else {
-            fatalError("\(String(T)) supplementary view of kind \(elementKind) could not be instantiated because it was not found on the collectionView(\(self))")
+        guard let view = self.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("\(String(describing: T.self)) supplementary view of kind \(elementKind) could not be instantiated because it was not found on the collectionView(\(self))")
         }
         
         return view

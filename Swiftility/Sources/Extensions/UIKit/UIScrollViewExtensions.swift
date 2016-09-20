@@ -17,7 +17,7 @@ extension UIScrollView
      - parameter page:     To scroll to
      - parameter animated: Show animation
      */
-    public func scrollToPage(page: Int, animated: Bool)
+    public func scroll(toPage page: Int, animated: Bool)
     {
         var frame = self.frame
         
@@ -37,7 +37,7 @@ extension UIScrollView
         }
         
         set {
-            self.scrollToPage(newValue, animated: true)
+            self.scroll(toPage: newValue, animated: true)
         }
     }
 }

@@ -11,7 +11,7 @@ import XCTest
 
 class StoryboardTests: XCTestCase
 {
-    let storyboard = UIStoryboard(name: "MainStoryboard", bundle: NSBundle(forClass: StoryboardTests.self))
+    let storyboard = UIStoryboard(name: "MainStoryboard", bundle: Bundle(for: StoryboardTests.self))
 
     override func setUp() {
         super.setUp()
@@ -26,12 +26,12 @@ class StoryboardTests: XCTestCase
     func testStoryboardSilentlyInstantiate()
     {
         // Test view controller that doesn't exist
-        let nonExistingVC = storyboard.silentlyInstantiateViewControllerWithIdentifier("TestViewController")
+        let nonExistingVC = storyboard.silentlyInstantiateViewController(withIdentifier: "TestViewController")
         
         XCTAssert(nonExistingVC == nil)
         
         // Test view controller that does exist
-        let existingVC = storyboard.silentlyInstantiateViewControllerWithIdentifier("TestVC")
+        let existingVC = storyboard.silentlyInstantiateViewController(withIdentifier: "TestVC")
         
         XCTAssert(existingVC != nil)
     }

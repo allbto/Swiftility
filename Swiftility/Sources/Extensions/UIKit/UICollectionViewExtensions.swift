@@ -24,7 +24,7 @@ extension UICollectionView
         let halfWidth = cvBounds.size.width * 0.5
         let proposedContentOffsetCenterX = offset.x + halfWidth
         
-        guard let attributesForVisibleCells = self.collectionViewLayout.layoutAttributesForElementsInRect(cvBounds) else { return offset }
+        guard let attributesForVisibleCells = self.collectionViewLayout.layoutAttributesForElements(in: cvBounds) else { return offset }
         
         var candidateAttributes: UICollectionViewLayoutAttributes?
         
@@ -49,13 +49,13 @@ extension UICollectionView
 
 extension UICollectionView
 {
-    public func indexPathForItemAtCenter() -> NSIndexPath?
+    public func indexPathForItemAtCenter() -> IndexPath?
     {
         let point = CGPoint(
             x: self.center.x + self.contentOffset.x,
             y: self.center.y + self.contentOffset.y
         )
         
-        return self.indexPathForItemAtPoint(point)
+        return self.indexPathForItem(at: point)
     }
 }

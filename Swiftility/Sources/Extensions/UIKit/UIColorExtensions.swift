@@ -26,11 +26,11 @@ extension UIColor
     public convenience init(_ hexString: String, alpha: CGFloat = 1.0)
     {
         // Replace '#' if found
-        let hex = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
-        let scanner = NSScanner(string: hex)
+        let hex = hexString.replacingOccurrences(of: "#", with: "")
+        let scanner = Scanner(string: hex)
         var color: UInt32 = 0
         
-        scanner.scanHexInt(&color)
+        scanner.scanHexInt32(&color)
         
         let mask = 0x000000FF
         let r = CGFloat(Float(Int(color >> 16) & mask) / 255.0)
@@ -77,14 +77,14 @@ extension UIColor
 // MARK: - Hue
 extension UIColor
 {
-    public func lighter(amount: CGFloat = 0.25) -> UIColor
+    public func lighter(_ amount: CGFloat = 0.25) -> UIColor
     {
         if amount < 0 { return self }
         
         return self.adjust(red: amount, green: amount, blue: amount, alpha: 0)
     }
     
-    public func darker(amount : CGFloat = 0.25) -> UIColor
+    public func darker(_ amount : CGFloat = 0.25) -> UIColor
     {
         if amount < 0 { return self }
 
@@ -92,7 +92,7 @@ extension UIColor
         return self.adjust(red: amount, green: amount, blue: amount, alpha: 0)
     }
     
-    public func adjust(red red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor
+    public func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor
     {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         
@@ -115,32 +115,14 @@ extension UIColor
             return nil
         }
         
-        CGContextSetFillColorWithColor(context, self.CGColor)
-        CGContextFillRect(context, rect)
+        context.setFillColor(self.cgColor)
+        context.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
 
         UIGraphicsEndImageContext()
         
         return image
-    }
-}
-
-// MARK: - Random
-extension UIColor
-{
-    public static func randomColor(opaque isOpaque: Bool = true) -> UIColor
-    {
-        let hue: CGFloat = ( CGFloat(arc4random()) % 256 / 256.0 );  //  0.0 to 1.0
-        let saturation: CGFloat = ( CGFloat(arc4random()) % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-        let brightness: CGFloat = ( CGFloat(arc4random()) % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-        var alpha: CGFloat = 1;
-        
-        if (!isOpaque) {
-            alpha = ( CGFloat(arc4random()) % 128 / 256.0 ) + 0.5;
-        }
-        
-        return UIColor(hue:hue, saturation:saturation, brightness:brightness, alpha:alpha)
     }
 }
 

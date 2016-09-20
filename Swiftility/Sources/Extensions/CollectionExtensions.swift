@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension CollectionType
+extension Collection
 {
     /// Returns an `Array` containing the results of mapping `transform`
     /// over `self`. Filters out the nil values.
     ///
     /// - Complexity: O(N).
-    @warn_unused_result
-    public func mapOptional<T>(@noescape transform: (Self.Generator.Element) throws -> T?) rethrows -> [T]
+    
+    public func mapOptional<T>(transform: (Self.Iterator.Element) throws -> T?) rethrows -> [T]
     {
         let count: Int = numericCast(self.count)
         guard count > 0 else { return [] }

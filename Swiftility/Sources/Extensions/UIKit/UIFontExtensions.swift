@@ -19,12 +19,12 @@ extension UIFont
     {
         print("\n--- FONTS\((filter != nil) ? " familyFilter=\(filter!)" : "") ---\n")
         
-        UIFont.familyNames().forEach { name in
-            guard filter == nil || name.containsString(filter!) else { return }
+        UIFont.familyNames.forEach { name in
+            guard filter == nil || name.contains(filter!) else { return }
             
             print(name)
             
-            UIFont.fontNamesForFamilyName(name).forEach { font in
+            UIFont.fontNames(forFamilyName: name).forEach { font in
                 print("   \(font)")
             }
         }

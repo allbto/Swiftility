@@ -11,7 +11,7 @@ import XCTest
 
 class NibTests: XCTestCase
 {
-    let storyboard = UIStoryboard(name: "MainStoryboard", bundle: NSBundle(forClass: StoryboardTests.self))
+    let storyboard = UIStoryboard(name: "MainStoryboard", bundle: Bundle(for: StoryboardTests.self))
 
     override func setUp() {
         super.setUp()
@@ -37,7 +37,7 @@ class NibTests: XCTestCase
 //            TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: NSBundle(forClass: self.dynamicType)))
 //        }
         
-        let cell = TestCell.instantiateFromNib()
+        _ = TestCell.instantiateFromNib()
 
         XCTAssert(true, "cell instantiation should not crash")
     }

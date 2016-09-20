@@ -23,9 +23,9 @@ class UITableViewTests: XCTestCase
 
     func testDequeueCell()
     {
-        let tableView = UITableView(frame: CGRectZero, style: .Grouped)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         
-        tableView.registerCell(TestCell)
+        tableView.register(TestCell.self)
         
         XCTAssert(true, "registerCell should not crash")
         
@@ -33,7 +33,7 @@ class UITableViewTests: XCTestCase
 //            tableView.dequeueReusableCell(TestNonExistingCell)
 //        }
         
-        let cell: TestCell = tableView.dequeueReusableCell()
+        _ = tableView.dequeueReusableCell() as TestCell
         
         XCTAssert(true, "dequeueReusableCell should not crash")
     }
@@ -48,7 +48,7 @@ class UITableViewTests: XCTestCase
 //            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
 //        }
 
-        let cell: TestCell = tableVC.tableView.dequeueReusableCell()
+        _ = tableVC.tableView.dequeueReusableCell() as TestCell
         
         XCTAssert(true, "dequeueReusableCell should not crash")
     }

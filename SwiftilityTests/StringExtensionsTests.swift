@@ -28,9 +28,16 @@ class StringExtensionsTests: XCTestCase
         XCTAssert(char == Character("0"))
         XCTAssert(str[0] == "0")
         
-        XCTAssert(str[0...1] == "01")
-        XCTAssert(str[0...2] == "012")
-        XCTAssert(str[2...4] == "234")
         XCTAssert(str[0..<2] == "01")
+        XCTAssert(str[0..<3] == "012")
+        XCTAssert(str[2..<5] == "234")
+    }
+    
+    func testTrim()
+    {
+        let str = "            t     es       t              "
+        
+        XCTAssert(str.trimmed() == "t     es       t")
+        XCTAssert("test".trimmed() == "test")
     }
 }

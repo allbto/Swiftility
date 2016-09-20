@@ -13,12 +13,12 @@ import Foundation
 public protocol NibConvertible
 {
     var nibName: String { get }
-    var bundle: NSBundle? { get }
+    var bundle: Bundle? { get }
 }
 
 extension NibConvertible
 {
-    public var bundle: NSBundle? {
+    public var bundle: Bundle? {
         return nil
     }
     
@@ -36,13 +36,13 @@ public protocol FromNib
 
 extension FromNib
 {
-    public static func instantiateFromNib(nib: NibConvertible? = nil, owner: AnyObject? = nil, options: [NSObject : AnyObject]? = nil) -> Self
+    public static func instantiateFromNib(_ nib: NibConvertible? = nil, owner: AnyObject? = nil, options: [AnyHashable: Any]? = nil) -> Self
     {
         let nibName: String = nib?.nibName ?? self.ownNib.nibName
-        let bundle: NSBundle = nib?.bundle ?? self.ownNib.bundle ?? NSBundle.mainBundle()
+        let bundle: Bundle = nib?.bundle ?? self.ownNib.bundle ?? Bundle.main
         
         guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options)?.first as? Self else {
-            fatalError("\(String(self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(self))")
+            fatalError("\(String(describing: self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(describing: self))")
         }
         
         return view
@@ -56,16 +56,16 @@ public protocol SelfNibConvertible {}
 extension SelfNibConvertible
 {
     public static var ownNib: NibConvertible {
-        return NibContainer(String(Self))
+        return NibContainer(String(describing: Self.self))
     }
 }
 
 public struct NibContainer: NibConvertible
 {
-    private var _name: String
-    private var _bundle: NSBundle?
+    fileprivate var _name: String
+    fileprivate var _bundle: Bundle?
     
-    public init(_ name: String, bundle: NSBundle? = nil)
+    public init(_ name: String, bundle: Bundle? = nil)
     {
         _name = name
         _bundle = bundle
@@ -75,7 +75,7 @@ public struct NibContainer: NibConvertible
         return _name
     }
     
-    public var bundle: NSBundle? {
+    public var bundle: Bundle? {
         return _bundle
     }
 }
