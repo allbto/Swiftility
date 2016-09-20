@@ -1,6 +1,6 @@
 language: objective-c
 
-xcode_workspace: Swiftility.xcworkspace
+xcode_project: Swiftility.xcodeproj
 xcode_scheme: Swiftility
 osx_image: xcode8
 xcode_sdk: iphonesimulator10.0
