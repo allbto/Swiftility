@@ -2,8 +2,8 @@ language: objective-c
 
 xcode_workspace: Swiftility.xcworkspace
 xcode_scheme: Swiftility
-osx_image: xcode7.3
-xcode_sdk: iphonesimulator9.3
+osx_image: xcode8
+xcode_sdk: iphonesimulator10.0
 
-before_install:  # to fix xctool issue since Xcode 7.3
-  brew uninstall xctool && brew install --HEAD xctool
+#before_install:  # to fix xctool issue since Xcode 7.3
+#  brew uninstall xctool && brew install --HEAD xctool
