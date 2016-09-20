@@ -183,7 +183,7 @@
 		9D1CEDF31C1ECA2D006A88C8 /* Swiftility */ = {
 			isa = PBXGroup;
 			children = (
-				9D1CEE5A1C1ECCB2006A88C8 /* Classes */,
+				9D1CEE5A1C1ECCB2006A88C8 /* Sources */,
 				9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */,
 				9D1CEDF61C1ECA2D006A88C8 /* Info.plist */,
 			);
@@ -202,7 +202,7 @@
 			path = SwiftilityTests;
 			sourceTree = "<group>";
 		};
-		9D1CEE5A1C1ECCB2006A88C8 /* Classes */ = {
+		9D1CEE5A1C1ECCB2006A88C8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */,
@@ -211,7 +211,7 @@
 				9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */,
 				9D1CEE5C1C1ECCB2006A88C8 /* DeviceInfo.swift */,
 			);
-			path = Classes;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		9D1CEE5D1C1ECCB2006A88C8 /* Extensions */ = {
@@ -304,7 +304,7 @@
 				9D3025851C5E89B40063493F /* TestCollectionViewCell.xib */,
 				9D30258A1C5EA9F80063493F /* TestNonExistingCell.xib */,
 			);
-			name = "Type Safe UIKIt";
+			path = "Type Safe UIKIt";
 			sourceTree = "<group>";
 		};
 		9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */ = {
