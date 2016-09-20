@@ -5,9 +5,6 @@ xcode_scheme: Swiftility
 osx_image: xcode8
 xcode_sdk: iphonesimulator10.0
 
-#before_install:  # to fix xctool issue since Xcode 7.3
-#  brew uninstall xctool && brew install --HEAD xctool
-
 before_install:
   - gem install xcpretty
 
