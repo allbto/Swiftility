@@ -22,6 +22,11 @@ class TestNonExistingVC: UIViewController {}
 class TestTableVC: UITableViewController, FromStoryboard
 {
     static let ownStoryboard: StoryboardConvertible = StoryboardsTests.MainStoryboard
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1
+    }
 }
 
 class TestCollectionViewVC: UICollectionViewController, FromStoryboard
@@ -35,7 +40,7 @@ class TestCollectionViewVC: UICollectionViewController, FromStoryboard
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return 1
+        return 2
     }
 }
 
@@ -64,6 +69,8 @@ class TestCell: UITableViewCell, FromNib
 
 class TestNonExistingCell: UITableViewCell, FromNib {}
 
+class TestCellClass: UITableViewCell {}
+
 // MARK: - Collection view
 
 class TestCollectionViewCell: UICollectionViewCell, FromNib
@@ -74,6 +81,8 @@ class TestCollectionViewCell: UICollectionViewCell, FromNib
 }
 
 class TestNonExistingCollectionViewCell: UICollectionViewCell, FromNib {}
+
+class TestCollectionViewCellClass: UICollectionViewCell {}
 
 class TestCollectionViewView: UICollectionReusableView, FromNib
 {

@@ -24,7 +24,7 @@ extension UIScrollView
         frame.origin.x = frame.size.width * CGFloat(page)
         frame.origin.y = 0
         
-        self.scrollRectToVisible(frame, animated:animated)
+        self.scrollRectToVisible(frame, animated: animated)
     }
     
     /// Get or Set animated the current horizontal page

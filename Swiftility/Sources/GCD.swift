@@ -48,25 +48,27 @@ public func delay(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: 
  Debounce will fire method when delay passed, but if there was request before that, then it invalidates the previous method and uses only the last
  
  - parameter delay:  delay before each debounce
- - parameter queue:  =.Main; Queue to fire to
+ - parameter queue:  =.main; Queue to fire to
  - parameter action: closure called when debouncing
  
  - returns: closure to call to fire the debouncing
  */
 public func debounce<T>(_ delay: TimeInterval, queue: DispatchQueue = .main, action: @escaping (T) -> Void) -> (T) -> Void
 {
-    var lastCall : Int = 0
+    var lastCall: Int = 0
     
     return { t in
         // Increase call counter and invalidate the call if it is not the last one
         lastCall += 1
         let currentCall = lastCall
         queue.asyncAfter(
-            deadline: .now() + delay) {
+            deadline: .now() + delay,
+            execute: {
                 if lastCall == currentCall {
                     action(t)
                 }
-        }
+            }
+        )
     }
 }
 

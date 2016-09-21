@@ -27,7 +27,7 @@ extension Array
     }
     
      /**
-     Remove an object of the array and return the index removed
+     Removes the first object matching the passed object
     
      - parameter object: object to remove
      
@@ -35,14 +35,13 @@ extension Array
      */
     public mutating func remove<U: Equatable>(_ object: U) -> Int?
     {
-        for (index, objectToCompare) in enumerated() {
-            if let to = objectToCompare as? U {
-                if object == to {
-                    self.remove(at: index)
-                    return index
-                }
+        for (index, objectToCompare) in self.enumerated() {
+            if let to = objectToCompare as? U, object == to {
+                self.remove(at: index)
+                return index
             }
         }
+
         return nil
     }
 }

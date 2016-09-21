@@ -118,11 +118,6 @@ extension UIView
 // MARK: - Frame convinience
 extension UIView
 {
-    public func makeFrameIntegral()
-    {
-        self.frame = self.frame.integral
-    }
-
     public var size: CGSize {
         get { return self.frame.size }
         
@@ -173,7 +168,6 @@ extension UIView
             self.frame = newFrame;
         }
     }
-    
     
     public var width: CGFloat {
         get { return self.frame.size.width }

@@ -16,6 +16,6 @@ FOUNDATION_EXPORT const unsigned char SwiftilityVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Swiftility/PublicHeader.h>
 
-#import <Swiftility/UIStoryboard+Extensions.h>
+#import <Swiftility/ObjC.h>
 #import <Swiftility/UIView+Extensions.h>
 #import <Swiftility/UIImageEffects.h>

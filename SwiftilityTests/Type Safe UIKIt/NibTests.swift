@@ -13,16 +13,6 @@ class NibTests: XCTestCase
 {
     let storyboard = UIStoryboard(name: "MainStoryboard", bundle: Bundle(for: StoryboardTests.self))
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testNibConvertible()
     {
         let nib = NibsDefault.TestCell
@@ -33,10 +23,14 @@ class NibTests: XCTestCase
     
     func testInstantiateFromNib()
     {
-//        expectFatalError {
-//            TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: NSBundle(forClass: self.dynamicType)))
-//        }
+        // Instantiate non existing nib
         
+        expectFatalError {
+            _ = TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: Bundle(for: StoryboardTests.self)))
+        }
+        
+        // Instantiate existing nib
+
         _ = TestCell.instantiateFromNib()
 
         XCTAssert(true, "cell instantiation should not crash")

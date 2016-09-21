@@ -33,11 +33,14 @@ extension String
         }
     }
     
+    // MARK: - Utils
+    
     public func trimmed(set: CharacterSet = .whitespacesAndNewlines) -> String
     {
         return self.trimmingCharacters(in: set)
     }
     
+    /// Returns an array of words from a string. Removes any characters that aren't [a-zA-Z0-9]
     public var words: [String] {
         var result = [String]()
         
@@ -52,23 +55,16 @@ extension String
         return result
     }
     
-    public func inserting(_ string: String, index: Int) -> String
-    {
-        return String(self.characters.prefix(index)) + string + String(self.characters.suffix(self.characters.count - index))
-    }
-    
     public func urlEncoded() -> String?
     {
-        var characters = CharacterSet.urlQueryAllowed
+        var allowedCharacters = CharacterSet.urlQueryAllowed
         
-        characters.remove(charactersIn: "&")
+        allowedCharacters.remove(charactersIn: ";?/:&=+$,~")
         
-        guard
-            let encodedString = self.addingPercentEncoding(withAllowedCharacters: characters)
-            else { return nil }
-        
-        return encodedString
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
     }
+    
+    // MARK: - Range
     
     public func range(from nsRange: NSRange) -> Range<Index>?
     {

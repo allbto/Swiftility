@@ -13,35 +13,12 @@ class StoryboardTests: XCTestCase
 {
     let storyboard = UIStoryboard(name: "MainStoryboard", bundle: Bundle(for: StoryboardTests.self))
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testStoryboardSilentlyInstantiate()
-    {
-        // Test view controller that doesn't exist
-        let nonExistingVC = storyboard.silentlyInstantiateViewController(withIdentifier: "TestViewController")
-        
-        XCTAssert(nonExistingVC == nil)
-        
-        // Test view controller that does exist
-        let existingVC = storyboard.silentlyInstantiateViewController(withIdentifier: "TestVC")
-        
-        XCTAssert(existingVC != nil)
-    }
-    
     func testStoryboardSafeTypeInstantiation()
     {
         // Test view controller that doesn't exist
-//        expectFatalError {
-//            self.storyboard.instantiateViewController(TestNonExistingVC)
-//        }
+        expectFatalError("Instantiate view controller that doesn't exist") {
+            _ = self.storyboard.instantiateViewController() as TestNonExistingVC
+        }
         
         // Test view controller that does exist
         let existingVC: TestVC = storyboard.instantiateViewController()
@@ -71,9 +48,9 @@ class StoryboardTests: XCTestCase
     func testInitialViewController()
     {
         // Test initial view controller that doesn't exist
-//        expectFatalError {
-//            self.storyboard.instantiateInitialViewController(TestNonExistingVC)
-//        }
+        expectFatalError("Instantiate initial view controller that doesn't exist") {
+            _ = self.storyboard.instantiateInitialViewController() as TestNonExistingVC
+        }
         
         // Test initial view controller that does exist
         let existingVC: TestVC = storyboard.instantiateInitialViewController()

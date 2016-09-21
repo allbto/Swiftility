@@ -18,6 +18,11 @@ class StringExtensionsTests: XCTestCase
         
         XCTAssert(str.length == 3)
         XCTAssert(str.length == str.characters.count)
+        
+        let strEmoji = "😀😬🙏👽"
+        
+        XCTAssert(strEmoji.length == 4)
+        XCTAssert(strEmoji.length != str.utf16.count)
     }
     
     func testSubscript()
@@ -39,5 +44,20 @@ class StringExtensionsTests: XCTestCase
         
         XCTAssert(str.trimmed() == "t     es       t")
         XCTAssert("test".trimmed() == "test")
+    }
+    
+    func testWords()
+    {
+        XCTAssert("".words.isEmpty)
+        XCTAssert("Hello".words == ["Hello"])
+        XCTAssert("Hello World".words == ["Hello", "World"])
+        XCTAssert("   %^&  +))  Hello       World!   #$%^&<>?     ".words == ["Hello", "World"])
+        XCTAssert("   😀    Hello    😀😬🙏☝🏼👂🏿👽     World!     😀   ".words == ["Hello", "World"])
+    }
+    
+    func testUrlEncoded()
+    {
+        XCTAssert(";?/:#&=+$, %<>~%".urlEncoded() == "%3B%3F%2F%3A%23%26%3D%2B%24%2C%20%25%3C%3E%7E%25")
+        XCTAssert("https://www.toto.co.uk/toto/tutu?hello=titi&asasas=tre".urlEncoded() == "https%3A%2F%2Fwww.toto.co.uk%2Ftoto%2Ftutu%3Fhello%3Dtiti%26asasas%3Dtre")
     }
 }

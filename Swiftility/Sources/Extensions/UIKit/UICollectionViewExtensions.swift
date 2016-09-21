@@ -10,14 +10,6 @@ import Foundation
 
 extension UICollectionView
 {
-    public var flowLayout: UICollectionViewFlowLayout {
-        guard let layout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
-            fatalError("\(self) view layout must be of type UICollectionViewFlowLayout")
-        }
-        
-        return layout
-    }
-    
     public func targetCenteredContentOffset(proposedContentOffset offset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint
     {
         let cvBounds = self.bounds

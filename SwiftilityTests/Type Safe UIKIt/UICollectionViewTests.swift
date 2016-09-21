@@ -14,21 +14,13 @@ class UICollectionViewTests: XCTestCase
 //    let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
     let collectionVC = TestCollectionViewVC.instantiateFromStoryboard()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
     func testDequeueCell()
     {
         let collectionView = self.collectionVC.collectionView
         
         XCTAssert(collectionView != nil)
+    
+        // Register and dequeue nib cell
         
         collectionView!.register(TestCollectionViewCell.self)
         
@@ -37,6 +29,22 @@ class UICollectionViewTests: XCTestCase
         _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestCollectionViewCell
 
         XCTAssert(true, "dequeueReusableCell should not crash")
+
+        // Register and dequeue class cell
+
+        collectionView!.register(TestCollectionViewCellClass.self)
+        
+        XCTAssert(true, "registerCell should not crash")
+        
+        _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 1, section: 0)) as TestCollectionViewCellClass
+        
+        XCTAssert(true, "dequeueReusableCell should not crash")
+        
+        // Dequeue non existing cell
+        
+        expectFatalError("Dequeue non existing cell") {
+            _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 1, section: 0)) as TestNonExistingCollectionViewCell
+        }
     }
 
     // TODO: Add test for reusableSupplementaryView

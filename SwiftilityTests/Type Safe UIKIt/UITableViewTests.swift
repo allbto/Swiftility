@@ -11,16 +11,11 @@ import XCTest
 
 class UITableViewTests: XCTestCase
 {
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testDefaultHeight()
+    {
+        XCTAssert(UITableViewCell.DefaultHeight > 0, "UITableViewCell.DefaultHeight should be greater than 0")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
     func testDequeueCell()
     {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -29,11 +24,22 @@ class UITableViewTests: XCTestCase
         
         XCTAssert(true, "registerCell should not crash")
         
-//        expectFatalError {
-//            tableView.dequeueReusableCell(TestNonExistingCell)
-//        }
+        // Dequeue cell that doesn't exists
+
+        expectFatalError("Dequeue cell that doesn't exists") {
+            _ = tableView.dequeueReusableCell() as TestNonExistingCell
+        }
         
+        // Dequeue cell that exists
+
         _ = tableView.dequeueReusableCell() as TestCell
+        XCTAssert(true, "dequeueReusableCell should not crash")
+        
+        // Register and dequeue class cell (non nib)
+        
+        tableView.register(TestCellClass.self)
+        
+        _ = tableView.dequeueReusableCell() as TestCellClass
         
         XCTAssert(true, "dequeueReusableCell should not crash")
     }
@@ -43,13 +49,27 @@ class UITableViewTests: XCTestCase
         let tableVC = TestTableVC.instantiateFromStoryboard()
         
         XCTAssert(true, "tableVC instatiation should not crash")
+        
+        // Dequeue cell that doesn't exists
 
-//        expectFatalError {
-//            tableVC.tableView.dequeueReusableCell(TestNonExistingCell)
-//        }
+        expectFatalError("Dequeue cell that doesn't exists") {
+            _ = tableVC.tableView.dequeueReusableCell() as TestNonExistingCell
+        }
+
+        // Dequeue cell that exists
 
         _ = tableVC.tableView.dequeueReusableCell() as TestCell
+        XCTAssert(true, "dequeueReusableCell should not crash")
         
+        // Dequeue cell that doesn't exists forIndexPath
+        
+        expectFatalError("Dequeue cell that doesn't exists") {
+            _ = tableVC.tableView.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestNonExistingCell
+        }
+        
+        // Dequeue cell that exists forIndexPath
+        
+        _ = tableVC.tableView.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestCell
         XCTAssert(true, "dequeueReusableCell should not crash")
     }
 }

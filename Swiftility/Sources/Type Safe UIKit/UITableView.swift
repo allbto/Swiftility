@@ -17,12 +17,12 @@ extension UITableView
 {
     // MARK: - Register
     
-    public func register<T>(_ type: T.Type) where T: UITableViewCell, T: FromNib
+    public func register<T>(_ nibCell: T.Type) where T: UITableViewCell, T: FromNib
     {
-        self.register(type.ownNib.nib, forCellReuseIdentifier: String(describing: type))
+        self.register(nibCell.ownNib.nib, forCellReuseIdentifier: String(describing: nibCell))
     }
     
-    public func register<T: UITableViewCell>(_ type: T.Type)
+    public func register<T: UITableViewCell>(_ classCell: T.Type)
     {
         self.register(T.self, forCellReuseIdentifier: String(describing: T.self))
     }
@@ -32,7 +32,7 @@ extension UITableView
     public func dequeueReusableCell<T: UITableViewCell>() -> T
     {
         guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self)) as? T else {
-            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
+            sw_fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return cell
@@ -40,10 +40,20 @@ extension UITableView
 
     public func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T
     {
-        guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
-            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        var cell: UITableViewCell? = nil
+        
+        do {
+            try ObjC.catchException {
+                cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath)
+            }
+        } catch {
+            cell = nil
         }
         
-        return cell
+        guard let typedCell = cell as? T else {
+            sw_fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
+        }
+        
+        return typedCell
     }
 }

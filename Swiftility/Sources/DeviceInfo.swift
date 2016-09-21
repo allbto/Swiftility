@@ -14,15 +14,15 @@ public struct DeviceInfo
 {
     // MARK: - Singletons
     
-    public static var currentDevice: UIDevice {
+    public static var current: UIDevice {
         return UIDevice.current
     }
     
-    public static var currentDeviceVersion: Float {
+    public static var currentVersion: Float {
         return (UIDevice.current.systemVersion as NSString).floatValue
     }
     
-    public static var currentDeviceHeight: CGFloat {
+    public static var currentHeight: CGFloat {
         return UIScreen.main.bounds.size.height
     }
     
@@ -30,29 +30,29 @@ public struct DeviceInfo
     
     public static func isPhone() -> Bool
     {
-        return currentDevice.userInterfaceIdiom == .phone
+        return current.userInterfaceIdiom == .phone
     }
     
     public static func isPad() -> Bool
     {
-        return currentDevice.userInterfaceIdiom == .pad
+        return current.userInterfaceIdiom == .pad
     }
     
     // MARK: - Device Version Checks
     
     public static func isVersion(_ version: Float) -> Bool
     {
-        return currentDeviceVersion >= version && currentDeviceVersion < (version + 1.0)
+        return currentVersion >= version && currentVersion < (version + 1.0)
     }
     
     public static func isVersionOrLater(_ version: Float) -> Bool
     {
-        return currentDeviceVersion >= version
+        return currentVersion >= version
     }
     
     public static func isVersionOrEarlier(_ version: Float) -> Bool
     {
-        return currentDeviceVersion < (version + 1.0)
+        return currentVersion < (version + 1.0)
     }
     
     // MARK: - Device Size Checks
@@ -66,17 +66,17 @@ public struct DeviceInfo
     
     public static func isSize(_ height: Heights) -> Bool
     {
-        return currentDeviceHeight == height.rawValue
+        return currentHeight == height.rawValue
     }
     
     public static func isSizeOrLarger(_ height: Heights) -> Bool
     {
-        return currentDeviceHeight >= height.rawValue
+        return currentHeight >= height.rawValue
     }
     
     public static func isSizeOrSmaller(_ height: Heights) -> Bool
     {
-        return currentDeviceHeight <= height.rawValue
+        return currentHeight <= height.rawValue
     }
     
     // MARK: Retina Check
