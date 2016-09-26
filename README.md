@@ -200,7 +200,7 @@ let vc1View = arrayOfViewControllers[0].value?.view
 
 ```swift
 class WeakTimer {
-	static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: AnyObject? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
+	static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: Any? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
 }
 
 // Usage example

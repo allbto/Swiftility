@@ -12,7 +12,7 @@ extension NotificationCenter
 {
     /// NSNotificationCenter.addObserver:forName with default parameters
     public func addObserver(withName name: NSNotification.Name,
-        object obj: AnyObject? = nil,
+        object obj: Any? = nil,
         queue: OperationQueue? = nil,
         usingBlock block: @escaping (Notification) -> Void) -> NSObjectProtocol
     {
@@ -21,7 +21,7 @@ extension NotificationCenter
     
     /// Applying NSNotificationCenter.addObserverWithName for all the notifications in `names`
     public func addObserver(withNames names: [NSNotification.Name],
-        object obj: AnyObject? = nil,
+        object obj: Any? = nil,
         queue: OperationQueue? = nil,
         usingBlock block: @escaping (Notification) -> Void) -> [NSObjectProtocol]
     {
@@ -29,7 +29,7 @@ extension NotificationCenter
     }
     
     /// Applying NSNotificationCenter.removeObserver to list of observers
-    public func removeObservers(_ observers: [AnyObject])
+    public func removeObservers(_ observers: [Any])
     {
         observers.forEach {
             self.removeObserver($0)

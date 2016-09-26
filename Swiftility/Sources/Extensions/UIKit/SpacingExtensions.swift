@@ -11,7 +11,7 @@ import UIKit
 private func _attributedSpacingString(_ text: String?,
     characterSpacing: CGFloat,
     lineSpacing: CGFloat,
-    ownAttributes: [String : AnyObject]?,
+    ownAttributes: [String : Any]?,
     range: NSRange?) -> NSAttributedString?
 {
     // If text is nil update label text and leave
@@ -61,7 +61,7 @@ extension UITextView
     public func setTextWithSpacing(_ text: String?,
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
-        ownAttributes: [String : AnyObject]? = nil,
+        ownAttributes: [String : Any]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
         preserveColor: Bool = true,
@@ -92,7 +92,7 @@ extension UITextView
     /// self.setTextWithSpacing with own text
     public func setSpacing(_ characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
-        ownAttributes: [String : AnyObject]? = nil,
+        ownAttributes: [String : Any]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
         preserveColor: Bool = true,
@@ -125,7 +125,7 @@ extension UILabel
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
-        ownAttributes: [String : AnyObject]? = nil,
+        ownAttributes: [String : Any]? = nil,
         range: NSRange? = nil)
     {
         let alignment = self.textAlignment
@@ -143,7 +143,7 @@ extension UILabel
     public func setSpacing(characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
-        ownAttributes: [String : AnyObject]? = nil,
+        ownAttributes: [String : Any]? = nil,
         range: NSRange? = nil)
     {
         self.setTextWithSpacing(self.text,

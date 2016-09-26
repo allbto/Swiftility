@@ -36,7 +36,7 @@ public protocol FromNib
 
 extension FromNib
 {
-    public static func instantiateFromNib(_ nib: NibConvertible? = nil, owner: AnyObject? = nil, options: [AnyHashable: Any]? = nil) -> Self
+    public static func instantiateFromNib(_ nib: NibConvertible? = nil, owner: Any? = nil, options: [AnyHashable: Any]? = nil) -> Self
     {
         let nibName: String = nib?.nibName ?? self.ownNib.nibName
         let bundle: Bundle = nib?.bundle ?? self.ownNib.bundle ?? Bundle.main

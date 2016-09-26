@@ -25,7 +25,7 @@ extension UIView
         withVisualFormat format: String,
         views: [String : UIView] = [:],
         options: NSLayoutFormatOptions =  NSLayoutFormatOptions.directionLeadingToTrailing,
-        metrics: [String : AnyObject]? = nil)
+        metrics: [String : Any]? = nil)
     {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: options, metrics: metrics, views: views))
     }

@@ -110,7 +110,7 @@ extension String
     }
     
     public func size(withAttributes
-        attributes: [String: AnyObject],
+        attributes: [String: Any],
         constraintSize: CGSize,
         options: NSStringDrawingOptions = .usesLineFragmentOrigin,
         context: NSStringDrawingContext? = nil) -> CGSize

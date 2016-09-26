@@ -23,7 +23,7 @@ public final class WeakTimer: NSObject
     // MARK: - Life cycle
     
     fileprivate init(timeInterval: TimeInterval,
-                 userInfo: AnyObject?,
+                 userInfo: Any?,
                  repeats: Bool,
                  callback: @escaping () -> Void)
     {
@@ -50,18 +50,18 @@ public final class WeakTimer: NSObject
     // MARK: - Public
     
     /**
-    A factory for NSTimer instances that invoke closures, thereby allowing a weak reference to its context
+    A factory for Timer instances that invoke closures, thereby allowing a weak reference to its context
     
     - parameter timeInterval: Interval
     - parameter userInfo:     =nil; userInfo object
     - parameter repeats:      =false; Should repeat or called only once
     - parameter callback:     callback called instead of NSTimer target's selector
     
-    - returns: new scheduled timer. More info, see: NSTimer.scheduledTimerWithTimeInterval
+    - returns: new scheduled timer. More info, see: Timer.scheduledTimerWithTimeInterval
     */
     open static func scheduledTimerWithTimeInterval(
         _ timeInterval: TimeInterval,
-        userInfo: AnyObject? = nil,
+        userInfo: Any? = nil,
         repeats: Bool = false,
         callback: @escaping () -> Void) -> Timer
     {
