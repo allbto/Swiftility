@@ -19,6 +19,12 @@ class UICollectionViewTests: XCTestCase
         let collectionView = self.collectionVC.collectionView
         
         XCTAssert(collectionView != nil)
+        
+        // Dequeue storyboard cell
+        
+        _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestCollectionViewStoryboardCell
+
+        XCTAssert(true, "dequeueReusableCell should not crash")
     
         // Register and dequeue nib cell
         

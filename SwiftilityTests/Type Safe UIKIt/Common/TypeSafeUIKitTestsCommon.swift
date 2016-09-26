@@ -73,6 +73,8 @@ class TestCellClass: UITableViewCell {}
 
 // MARK: - Collection view
 
+class TestCollectionViewStoryboardCell: UICollectionViewCell {}
+
 class TestCollectionViewCell: UICollectionViewCell, FromNib
 {
     static var ownNib: NibConvertible {
