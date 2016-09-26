@@ -94,7 +94,7 @@ extension UIViewController
 
         self?.someConstraints.constant = keyboardSize.height
          
-        self?.animateWithKeyboardNotification(n)
+        self?.animate(withKeyboardNotification: n)
      }
      
      */
