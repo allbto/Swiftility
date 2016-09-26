@@ -24,6 +24,19 @@ extension UIViewController
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    public func ask(_ message: String, title: String? = nil, actionTitle: String = "OK", action: UIAlertControllerButtonHandler? = nil)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let okAction = UIAlertAction(title: actionTitle, style: .default, handler: action)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Keyboard
