@@ -104,6 +104,7 @@ public struct Dynamic<T>
 precedencegroup Assignement {
     associativity: left
     assignment: true
+    higherThan: CastingPrecedence
 }
 
 infix operator .= : Assignement
