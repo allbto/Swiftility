@@ -59,9 +59,9 @@ extension UIViewController
      - parameter animations:    Optional custom animations to perform. Default is { self.view.layoutIfNeeded() }
      - parameter completion:    Optional completion handler to animations
      */
-    public func animateWithKeyboardNotification(_ notification: Notification,
-                     animations: (() -> Void)? = nil,
-                     completion: ((Bool) -> Void)? = nil)
+    public func animate(withKeyboardNotification notification: Notification,
+                        animations: (() -> Void)? = nil,
+                        completion: ((Bool) -> Void)? = nil)
     {
         guard
             let userInfo = notification.userInfo,
