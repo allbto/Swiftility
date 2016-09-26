@@ -65,8 +65,8 @@ extension UIViewController
     {
         guard
             let userInfo = notification.userInfo,
-            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue,
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as AnyObject).uint32Value
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.uint32Value
             else { return }
         
         let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
