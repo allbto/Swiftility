@@ -10,7 +10,7 @@ import Foundation
 
 extension UITableViewCell
 {
-    public class var DefaultHeight: CGFloat { return 44 }
+    open class var defaultHeight: CGFloat { return 44 }
 }
 
 extension UITableView
