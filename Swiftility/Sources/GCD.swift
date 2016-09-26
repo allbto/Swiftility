@@ -10,11 +10,12 @@ import Foundation
 
 public typealias DispatchClosure = () -> Void
 
+// TODO: Tests
 
 // MARK: - Async
 
 /// Convenience call to dispatch_async
-public func async(queue: DispatchQueue = .global(qos: .background), closure: @escaping DispatchClosure)
+public func async(queue: DispatchQueue = .global(qos: .background), execute closure: @escaping DispatchClosure)
 {
     queue.async(execute: closure)
 }
@@ -22,11 +23,13 @@ public func async(queue: DispatchQueue = .global(qos: .background), closure: @es
 /// Convenience call to async(queue: .main)
 public func async_main(_ closure: @escaping DispatchClosure)
 {
-    async(queue: .main, closure: closure)
+    async(queue: .main, execute: closure)
 }
 
+// MARK: - After / Delay
+
 /// Convenience call to dispatch_after (time is in seconds)
-public func after(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: @escaping DispatchClosure)
+public func after(_ delay: TimeInterval, queue: DispatchQueue = .main, execute closure: @escaping DispatchClosure)
 {
     queue.asyncAfter(
         deadline: .now() + delay,
@@ -35,14 +38,39 @@ public func after(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: 
 }
 
 /// Same as after
-public func delay(_ delay: TimeInterval, queue: DispatchQueue = .main, closure: @escaping DispatchClosure)
+public func delay(_ delay: TimeInterval, queue: DispatchQueue = .main, execute closure: @escaping DispatchClosure)
 {
-    after(delay, queue: queue, closure: closure)
+    after(delay, queue: queue, execute: closure)
 }
 
-// MARK: - Debounce / Throttle
+// MARK: - Once
 
-// TODO: Tests
+fileprivate extension DispatchQueue
+{
+    static var _onceTracker = [String]()
+}
+
+/**
+ Executes a block of code, associated with a unique token, only once.  The code is thread safe and will
+ only execute the code once even in the presence of multithreaded calls.
+ 
+ - parameter token:     A unique reverse DNS style name such as com.vectorform.<name> or a GUID
+ - parameter execute:   Closure to execute once
+ */
+public func once(token: String, execute closure: DispatchClosure)
+{
+    objc_sync_enter(DispatchQueue.self); defer { objc_sync_exit(DispatchQueue.self) }
+    
+    if DispatchQueue._onceTracker.contains(token) {
+        return
+    }
+    
+    DispatchQueue._onceTracker.append(token)
+    closure()
+}
+
+
+// MARK: - Debounce
 
 /**
  Debounce will fire method when delay passed, but if there was request before that, then it invalidates the previous method and uses only the last
