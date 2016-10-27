@@ -13,7 +13,7 @@ class UITableViewTests: XCTestCase
 {
     func testDefaultHeight()
     {
-        XCTAssert(UITableViewCell.DefaultHeight > 0, "UITableViewCell.DefaultHeight should be greater than 0")
+        XCTAssert(UITableViewCell.defaultHeight > 0, "UITableViewCell.DefaultHeight should be greater than 0")
     }
     
     func testDequeueCell()
