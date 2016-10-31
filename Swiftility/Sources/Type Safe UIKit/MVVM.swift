@@ -18,7 +18,7 @@ extension FromStoryboard where Self: UIViewController, Self: ViewModelController
 {
     public static func instantiateFromStoryboard(viewModel: Self.VM) -> Self
     {
-        return self.ownStoryboard.storyboard.instantiateViewController(Self.self, vm: viewModel)
+        return  UIStoryboard(name: self.storyboardName).instantiateViewController(Self.self, vm: viewModel)
     }
 }
 

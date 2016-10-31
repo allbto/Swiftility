@@ -9,22 +9,28 @@
 import Foundation
 import UIKit
 
-// MARK: - StoryboardConvertible
+// MARK: - Storyboard
 
-public protocol StoryboardConvertible
+extension UIStoryboard
 {
-    var storyboardName: String { get }
-    var bundle: Bundle? { get }
+    public struct Name
+    {
+        var name: String
+        var bundle: Bundle?
+        
+        init(name: String, bundle: Bundle? = nil)
+        {
+            self.name = name
+            self.bundle = bundle
+        }
+    }
 }
 
-extension StoryboardConvertible
+extension UIStoryboard
 {
-    public var bundle: Bundle? {
-        return nil
-    }
-    
-    public var storyboard: UIStoryboard {
-        return UIStoryboard(name: self.storyboardName, bundle: self.bundle)
+    public convenience init(name: UIStoryboard.Name)
+    {
+        self.init(name: name.name, bundle: name.bundle)
     }
 }
 
@@ -32,7 +38,7 @@ extension StoryboardConvertible
 
 public protocol FromStoryboard
 {
-    static var ownStoryboard: StoryboardConvertible { get }
+    static var storyboardName: UIStoryboard.Name { get }
 }
 
 // MARK: - Type safe instantiate view controller

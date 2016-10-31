@@ -14,14 +14,14 @@ import UIKit
 
 class TestVC: UIViewController, FromStoryboard
 {
-    static let ownStoryboard: StoryboardConvertible = StoryboardsTests.MainStoryboard
+    static let storyboardName: UIStoryboard.Name = .mainTests
 }
 
 class TestNonExistingVC: UIViewController {}
 
 class TestTableVC: UITableViewController, FromStoryboard
 {
-    static let ownStoryboard: StoryboardConvertible = StoryboardsTests.MainStoryboard
+    static let storyboardName: UIStoryboard.Name = .mainTests
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -31,7 +31,7 @@ class TestTableVC: UITableViewController, FromStoryboard
 
 class TestCollectionViewVC: UICollectionViewController, FromStoryboard
 {
-    static let ownStoryboard: StoryboardConvertible = StoryboardsTests.MainStoryboard
+    static let storyboardName: UIStoryboard.Name = .mainTests
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
@@ -95,26 +95,11 @@ class TestCollectionViewView: UICollectionReusableView, FromNib
 
 // MARK: - Storyboard
 
-enum StoryboardsDefault: String, StoryboardConvertible
+extension UIStoryboard.Name
 {
-    case MainStoryboard
+    static let mainDefault = UIStoryboard.Name(name: "MainStoryboard")
     
-    var storyboardName: String {
-        return self.rawValue
-    }
-}
-
-enum StoryboardsTests: String, StoryboardConvertible
-{
-    case MainStoryboard
-    
-    var storyboardName: String {
-        return self.rawValue
-    }
-    
-    var bundle: Bundle? {
-        return Bundle(for: StoryboardTests.self)
-    }
+    static let mainTests = UIStoryboard.Name(name: "MainStoryboard", bundle: Bundle(for: StoryboardTests.self))
 }
 
 // MARK: - Nib

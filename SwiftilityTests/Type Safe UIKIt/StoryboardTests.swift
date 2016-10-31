@@ -26,21 +26,21 @@ class StoryboardTests: XCTestCase
         XCTAssert(true, "existingVC(\(existingVC)) instantiation should not crash")
     }
     
-    func testStoryboardCompatible()
+    func testStoryboardName()
     {
         // Define default storyboard convertible type
-        let sbc: StoryboardConvertible = StoryboardsDefault.MainStoryboard
+        let sbc: UIStoryboard.Name = .mainDefault
         
-        XCTAssert(sbc.storyboardName == "MainStoryboard")
+        XCTAssert(sbc.name == "MainStoryboard")
         XCTAssert(sbc.bundle == nil)
         
         // Define test storyboard convertible type
-        let sbc2: StoryboardConvertible = StoryboardsTests.MainStoryboard
+        let sbc2: UIStoryboard.Name = .mainTests
 
-        XCTAssert(sbc2.storyboardName == "MainStoryboard")
+        XCTAssert(sbc2.name == "MainStoryboard")
         XCTAssert(sbc2.bundle != nil)
         
-        let storyboard = sbc2.storyboard
+        let storyboard = UIStoryboard(name: sbc2)
         
         XCTAssert(true, "storyboard(\(storyboard)) instantiation should not crash")
     }
