@@ -18,7 +18,7 @@ extension UIStoryboard
         var name: String
         var bundle: Bundle?
         
-        init(name: String, bundle: Bundle? = nil)
+        public init(name: String, bundle: Bundle? = nil)
         {
             self.name = name
             self.bundle = bundle
