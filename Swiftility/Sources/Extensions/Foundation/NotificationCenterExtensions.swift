@@ -14,18 +14,18 @@ extension NotificationCenter
     public func addObserver(withName name: NSNotification.Name,
         object obj: Any? = nil,
         queue: OperationQueue? = nil,
-        usingBlock block: @escaping (Notification) -> Void) -> NSObjectProtocol
+        using closure: @escaping (Notification) -> Void) -> NSObjectProtocol
     {
-        return self.addObserver(forName: name, object: obj, queue: queue, using: block)
+        return self.addObserver(forName: name, object: obj, queue: queue, using: closure)
     }
     
     /// Applying NSNotificationCenter.addObserverWithName for all the notifications in `names`
     public func addObserver(withNames names: [NSNotification.Name],
         object obj: Any? = nil,
         queue: OperationQueue? = nil,
-        usingBlock block: @escaping (Notification) -> Void) -> [NSObjectProtocol]
+        using closure: @escaping (Notification) -> Void) -> [NSObjectProtocol]
     {
-        return names.map { self.addObserver(forName: $0, object: obj, queue: queue, using: block) }
+        return names.map { self.addObserver(forName: $0, object: obj, queue: queue, using: closure) }
     }
     
     /// Applying NSNotificationCenter.removeObserver to list of observers
