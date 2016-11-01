@@ -16,14 +16,17 @@ extension String
     
     // MARK: - Subscript
     
+    /// Get Character at index
     public subscript (i: Int) -> Character {
         return self[self.index(self.startIndex, offsetBy: i)]
     }
     
+    /// Get Character as String at index
     public subscript (i: Int) -> String {
         return String(self[self.index(self.startIndex, offsetBy: i)])
     }
     
+    /// Get substring at range
     public subscript (r: Range<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
@@ -35,12 +38,14 @@ extension String
     
     // MARK: - Utils
     
+    /// Returns trimmed string (remove newlines and whitespaces at the beginning and the end)
     public func trimmed(set: CharacterSet = .whitespacesAndNewlines) -> String
     {
         return self.trimmingCharacters(in: set)
     }
     
-    /// Returns an array of words from a string. Removes any characters that aren't [a-zA-Z0-9]
+    /// Returns an array of words from a string
+    /// Removes any characters that aren't [a-zA-Z0-9]
     public var words: [String] {
         var result = [String]()
         
@@ -55,6 +60,8 @@ extension String
         return result
     }
     
+    /// Returns an url encoded version of the String
+    /// Example: "My Name&urlInjection=true" -> "My%20Name%26urlInjection%3Dtrue"
     public func urlEncoded() -> String?
     {
         var allowedCharacters = CharacterSet.urlQueryAllowed
@@ -66,6 +73,8 @@ extension String
     
     // MARK: - Range
     
+    /// Transforms an NSRange into a Range<Index> if possible
+    /// Usefull when using APIs that uses NSRange like UITextView
     public func range(from nsRange: NSRange) -> Range<Index>?
     {
         guard
@@ -82,13 +91,16 @@ extension String
 // MARK: - Localized
 extension String
 {
+    /// Returns a localized version of the string
     public var localized: String { return String.localized(self) }
     
+    /// Returns a localized version of the string with specified comment
     public func localized(_ comment: String) -> String
     {
         return String.localized(self, comment: comment)
     }
     
+    /// Returns a localized version of key with specified comment
     public static func localized(_ key: String, comment: String? = nil) -> String
     {
         return NSLocalizedString(key, comment: comment ?? key)
@@ -98,6 +110,7 @@ extension String
 // MARK: - Size
 extension String
 {
+    /// Conveniance call to NSString.boundingRect
     public func size(withFont
         font: UIFont,
         constraintSize: CGSize,
@@ -109,6 +122,7 @@ extension String
         return self.size(withAttributes: attributes, constraintSize: constraintSize, options: options, context: context)
     }
     
+    /// Conveniance call to NSString.boundingRect
     public func size(withAttributes
         attributes: [String: Any],
         constraintSize: CGSize,

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: Review implementation of Regex
+
 public struct Regex
 {
     public var pattern: String {

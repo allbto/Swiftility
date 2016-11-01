@@ -10,10 +10,11 @@ import Foundation
 
 extension Dictionary
 {
+    /// Convenience call to Dictionary.updateValue for each value of `other`
     public mutating func update(_ other: Dictionary)
     {
         for (key, value) in other {
-            self.updateValue(value, forKey:key)
+            self.updateValue(value, forKey: key)
         }
     }
 }

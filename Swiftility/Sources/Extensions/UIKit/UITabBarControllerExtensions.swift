@@ -10,9 +10,11 @@ import Foundation
 
 extension UITabBarController
 {
+    /// Retrives the first UIViewController matching the type given
+    /// by looking at self.viewControllers children and for each the first child if it's a UINavigationController
     public func viewController<T: UIViewController>() -> T?
     {
-        guard let vcs = viewControllers else { return nil }
+        guard let vcs = self.viewControllers else { return nil }
         
         for vc in vcs {
             if let vc = vc as? T {

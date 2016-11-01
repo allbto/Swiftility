@@ -45,6 +45,7 @@ extension UIView
         self.layer.add(animation, forKey: kCATransitionFade)
     }
     
+    /// Set hidden with animation using alpha property
     public func setHidden(
         _ hidden: Bool,
         animated: Bool,
@@ -115,7 +116,7 @@ extension UIView
     }
 }
 
-// MARK: - Frame convinience
+// MARK: - Frame convenience
 extension UIView
 {
     public var size: CGSize {

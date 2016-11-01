@@ -9,10 +9,9 @@
 import Foundation
 import UIKit
 
+// MARK: - Properties
 extension UIDevice
 {
-    // MARK: - Properties
-    
     public var version: Float {
         return (self.systemVersion as NSString).floatValue
     }

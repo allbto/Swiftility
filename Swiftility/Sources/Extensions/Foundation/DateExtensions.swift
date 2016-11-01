@@ -78,6 +78,7 @@ extension Date
     
     // MARK: - String representation
     
+    /// Easier to read string representation of date
     public var relativeValue: String {
         let formatter = DateFormatter()
         
