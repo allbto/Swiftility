@@ -12,10 +12,3 @@ public func < <T: RawRepresentable>(a: T, b: T) -> Bool where T.RawValue: Compar
 {
     return a.rawValue < b.rawValue
 }
-
-extension Hashable where Self: RawRepresentable, Self.RawValue: Hashable
-{
-    public var hashValue: Int {
-        return self.rawValue.hashValue
-    }
-}

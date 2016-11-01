@@ -11,12 +11,17 @@ import Foundation
 /// Extends UserDefaults to use a system similar to NSNotification.Name
 extension UserDefaults
 {
-    public struct Key: RawRepresentable, Equatable, Hashable, Comparable {
+    public struct Key: RawRepresentable, Equatable, Hashable, Comparable
+    {
         public var rawValue: String
         
         public init(rawValue: String)
         {
             self.rawValue = rawValue
+        }
+        
+        public var hashValue: Int {
+            return self.rawValue.hashValue
         }
     }
     
