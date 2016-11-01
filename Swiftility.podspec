@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT" }
   s.author    	 = "Allan Bto"
 
-  s.platform     = :ios
   s.platform     = :ios, "8.0"
 
   s.source   = { :git => "https://github.com/allbto/ios-swiftility.git", :tag => s.version }
