@@ -8,12 +8,39 @@
 
 import Foundation
 
+extension Timer
+{
+    /**
+     A factory for Timer instances that invoke closures, thereby allowing a weak reference to its context
+     
+     - parameter timeInterval: Interval
+     - parameter userInfo:     =nil; userInfo object
+     - parameter repeats:      =false; Should repeat or called only once
+     - parameter callback:     callback called instead of NSTimer target's selector
+     
+     - returns: new scheduled timer. More info, see: Timer.scheduledTimer(:_)
+     */
+    public static func scheduledTimer(
+        timeInterval: TimeInterval,
+        userInfo: Any? = nil,
+        repeats: Bool = false,
+        callback: @escaping () -> Void) -> Timer
+    {
+        return WeakTimer(
+            timeInterval: timeInterval,
+            userInfo: userInfo,
+            repeats: repeats,
+            callback: callback
+            ).timer
+    }
+}
+
 private extension Selector
 {
     static let invokeCallback = #selector(WeakTimer.invokeCallback)
 }
 
-public final class WeakTimer: NSObject
+private final class WeakTimer: NSObject
 {
     // MARK: - Properties
     
@@ -45,32 +72,6 @@ public final class WeakTimer: NSObject
     func invokeCallback()
     {
         callback()
-    }
-
-    // MARK: - Public
-    
-    /**
-    A factory for Timer instances that invoke closures, thereby allowing a weak reference to its context
-    
-    - parameter timeInterval: Interval
-    - parameter userInfo:     =nil; userInfo object
-    - parameter repeats:      =false; Should repeat or called only once
-    - parameter callback:     callback called instead of NSTimer target's selector
-    
-    - returns: new scheduled timer. More info, see: Timer.scheduledTimerWithTimeInterval
-    */
-    open static func scheduledTimerWithTimeInterval(
-        _ timeInterval: TimeInterval,
-        userInfo: Any? = nil,
-        repeats: Bool = false,
-        callback: @escaping () -> Void) -> Timer
-    {
-        return WeakTimer(
-            timeInterval: timeInterval,
-            userInfo: userInfo,
-            repeats: repeats,
-            callback: callback
-        ).timer
     }
 }
 
