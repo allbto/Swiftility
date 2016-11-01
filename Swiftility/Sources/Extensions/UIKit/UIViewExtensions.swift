@@ -34,17 +34,6 @@ extension UIView
 // MARK: - Animations
 extension UIView
 {
-    public func addFadeTransition(_ duration: CFTimeInterval)
-    {
-        let animation:CATransition = CATransition()
-        
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFade
-        animation.duration = duration
-
-        self.layer.add(animation, forKey: kCATransitionFade)
-    }
-    
     /// Set hidden with animation using alpha property
     public func setHidden(
         _ hidden: Bool,
