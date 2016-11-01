@@ -22,17 +22,17 @@ pod "Swiftility"
 import Swiftility
 ```
  
-## Features
+# Features
  
 * [Core](#core)
 * [Type Safety](#type-safety)
 * [Extensions](Swiftility/Sources/Extensions)
 
-## MVVM
+### MVVM
 
 Checkout the [MVVM implementation example](MVVM.md) I wrote using Swiftility
 
-## Core
+# Core
 
 ### Dynamic
 
@@ -104,7 +104,7 @@ debouncedFunction(someVarOrVoid)
 ```
 
 
-## Type safety
+# Type safety
 
 ### Storyboard
 
@@ -185,14 +185,14 @@ let supView: MyCustomView = collectioView.dequeueReusableSupplementaryView(ofKin
 let cell = collectioView.dequeueReusableCell(for: someIndexPath) as MyCell
 ```
 
-## Extensions
+# Extensions
 
 See [Extensions page](Swiftility/Sources/Extensions)
  
-## Author
+# Author
 
 Allan Barbato, allan.barbato@gmail.com
 
-## License
+# License
 
 Swiftility is available under the MIT license. See the LICENSE file for more info.
