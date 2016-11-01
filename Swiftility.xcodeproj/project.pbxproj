@@ -69,6 +69,7 @@
 		9DD8935C1C5E4F5E0083EBFF /* UIViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */; };
 		9DD8935E1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */; };
 		9DD893601C5E51520083EBFF /* StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3374B51C5D7979001DE413 /* StoryboardTests.swift */; };
+		9DEF6B911DC8B89D00572C30 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6B901DC8B89D00572C30 /* UserDefaults.swift */; };
 		9DFF05B21C4D1B35009966FB /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerTests.swift; sourceTree = "<group>"; };
 		9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeUIKitTestsCommon.swift; sourceTree = "<group>"; };
+		9DEF6B901DC8B89D00572C30 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -373,6 +375,7 @@
 				9DBD88551C5AE29B00A75331 /* UICollectionView.swift */,
 				9DBD88591C5AEAA600A75331 /* Nib.swift */,
 				9DBD88571C5AEA6A00A75331 /* MVVM.swift */,
+				9DEF6B901DC8B89D00572C30 /* UserDefaults.swift */,
 			);
 			path = "Type Safe UIKit";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				9D1CEE9F1C1ECCB2006A88C8 /* Weak.swift in Sources */,
 				9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */,
 				9D1CEEB91C1ECD64006A88C8 /* UINavigationControllerExtensions.swift in Sources */,
+				9DEF6B911DC8B89D00572C30 /* UserDefaults.swift in Sources */,
 				9D1CEEB31C1ECD64006A88C8 /* NotificationCenterExtensions.swift in Sources */,
 				9D35C1721D071AB400F52ECF /* UICollectionViewExtensions.swift in Sources */,
 				9D1CEEBC1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift in Sources */,
