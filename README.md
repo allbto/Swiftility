@@ -6,7 +6,7 @@
 
 # Swiftility
 
-Framework grouping my utilities to use in various projects
+Framework grouping utilities to use in various projects
 
 ## Installation
  
@@ -21,31 +21,107 @@ pod "Swiftility"
 ```swift
 import Swiftility
 ```
+ 
+## Features
+ 
+* [Core](#core)
+* [Type Safety](#type-safety)
+* [Extensions](Swiftility/Sources/Extensions)
 
 ## MVVM
 
 Checkout the [MVVM implementation example](MVVM.md) I wrote using Swiftility
 
-## Type safe UIKit
+## Core
+
+### Dynamic
+
+Lightweight binding in Swift
+
+```swift
+struct Dynamic<T> {
+	var value: T
+
+	// ...
+
+	init(_ value: T)
+
+	// ...
+
+	func bind(listener: T -> Void)
+
+	// ...
+}
+
+/// Usage example
+
+var email: Dynamic<String>("")
+
+email.bind { value in
+	print("Email is now: \(value)")
+}
+
+email.value = "allan@test.com"
+// prints "Email is now: allan@test.com"
+```
+ 
+### Grand Central Dispatch
+
+Convenience use of GCD methods
+
+**async()**
+```swift
+async {
+    // Asynchronous code
+ 
+    async_main {
+        // Main thread code
+    }
+}
+```
+
+**after()**
+```swift
+after(2.5) {
+    // Executed after 2.5 seconds
+}
+```
+
+**once()**
+```swift
+once("someToken") {
+    // Executed only once for the given token
+}
+```
+
+**debounce()**
+```swift
+let debouncedFunction = debounced(0.5) { someVarOrVoid in
+    // Executed only every 0.5 seconds
+}
+
+debouncedFunction(someVarOrVoid)
+```
+
+
+## Type safety
 
 ### Storyboard
 
 ```swift
-/// Define Storyboard convertible type
+/// Define Storyboard names
 
-enum Storyboards: String, StoryboardConvertible {
-	case Main, Settings, Explore
-
-	var storyboardName: String {
-        return self.rawValue
-    }
+extension UIStoryboard.Name
+{
+    static let settings = UIStoryboard.Name(name: "Settings")
 }
 
 /// Define your view controller built in the `Settings` storyboard
 // "SettingsViewController" should be the identifier in the storyboard (same as class name)
 
-class SettingsViewController: UIViewController, FromStoryboard {
-	static let ownStoryboard: StoryboardConvertible = Storyboards.Settings
+class SettingsViewController: UIViewController, FromStoryboard
+{
+	static let storyboardName: UIStoryboard.Name = .settings
 }
 
 /// Now you can do this
@@ -80,11 +156,11 @@ class MyCell: UITableViewCell, FromNib { ... }
 
 // Register cell
 
-tableView.registerCell(MyCell)
+tableView.register(MyCell.self)
 
 /// Later
 
-let cell: MyCell = tableView.dequeueReusableCell(MyCell)
+let cell = tableView.dequeueReusableCell() as MyCell
 ```
 
 ### CollectionView
@@ -94,122 +170,24 @@ let cell: MyCell = tableView.dequeueReusableCell(MyCell)
 
 class MyCell: UICollectionViewCell, FromNib { ... }
 
-collectionView.registerCell(MyCell)
+collectionView.register(MyCell.self)
 
 /// Define custom view defined in "MyCustomView.xib"
 
 class MyCustomView: UICollectionReusableView, FromNib { ... }
 
-collectionView.registerSupplementaryView(MyCustomView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader)
+collectionView.register(MyCustomView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader)
 
 /// Later
 
-let supView: MyCustomView = collectioView.dequeueReusableSupplementaryView(kind: UICollectionElementKindSectionHeader, forIndexPath: someIndexPath)
+let supView: MyCustomView = collectioView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: someIndexPath)
 
-let cell: MyCell = collectioView.dequeueReusableCell(MyCell.self, forIndexPath: someIndexPath)
+let cell = collectioView.dequeueReusableCell(for: someIndexPath) as MyCell
 ```
 
-## Dynamic
+## Extensions
 
-Lightweight binding in Swift
-
-```swift
-struct Dynamic<T> {
-	var value: T
-
-	// ...
-
-	init(_ value: T)
-
-	// ...
-
-	func bind(listener: T -> Void)
-
-	// ...
-}
-
-/// Usage example
-
-var email: Dynamic<String>("")
-
-email.bind { value in
-	print("Email is now: \(value)")
-}
-
-email.value = "allan@test.com"
-// prints "Email is now: allan@test.com"
-```
- 
-## Grand Central Dispatch
-
-Convenience use of GCD queues
-
-```swift
-enum GCDQueue {
-    case Main
-    case High
-    case Default
-    case Low
-    case Background
-    case Custom(dispatch_queue_t)
-}
-```
-
-**async()**
-```swift
-func async(queue: GCDQueue = .Default, closure: dispatch_block_t)
-func async_main(closure: dispatch_block_t) // same as calling async(.Main, closure: closure)
- 
-async {
-    // Asynchronous code
- 
-    async_main {
-        // Main thread code
-    }
-}
-```
-
-**after()**
-```swift
-func after(delay: Double, queue: GCDQueue = .Main, closure: dispatch_block_t)
-func delay(delay: Double, queue: GCDQueue = .Main, closure: dispatch_block_t) // Same as above
- 
-after(2.5) {
-    // Executed after 2.5 seconds
-}
-```
-
-## Weak
-
-Container of weak variable
-
-```swift
-struct Weak<T: AnyObject> {
-    weak var value : T?
-
-    init (_ value: T)
-}
-
-/// Usage example
-
-let arrayOfViewControllers = [Weak(vc1), Weak(vc2), Weak(vc3)]
-let vc1View = arrayOfViewControllers[0].value?.view
-```
-
-## Weak Timer
-
-```swift
-class WeakTimer {
-	static func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, userInfo: Any? = nil, repeats: Bool = false, callback: () -> Void) -> NSTimer
-}
-
-// Usage example
-
-WeakTimer.scheduledTimerWithTimeInterval(1, repeats: true) { [weak self] in
-	// Code repeated every 1 second
-	// Do something with weak self?
-}
-```
+See [Extensions page](Swiftility/Sources/Extensions)
  
 ## Author
 
