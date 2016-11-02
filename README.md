@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/allbto/iOS-Swiftility.svg?branch=master)](https://travis-ci.org/allbto/iOS-Swiftility)
 [![License](https://img.shields.io/cocoapods/l/Swiftility.svg?style=flat)](http://cocoapods.org/pods/Swiftility)
 [![Platform](https://img.shields.io/cocoapods/p/Swiftility.svg?style=flat)](http://cocoapods.org/pods/Swiftility)
-[![Swift-2.2](http://img.shields.io/badge/Swift-2.2-blue.svg)]()
+[![Swift-3.0](http://img.shields.io/badge/Swift-3.0-blue.svg)]()
 
 # Swiftility
 
