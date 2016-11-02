@@ -24,7 +24,7 @@ Adjust color
 
 ```swift
 func lighter(_ amount: CGFloat) -> UIColor
-func darker(_ amount : CGFloat) -> UIColor
+func darker(_ amount: CGFloat) -> UIColor
 func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor
 ```
 
@@ -39,7 +39,7 @@ let observers = self.observeKeyboardChanges { keyboardSize, notification in
     
     // Call this to animate with the notification animation duration and options
     self.animate(
-        withKeyboardNotification: notification
+        withKeyboardNotification: notification,
         animations: {
             // Call layoutIfNeeded() or own animations
         }
