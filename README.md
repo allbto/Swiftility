@@ -8,6 +8,9 @@
 
 Framework grouping utilities to use in various projects
 
+NB. This Framework is merely a collection of utilities and 'nice to have's.			
+Feel free to pick the methods and goodies that fit your project instead of including the pod.
+
 ## Installation
  
 Swiftility is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
@@ -28,7 +31,7 @@ import Swiftility
 * [Type Safety](#type-safety)
 * [Extensions](Swiftility/Sources/Extensions)
 
-### MVVM
+#### MVVM
 
 Checkout the [MVVM implementation example](MVVM.md) I wrote using Swiftility
 
