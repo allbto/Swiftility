@@ -64,7 +64,7 @@
 		9DBD88561C5AE29B00A75331 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88551C5AE29B00A75331 /* UICollectionView.swift */; };
 		9DBD88581C5AEA6A00A75331 /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88571C5AEA6A00A75331 /* MVVM.swift */; };
 		9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88591C5AEAA600A75331 /* Nib.swift */; };
-		9DBE433E1D9952E7003E8269 /* swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE433D1D9952E7003E8269 /* swizzle.swift */; };
+		9DBE433E1D9952E7003E8269 /* ObjcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE433D1D9952E7003E8269 /* ObjcExtensions.swift */; };
 		9DD554B71C282EFA0085CA29 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */; };
 		9DD8935C1C5E4F5E0083EBFF /* UIViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */; };
 		9DD8935E1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */; };
@@ -149,7 +149,7 @@
 		9DBD88551C5AE29B00A75331 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		9DBD88571C5AEA6A00A75331 /* MVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
 		9DBD88591C5AEAA600A75331 /* Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
-		9DBE433D1D9952E7003E8269 /* swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = swizzle.swift; sourceTree = "<group>"; };
+		9DBE433D1D9952E7003E8269 /* ObjcExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjcExtensions.swift; sourceTree = "<group>"; };
 		9DD554B61C282EFA0085CA29 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9DD8935B1C5E4F5E0083EBFF /* UIViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerTests.swift; sourceTree = "<group>"; };
 		9DD8935D1C5E4F740083EBFF /* TypeSafeUIKitTestsCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeUIKitTestsCommon.swift; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 				9D1CEE5B1C1ECCB2006A88C8 /* GCD.swift */,
 				9D4331661D92A59E00E70A95 /* ObjC.h */,
 				9D4331671D92A59E00E70A95 /* ObjC.m */,
+				9DBE433D1D9952E7003E8269 /* ObjcExtensions.swift */,
 				9D2F335E1DC22CEA00BF3941 /* SwiftExtensions.swift */,
-				9DBE433D1D9952E7003E8269 /* swizzle.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -249,10 +249,10 @@
 			children = (
 				9D0C3B691DC8AB72005F5A5D /* Private */,
 				9D0C3B671DC8AB4F005F5A5D /* Core */,
-				9D3E56311DACF26D00F94485 /* DataStructure */,
 				9D1CEE5D1C1ECCB2006A88C8 /* Extensions */,
 				9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */,
 				9D1CEE7C1C1ECCB2006A88C8 /* Types */,
+				9D3E56311DACF26D00F94485 /* DataStructure */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -524,7 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DBE433E1D9952E7003E8269 /* swizzle.swift in Sources */,
+				9DBE433E1D9952E7003E8269 /* ObjcExtensions.swift in Sources */,
 				9DBD88521C5ADFD100A75331 /* UIView.swift in Sources */,
 				9DBD88581C5AEA6A00A75331 /* MVVM.swift in Sources */,
 				9D1CEEB41C1ECD64006A88C8 /* UIColorExtensions.swift in Sources */,
