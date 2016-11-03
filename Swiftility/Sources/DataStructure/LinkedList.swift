@@ -52,72 +52,8 @@ public struct LinkedList<T>
         return _tail?.value
     }
     
-    public subscript(_ index: Int) -> T? {
-        /// O(n) where n == index
-        /// O(1) if index == 0 or index == (_count - 1) or index is out of bounds
-        get {
-            guard index >= 0 && index < _count else { return nil }
-            
-            guard index > 0 else {
-                return first
-            }
-            
-            guard index < (_count - 1) else {
-                return last
-            }
-
-            var current = _head
-            var count = 0
-            
-            while current != nil {
-                if index == count {
-                    return current!.value
-                }
-                
-                count += 1
-                current = current!.next
-            }
-            
-            return nil
-        }
-        
-        /// O(n) where n == index
-        /// if newValue == nil it calls remove(at: index)
-        /// O(1) if index == 0 or index == (_count - 1) or index is out of bounds
-        set {
-            guard index >= 0 && index < _count else { return }
-            
-            guard let newValue = newValue else {
-                remove(at: index)
-                return
-            }
-            
-            guard index > 0 else {
-                _head?.value = newValue
-                return
-            }
-            
-            guard index < (_count - 1) else {
-                _tail?.value = newValue
-                return
-            }
-            
-            var current = _head
-            var count = 0
-            
-            while current != nil {
-                if index == count {
-                    current!.value = newValue
-                }
-                
-                count += 1
-                current = current!.next
-            }
-        }
-    }
-    
     /// O(1)
-    public mutating func append(value: T)
+    public mutating func append(_ value: T)
     {
         let node = LinkedListNode(value: value)
         
@@ -136,7 +72,7 @@ public struct LinkedList<T>
     }
     
     /// O(1)
-    public mutating func insertFirst(value: T)
+    public mutating func insertFirst(_ value: T)
     {
         let node = LinkedListNode(value: value)
         
@@ -216,8 +152,86 @@ public struct LinkedList<T>
             current = current!.next
         }
     }
+    
+    /// 0(1)
+    mutating func removeAll()
+    {
+        _head = nil
+        _tail = nil
+        _count = 0
+    }
 }
 
+// MARK: - Collection
+extension LinkedList: Collection
+{
+    public var startIndex: Int { return 0 }
+    public var endIndex: Int { return _count }
+    
+    /// O(n) where n == index
+    /// O(1) if index == 0 or index == (_count - 1)
+    public subscript(_ index: Int) -> T {
+        get {
+            guard index >= 0 && index < _count else { fatalError("Index is out of bounds") }
+            
+            guard index > 0 else {
+                return first!
+            }
+            
+            guard index < (_count - 1) else {
+                return last!
+            }
+            
+            var current = _head
+            var count = 0
+            
+            while current != nil {
+                if index == count {
+                    return current!.value
+                }
+                
+                count += 1
+                current = current!.next
+            }
+            
+            fatalError("Index is out of bounds")
+        }
+        
+        set {
+            guard index >= 0 && index < _count else { fatalError("Index is out of bounds") }
+            
+            guard index > 0 else {
+                _head?.value = newValue
+                return
+            }
+            
+            guard index < (_count - 1) else {
+                _tail?.value = newValue
+                return
+            }
+            
+            var current = _head
+            var count = 0
+            
+            while current != nil {
+                if index == count {
+                    current!.value = newValue
+                }
+                
+                count += 1
+                current = current!.next
+            }
+        }
+    }
+    
+    public func index(after i: Int) -> Int
+    {
+        guard i < endIndex else { fatalError("Cannot increment endIndex") }
+        return i + 1
+    }
+}
+
+// MARK: - String Convertible
 extension LinkedList: CustomStringConvertible, CustomDebugStringConvertible
 {
     public var description: String {
