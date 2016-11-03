@@ -67,11 +67,11 @@ func setTextWithSpacing(_ text: String?, characterSpacing: CGFloat, lineSpacing:
 #### UIDevice
 
 ```swift
-var version: Float // .systemVersion as float
-var isPhone: Bool 
-var isPad: Bool
-var isRetina: Bool
-var size: CGSize // UIScreen size
+UIDevice.current.version // .systemVersion as Float
+UIDevice.current.isPhone
+UIDevice.current.isPad
+UIDevice.current.isRetina
+UIDevice.current.size // UIScreen size
 ```
 
 #### UIImage
@@ -83,7 +83,7 @@ func applyingLightEffect() -> UIImage?
 func applyingExtraLightEffect() -> UIImage?
 func applyingDarkEffect() -> UIImage?
 func applyingTintEffect(with color: UIColor) -> UIImage?
-func applyingBlur(withRadius radius: CGFloat, ...) -> UIImage?
+func applyingBlur(withRadius radius: CGFloat, tintColor: UIColor?, ...) -> UIImage?
 ```
 
 ## Foundation
