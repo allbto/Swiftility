@@ -88,7 +88,7 @@
 		688D2779A8063C0E3986456A /* Pods_SwiftilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0A0C6F1CA439B000DC7335 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		9D1CEDF11C1ECA2D006A88C8 /* Swiftility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swiftility.h; sourceTree = "<group>"; };
+		9D1CEDF41C1ECA2D006A88C8 /* Swiftility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Swiftility.h; path = Swiftility/Swiftility.h; sourceTree = SOURCE_ROOT; };
 		9D1CEDF61C1ECA2D006A88C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1CEDFB1C1ECA2D006A88C8 /* SwiftilityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftilityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1CEE001C1ECA2D006A88C8 /* SwiftilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftilityTests.swift; sourceTree = "<group>"; };
