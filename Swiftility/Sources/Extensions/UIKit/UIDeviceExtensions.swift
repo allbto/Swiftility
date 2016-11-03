@@ -36,7 +36,7 @@ extension UIDevice
 // MARK: - Size
 extension UIDevice
 {
-    public enum DeviceSize: CGFloat
+    public enum DeviceSize: CGFloat, Equatable, Comparable
     {
         case inches_3_5 = 480
         case inches_4 = 568
