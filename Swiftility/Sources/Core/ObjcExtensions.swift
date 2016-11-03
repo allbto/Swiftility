@@ -11,7 +11,7 @@ import Foundation
 // MARK: Swizzle
 extension ObjC
 {
-    public func swizzle(_ originalSelector: Selector, with swizzleSelector: Selector, on object: AnyClass)
+    public static func swizzle(_ originalSelector: Selector, with swizzleSelector: Selector, on object: AnyClass)
     {
         let originalMethod = class_getInstanceMethod(object, originalSelector)
         let swizzleMethod = class_getInstanceMethod(object, swizzleSelector)
