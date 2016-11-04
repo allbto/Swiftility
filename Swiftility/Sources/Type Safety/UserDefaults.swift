@@ -25,25 +25,25 @@ extension UserDefaults
         }
     }
     
-    open func object(forKey defaultName: Key) -> Any? { return self.object(forKey: defaultName.rawValue) }
-    open func string(forKey defaultName: Key) -> String? { return self.string(forKey: defaultName.rawValue) }
-    open func array(forKey defaultName: Key) -> [Any]? { return self.array(forKey: defaultName.rawValue) }
-    open func data(forKey defaultName: Key) -> Data? { return self.data(forKey: defaultName.rawValue) }
-    open func stringArray(forKey defaultName: Key) -> [String]? { return self.stringArray(forKey: defaultName.rawValue) }
-    open func integer(forKey defaultName: Key) -> Int { return self.integer(forKey: defaultName.rawValue) }
-    open func float(forKey defaultName: Key) -> Float { return self.float(forKey: defaultName.rawValue) }
-    open func double(forKey defaultName: Key) -> Double { return self.double(forKey: defaultName.rawValue) }
-    open func bool(forKey defaultName: Key) -> Bool { return self.bool(forKey: defaultName.rawValue) }
-    open func url(forKey defaultName: Key) -> URL? { return self.url(forKey: defaultName.rawValue) }
-    open func dictionary(forKey defaultName: Key) -> [String : Any]? { return self.dictionary(forKey: defaultName.rawValue) }
+    open func object(for defaultName: Key) -> Any? { return self.object(forKey: defaultName.rawValue) }
+    open func string(for defaultName: Key) -> String? { return self.string(forKey: defaultName.rawValue) }
+    open func array(for defaultName: Key) -> [Any]? { return self.array(forKey: defaultName.rawValue) }
+    open func data(for defaultName: Key) -> Data? { return self.data(forKey: defaultName.rawValue) }
+    open func stringArray(for defaultName: Key) -> [String]? { return self.stringArray(forKey: defaultName.rawValue) }
+    open func integer(for defaultName: Key) -> Int { return self.integer(forKey: defaultName.rawValue) }
+    open func float(for defaultName: Key) -> Float { return self.float(forKey: defaultName.rawValue) }
+    open func double(for defaultName: Key) -> Double { return self.double(forKey: defaultName.rawValue) }
+    open func bool(for defaultName: Key) -> Bool { return self.bool(forKey: defaultName.rawValue) }
+    open func url(for defaultName: Key) -> URL? { return self.url(forKey: defaultName.rawValue) }
+    open func dictionary(for defaultName: Key) -> [String : Any]? { return self.dictionary(forKey: defaultName.rawValue) }
     
-    open func removeObject(forKey defaultName: Key) { self.removeObject(forKey: defaultName.rawValue) }
-    open func set(_ value: Any?, forKey defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
-    open func set(_ value: Int, forKey defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
-    open func set(_ value: Float, forKey defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
-    open func set(_ value: Double, forKey defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
-    open func set(_ value: Bool, forKey defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
-    open func set(_ url: URL?, forKey defaultName: Key) { self.set(url, forKey: defaultName.rawValue) }
+    open func removeObject(for defaultName: Key) { self.removeObject(forKey: defaultName.rawValue) }
+    open func set(_ value: Any?, for defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
+    open func set(_ value: Int, for defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
+    open func set(_ value: Float, for defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
+    open func set(_ value: Double, for defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
+    open func set(_ value: Bool, for defaultName: Key) { self.set(value, forKey: defaultName.rawValue) }
+    open func set(_ url: URL?, for defaultName: Key) { self.set(url, forKey: defaultName.rawValue) }
     
     open func register(defaults registrationDictionary: [Key : Any])
     {
