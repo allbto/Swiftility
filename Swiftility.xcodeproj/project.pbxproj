@@ -250,7 +250,7 @@
 				9D0C3B691DC8AB72005F5A5D /* Private */,
 				9D0C3B671DC8AB4F005F5A5D /* Core */,
 				9D1CEE5D1C1ECCB2006A88C8 /* Extensions */,
-				9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */,
+				9DBD884C1C5ADE6F00A75331 /* Type Safety */,
 				9D1CEE7C1C1ECCB2006A88C8 /* Types */,
 				9D3E56311DACF26D00F94485 /* DataStructure */,
 			);
@@ -381,7 +381,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		9DBD884C1C5ADE6F00A75331 /* Type Safe UIKit */ = {
+		9DBD884C1C5ADE6F00A75331 /* Type Safety */ = {
 			isa = PBXGroup;
 			children = (
 				9DBD88571C5AEA6A00A75331 /* MVVM.swift */,
@@ -393,7 +393,7 @@
 				9DBD884F1C5ADEC600A75331 /* UIViewController.swift */,
 				9DEF6B901DC8B89D00572C30 /* UserDefaults.swift */,
 			);
-			path = "Type Safe UIKit";
+			path = "Type Safety";
 			sourceTree = "<group>";
 		};
 		F3A7C224DC712AEEF84C3B7C /* Frameworks */ = {
