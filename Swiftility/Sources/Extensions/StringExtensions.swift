@@ -71,6 +71,12 @@ extension String
         return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
     }
     
+    /// Determine if self is a valid email by matching it against regex /[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}/
+    /// Check http://emailregex.com/ for more info.
+    public var isValidEmail: Bool {
+        return self.match(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}")
+    }
+    
     // MARK: - Range
     
     /// Transforms an NSRange into a Range<Index> if possible
