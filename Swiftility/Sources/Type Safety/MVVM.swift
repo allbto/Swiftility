@@ -14,6 +14,16 @@ public protocol ViewModelController
     var viewModel: VM! { get set }
 }
 
+extension ViewModelController where Self: UIViewController
+{
+    public init(viewModel: Self.VM)
+    {
+        self.init()
+        
+        self.viewModel = viewModel
+    }
+}
+
 extension FromStoryboard where Self: UIViewController, Self: ViewModelController
 {
     public static func instantiateFromStoryboard(viewModel: Self.VM) -> Self
