@@ -56,6 +56,7 @@
 		9D80571E1DD4A9DA0027ED81 /* UIViewAutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80571D1DD4A9DA0027ED81 /* UIViewAutoLayoutExtensions.swift */; };
 		9D8057201DD4AA1C0027ED81 /* UIViewFrameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80571F1DD4AA1C0027ED81 /* UIViewFrameExtensions.swift */; };
 		9D8057231DD4B0280027ED81 /* UIViewAutoLayoutExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8057221DD4B0280027ED81 /* UIViewAutoLayoutExtensionsTests.swift */; };
+		9D8057251DD4B6F10027ED81 /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8057241DD4B6F10027ED81 /* CGExtensions.swift */; };
 		9D8AB0C91D2BE2360034A0B9 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */; };
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
@@ -144,6 +145,7 @@
 		9D80571D1DD4A9DA0027ED81 /* UIViewAutoLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAutoLayoutExtensions.swift; sourceTree = "<group>"; };
 		9D80571F1DD4AA1C0027ED81 /* UIViewFrameExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewFrameExtensions.swift; sourceTree = "<group>"; };
 		9D8057221DD4B0280027ED81 /* UIViewAutoLayoutExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAutoLayoutExtensionsTests.swift; sourceTree = "<group>"; };
+		9D8057241DD4B6F10027ED81 /* CGExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
 		9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
@@ -321,6 +323,7 @@
 				9DFF05B11C4D1B35009966FB /* UIScrollViewExtensions.swift */,
 				9D1CEEAE1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift */,
 				9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */,
+				9D8057241DD4B6F10027ED81 /* CGExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */,
 				9D1CEEBE1C1ECD64006A88C8 /* UIViewExtensions.swift in Sources */,
 				9D3E56331DACF28800F94485 /* LinkedList.swift in Sources */,
+				9D8057251DD4B6F10027ED81 /* CGExtensions.swift in Sources */,
 				9D1CEEBD1C1ECD64006A88C8 /* UIViewControllerExtensions.swift in Sources */,
 				9D1CEEB21C1ECD64006A88C8 /* DateExtensions.swift in Sources */,
 				9D4331691D92A59E00E70A95 /* ObjC.m in Sources */,
