@@ -72,7 +72,9 @@ extension UIView
         
         return constraint
     }
-    
+
+    // MARK: - Convenience
+
     /// Calls .autoPin for array of attributes
     ///
     /// Examples:
@@ -108,17 +110,22 @@ extension UIView
         return constraints
     }
     
-    // MARK: - Convenience
-    
     /// Calls .autoPin for .top, .trailing, .bottom, .leading constraints
+    ///
+    /// - parameter edges:      Edges to item
+    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    ///
+    /// - returns: Newly created constraints (discardable)
     @discardableResult
-    public func autoPinEdges(_ edges: UIEdgeInsets = .zero) -> [NSLayoutConstraint]
+    public func autoPinEdges(
+        _ edges: UIEdgeInsets = .zero,
+        toItem: Any? = false) -> [NSLayoutConstraint]
     {
         return [
-            self.autoPin(.top, constant: edges.top),
-            self.autoPin(.trailing, constant: -edges.right),
-            self.autoPin(.bottom, constant: -edges.bottom),
-            self.autoPin(.leading, constant: edges.left),
+            self.autoPin(.top, toItem: toItem, constant: edges.top),
+            self.autoPin(.trailing, toItem: toItem, constant: -edges.right),
+            self.autoPin(.bottom, toItem: toItem, constant: -edges.bottom),
+            self.autoPin(.leading, toItem: toItem, constant: edges.left),
         ]
     }
     
