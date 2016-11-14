@@ -11,7 +11,7 @@ import Foundation
 extension UIView
 {
     // MARK: AutoLayout
-
+    
     /// Adds self as subview to superview, remove autosizing mask constraint
     /// and calls constraints builder
     ///
@@ -73,25 +73,60 @@ extension UIView
         return constraint
     }
     
+    /// Calls .autoPin for array of attributes
+    ///
+    /// Examples:
+    /// view.autoPin([.top, .bottom])
+    /// -> view.autoPin(.top)
+    /// -> view.autoPin(.bottom)
+    ///
+    /// view.autoPin([.leading, .trailing], toItem: someOtherView, constant: 25)
+    /// -> view.autoPin(.leading, toItem: someOtherView, constant: 25)
+    /// -> view.autoPin(.trailing, toItem: someOtherView, constant: 25)
+    ///
+    /// - parameter attributes: Array of attributes
+    /// - parameter relatedBy:  relation. Defaults to .equal
+    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    /// - parameter multiplier: Defaults to 1
+    /// - parameter constant:   Defaults to 0
+    ///
+    /// - returns: Newly created constraints (discardable)
+    @discardableResult
+    public func autoPin(
+        _ attributes: [NSLayoutAttribute],
+        relatedBy relation: NSLayoutRelation = .equal,
+        toItem view2: Any? = false,
+        multiplier: CGFloat = 1,
+        constant c: CGFloat = 0) -> [NSLayoutConstraint]
+    {
+        var constraints = [NSLayoutConstraint]()
+        
+        for attribute in attributes {
+            constraints.append(self.autoPin(attribute, relatedBy: relation, toItem: view2, multiplier: multiplier, constant: c))
+        }
+        
+        return constraints
+    }
+    
     // MARK: - Convenience
     
-    /// Calls autoAttach and sets .top, .trailing, .bottom, .leading constraints
+    /// Calls .autoPin for .top, .trailing, .bottom, .leading constraints
+    @discardableResult
+    public func autoPinEdges(_ edges: UIEdgeInsets = .zero) -> [NSLayoutConstraint]
+    {
+        return [
+            self.autoPin(.top, constant: edges.top),
+            self.autoPin(.trailing, constant: -edges.right),
+            self.autoPin(.bottom, constant: -edges.bottom),
+            self.autoPin(.leading, constant: edges.left),
+        ]
+    }
+    
+    /// Calls .autoAttach and sets .top, .trailing, .bottom, .leading constraints
     public func autoAttachAndPinEdges(to superview: UIView, edges: UIEdgeInsets = .zero)
     {
         self.autoAttach(to: superview) {
-            $0.autoPin(.top, constant: edges.top)
-            $0.autoPin(.trailing, constant: -edges.right)
-            $0.autoPin(.bottom, constant: -edges.bottom)
-            $0.autoPin(.leading, constant: edges.left)
-        }
-    }
-    
-    /// Calls autoAttach and sets .centerX and .centerY constraints
-    public func autoAttachAndCenter(in superview: UIView)
-    {
-        self.autoAttach(to: superview) {
-            $0.autoPin(.centerX)
-            $0.autoPin(.centerY)
+            $0.autoPinEdges(edges)
         }
     }
 }
