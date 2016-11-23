@@ -136,4 +136,26 @@ extension UIView
             $0.autoPinEdges(edges)
         }
     }
+    
+    /// Calls .autoPin for .centerX, .centerY constraints
+    ///
+    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    ///
+    /// - returns: Newly created constraints (discardable)
+    @discardableResult
+    public func autoPinCenter(toItem: Any? = false) -> [NSLayoutConstraint]
+    {
+        return [
+            self.autoPin(.centerX, toItem: toItem),
+            self.autoPin(.centerY, toItem: toItem),
+        ]
+    }
+    
+    /// Calls .autoAttach and sets .centerX, .centerY constraints
+    public func autoAttachAndCenter(in superview: UIView)
+    {
+        self.autoAttach(to: superview) {
+            $0.autoPinCenter()
+        }
+    }
 }
