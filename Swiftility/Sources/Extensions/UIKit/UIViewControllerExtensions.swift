@@ -168,7 +168,7 @@ extension UIViewController
         }
     }
     
-    func sw_viewDidLoad()
+    @objc private func sw_viewDidLoad()
     {
         viewHasLoaded = true
         
@@ -182,7 +182,7 @@ extension UIViewController
         }
     }
     
-    func sw_viewWillAppear(_ animated: Bool)
+    @objc private func sw_viewWillAppear(_ animated: Bool)
     {
         self.sw_viewWillAppear(animated)
         
@@ -192,7 +192,7 @@ extension UIViewController
         }
     }
     
-    func sw_viewWillDisappear(_ animated: Bool)
+    @objc private func sw_viewWillDisappear(_ animated: Bool)
     {
         self.sw_viewWillDisappear(animated)
         
@@ -201,14 +201,14 @@ extension UIViewController
         }
     }
     
-    func sw_viewDidAppear(_ animated: Bool)
+    @objc private func sw_viewDidAppear(_ animated: Bool)
     {
         viewHasAppeared = true
         
         self.sw_viewDidAppear(animated)
     }
     
-    func sw_viewDidDisappear(_ animated: Bool)
+    @objc private func sw_viewDidDisappear(_ animated: Bool)
     {
         viewHasAppeared = false
         
