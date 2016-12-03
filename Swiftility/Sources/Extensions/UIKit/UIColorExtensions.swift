@@ -12,6 +12,7 @@ import UIKit
 // MARK: - Better RGBA inits
 extension UIColor
 {
+    /// Instantiate UIColor with hexadecimal number such as 0xFFFFFF for white or 0x000000 for black
     public convenience init(_ hex: Int, withAlpha alpha: CGFloat = 1.0)
     {
         let components = (
@@ -23,6 +24,8 @@ extension UIColor
         self.init(red: components.R, green: components.G, blue: components.B, alpha: alpha)
     }
     
+    /// Instantiate UIColor with hexadecimal number as String such as "FFFFFF" for white or "000000" for black
+    /// # is ignored such as "#FFFFFF" == "FFFFFF" == 0xFFFFFF
     public convenience init(_ hexString: String, alpha: CGFloat = 1.0)
     {
         // Replace '#' if found
@@ -63,14 +66,12 @@ extension UIColor
     
     public var rgbValue: String {
         let components = rgbComponents
-        
-        return String(format: "#%02x%02x%02x", Int(components.red * 255), Int(components.green * 255), Int(components.blue * 255))
+        return String(format: "%02x%02x%02x", Int(components.red * 255), Int(components.green * 255), Int(components.blue * 255))
     }
     
     public var rgbaValue: String {
         let components = rgbComponents
-
-        return String(format: "#%02x%02x%02x%02x", Int(components.red * 255), Int(components.green * 255), Int(components.blue * 255), Int(components.alpha * 255) )
+        return String(format: "%02x%02x%02x%02x", Int(components.red * 255), Int(components.green * 255), Int(components.blue * 255), Int(components.alpha * 255) )
     }
 }
 
