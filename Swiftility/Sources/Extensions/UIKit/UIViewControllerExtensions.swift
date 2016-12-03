@@ -49,14 +49,13 @@ extension UIViewController
 // MARK: - Keyboard
 extension UIViewController
 {
-    /// Update closure, params are keyboard size and the keyboard notification
-    public typealias KeyboardUpdateClosure = ((CGSize, Notification) -> Void)
-
-    /**
-    Subscribe to keyboard updates notifications.
+    public typealias KeyboardUpdateClosure = ((_ size: CGSize, _ notification: Notification) -> Void)
     
-    - parameter update: Closure called when keyboard change frame or hide. One can update constraints and then call self.animateWithKeyboard with the notification.
-    */
+    /**
+     Subscribe to keyboard updates notifications.
+     
+     - parameter update: Closure called when keyboard change frame or hide. One can update constraints and then call self.animate(withKeyboardNotification:)
+     */
     public func observeKeyboardChanges(_ update: @escaping KeyboardUpdateClosure) -> [NSObjectProtocol]
     {
         return NotificationCenter
