@@ -13,26 +13,33 @@ import ObjectiveC
 extension UIViewController
 {
     public typealias UIAlertControllerButtonHandler = ((UIAlertAction) -> Void)
-    public typealias UIAlertControllerCompletion = (() -> Void)
     
-    public func alert(_ message: String, title: String? = nil, handler: UIAlertControllerButtonHandler? = nil)
+    public func alert(_ message: String,
+                      title: String? = nil,
+                      cancelTitle: String = "OK",
+                      cancelHandler: UIAlertControllerButtonHandler? = nil)
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: handler)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: cancelHandler)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
     }
     
-    public func ask(_ message: String, title: String? = nil, actionTitle: String = "OK", action: UIAlertControllerButtonHandler? = nil)
+    public func ask(_ message: String,
+                    title: String? = nil,
+                    okTitle: String = "OK",
+                    cancelTitle: String = "Cancel",
+                    okHandler: UIAlertControllerButtonHandler? = nil,
+                    cancelHandler: UIAlertControllerButtonHandler? = nil)
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
         alertController.addAction(cancelAction)
         
-        let okAction = UIAlertAction(title: actionTitle, style: .default, handler: action)
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okHandler)
         alertController.addAction(okAction)
         
         self.present(alertController, animated: true, completion: nil)
