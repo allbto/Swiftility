@@ -61,6 +61,7 @@
 		9D95CA831C21B81A005C6B01 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA821C21B81A005C6B01 /* Regex.swift */; };
 		9D95CA851C21BCD9005C6B01 /* Swiftility.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */; };
 		9D95CA871C21BF8B005C6B01 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95CA861C21BF8B005C6B01 /* RegexTests.swift */; };
+		9DB127EA1E0C2F3500C3D181 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB127E91E0C2F3500C3D181 /* UILabelExtensions.swift */; };
 		9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD884D1C5ADE6F00A75331 /* Storyboard.swift */; };
 		9DBD88501C5ADEC600A75331 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD884F1C5ADEC600A75331 /* UIViewController.swift */; };
 		9DBD88521C5ADFD100A75331 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBD88511C5ADFD100A75331 /* UIView.swift */; };
@@ -150,6 +151,7 @@
 		9D95CA821C21B81A005C6B01 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		9D95CA841C21BCD9005C6B01 /* Swiftility.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Swiftility.podspec; sourceTree = SOURCE_ROOT; };
 		9D95CA861C21BF8B005C6B01 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		9DB127E91E0C2F3500C3D181 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 		9DBD884D1C5ADE6F00A75331 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		9DBD884F1C5ADEC600A75331 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9DBD88511C5ADFD100A75331 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				9D1CEEAE1C1ECD64006A88C8 /* UITabBarControllerExtensions.swift */,
 				9D1CEEAF1C1ECD64006A88C8 /* UIViewControllerExtensions.swift */,
 				9D8057241DD4B6F10027ED81 /* CGExtensions.swift */,
+				9DB127E91E0C2F3500C3D181 /* UILabelExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				9D1CEEB21C1ECD64006A88C8 /* DateExtensions.swift in Sources */,
 				9D4331691D92A59E00E70A95 /* ObjC.m in Sources */,
 				9DBD884E1C5ADE6F00A75331 /* Storyboard.swift in Sources */,
+				9DB127EA1E0C2F3500C3D181 /* UILabelExtensions.swift in Sources */,
 				9D1CEE821C1ECCB2006A88C8 /* ArrayExtensions.swift in Sources */,
 				9D1CEEBB1C1ECD64006A88C8 /* UIPageViewControllerExtensions.swift in Sources */,
 				9DBD885A1C5AEAA600A75331 /* Nib.swift in Sources */,
