@@ -277,7 +277,6 @@
 				9D8AB0C81D2BE2360034A0B9 /* CollectionExtensions.swift */,
 				9D35C16F1D071A7400F52ECF /* DictionaryExtensions.swift */,
 				9D1CEE691C1ECCB2006A88C8 /* StringExtensions.swift */,
-				9DB127EB1E0C30DB00C3D181 /* Operation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +302,7 @@
 		9D1CEEA21C1ECD64006A88C8 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				9DB127EB1E0C30DB00C3D181 /* Operation.swift */,
 				9D1CEEA31C1ECD64006A88C8 /* DateExtensions.swift */,
 				9D1CEEA41C1ECD64006A88C8 /* NotificationCenterExtensions.swift */,
 				9D1CEE7F1C1ECCB2006A88C8 /* WeakTimer.swift */,
