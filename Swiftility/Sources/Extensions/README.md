@@ -1,6 +1,39 @@
 
 # Extensions
 
+## Swift
+
+#### String
+
+```swift
+"Hello!".length                 -> 6
+"Hello!"[0]                     -> "H"
+"Hello!"[0 ..< 3]               -> "Hel"
+
+"     Hello!     ".trimmed()    -> "Hello!"
+"Hello!".truncated(3)           -> "Hel"
+"Hello World!".words            -> ["Hello", "World"]
+
+"allan@test.com".isValidEmail   -> true
+"allan.com".isValidEmail        -> false
+
+"My Name&urlInjection=true".urlEncoded() -> "My%20Name%26urlInjection%3Dtrue"
+```
+
+#### Array
+
+```swift
+[1, 2, 3].get(0)  -> Optional(1)
+[1, 2, 3].get(42) -> nil
+
+var a = ["Hello", "World", "123"]
+a.remove("123")
+a -> ["Hello", "World"]
+
+// Map + remove nil value. Doesn't flatern if multiple level of array like flatMap
+["Hello", "World", nil, "Sup?", nil].optionalMap { $0?.uppercased() } -> ["HELLO", "WORLD", "SUP?"]
+```
+
 ## UIKit
 
 #### UIColor
@@ -11,13 +44,12 @@ Init color with hexadecimal value or real RGB (no more XX/255)
 UIColor("#FF00FF")
 UIColor(0xFF00FF)
 UIColor(realRed: 255, green: 0, blue: 255)
-```
 
-Get color hexadecimal string
+UIColor.white.rgbValue  -> "FFFFFF"
+UIColor.clear.rgbaValue -> "FFFFFF00"
 
-```swift
-UIColor.white.rgbValue  -> "#FFFFFF"
-UIColor.clear.rgbaValue -> "#FFFFFF00"
+UIColor.white.brightness -> 1
+UIColor.black.brightness -> 0
 ```
 
 Adjust color
@@ -51,9 +83,15 @@ Show UIAlertController with message and title
 
 ```swift
 self.alert("Something's wrong", title: "Oups!")
-self.ask("Are you sure you want to delete this?", title: "Really?") {
-    // Ok action handling
-}
+self.ask(
+    "Are you sure you want to delete this?",
+    title: "Really?",
+    okTitle: "Sure!",
+    cancelTitle: "Nah",
+    okHandler: { action in
+        // Ok action handling
+    }
+)
 ```
 
 #### Spacing
