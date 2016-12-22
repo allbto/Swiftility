@@ -38,6 +38,13 @@ extension String
     
     // MARK: - Utils
     
+    public func truncated(_ length: Int) -> String
+    {
+        guard length >= 0 && length < self.length else { return self }
+        
+        return self[0 ..< length]
+    }
+    
     /// Returns trimmed string (remove newlines and whitespaces at the beginning and the end)
     public func trimmed(set: CharacterSet = .whitespacesAndNewlines) -> String
     {
