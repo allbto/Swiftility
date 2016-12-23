@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ConcurrentOperation: Operation
+open class ConcurrentOperation: Operation
 {
-    override var isAsynchronous: Bool {
+    override open var isAsynchronous: Bool {
         return true
     }
     
@@ -23,7 +23,7 @@ class ConcurrentOperation: Operation
         }
     }
     
-    override var isExecuting: Bool {
+    override open var isExecuting: Bool {
         return _executing
     }
     
@@ -37,22 +37,22 @@ class ConcurrentOperation: Operation
         }
     }
     
-    override var isFinished: Bool {
+    override open var isFinished: Bool {
         return _finished
     }
     
-    override func start()
+    override open func start()
     {
         _executing = true
         execute()
     }
     
-    func execute()
+    open func execute()
     {
         // Execute your async task here.
     }
     
-    func finish()
+    open func finish()
     {
         _executing = false
         _finished = true
