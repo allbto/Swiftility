@@ -24,7 +24,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
     
     func testAutoAttach()
     {
-        view.autoAttach(to: superview) { _ in }
+        view.autoAttach(to: superview)
         
         XCTAssert(view.superview == superview)
         XCTAssert(view.translatesAutoresizingMaskIntoConstraints == false)
@@ -52,6 +52,17 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint.relation, .equal)
         XCTAssertEqual((constraint.secondItem as! UIView), superview)
         XCTAssertEqual(constraint.secondAttribute, .top)
+        XCTAssertEqual(constraint.multiplier, 1)
+        XCTAssertEqual(constraint.constant, 0)
+        XCTAssertEqual(constraint.priority, UILayoutPriorityRequired)
+        
+        constraint = view.autoPin(.bottom)
+        
+        XCTAssertEqual((constraint.firstItem as! UIView), view)
+        XCTAssertEqual(constraint.firstAttribute, .bottom)
+        XCTAssertEqual(constraint.relation, .equal)
+        XCTAssertEqual((constraint.secondItem as! UIView), superview)
+        XCTAssertEqual(constraint.secondAttribute, .bottom)
         XCTAssertEqual(constraint.multiplier, 1)
         XCTAssertEqual(constraint.constant, 0)
         XCTAssertEqual(constraint.priority, UILayoutPriorityRequired)

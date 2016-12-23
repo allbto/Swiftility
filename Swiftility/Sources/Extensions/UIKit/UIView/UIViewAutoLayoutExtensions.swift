@@ -12,36 +12,46 @@ extension UIView
 {
     // MARK: AutoLayout
     
-    /// Adds self as subview to superview, remove autosizing mask constraint
-    /// and calls constraints builder
+    /// Adds `self` as subview to `superview`, removes autosizing mask constraints
+    /// and calls constraints `builder` if needed
     ///
     /// Example usage:
+    /// ```
     /// let label = UILabel()
     /// label.autoAttach(to: someView) {
     ///     $0.autoPin(.centerX)
     ///     $0.autoPin(.top, constant: 25)
     /// }
-    public func autoAttach(to superview: UIView, builder: (_ view: UIView) -> Void)
+    /// ```
+    ///
+    /// - parameter superview:  Superview to attach to
+    /// - parameter builder:    Optional constraints builder
+    ///
+    public func autoAttach(to superview: UIView, builder: ((_ view: UIView) -> Void)? = nil)
     {
         self.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(self)
-        builder(self)
+        builder?(self)
     }
     
-    /// Creates constraint and add it to the superview
-    /// Simplifies creation of NSLayoutConstraint by assinging default values
+    /// Creates a NSLayoutConstraint and adds it to `self.superview`.
+    /// Simplifies creation of constraint by assinging default values.
+    ///
+    /// `self` must be contained within a superview.
     ///
     /// Examples:
+    /// ```
     /// view.autoPin(.top)
     /// -> NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: view.superview!, attribute: .top, multiplier: 1, constant: 0)
     ///
     /// view.autoPin(.leading, toItem: someOtherView, toAttribute: .trailing, constant: 25)
     /// -> NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: someOtherView, attribute: .trailing, multiplier: 1, constant: 25)
+    /// ```
     ///
-    /// - parameter attribute:  first attribute (.top, .leading, ...)
-    /// - parameter relatedBy:  relation. Defaults to .equal
-    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
-    /// - parameter toAttribute:second attribute. If (toItem: nil), defaults to .notAnAttribute. If nil defaults to first attribute.
+    /// - parameter attribute:  First attribute (.top, .leading, ...)
+    /// - parameter relatedBy:  Defaults to .equal
+    /// - parameter toItem:     Second view. If not provided, defaults to superview. If nil, stays nil
+    /// - parameter toAttribute:Second attribute. If (toItem: nil), defaults to .notAnAttribute. If nil, defaults to first attribute.
     /// - parameter multiplier: Defaults to 1
     /// - parameter constant:   Defaults to 0
     /// - parameter priority:   Defaults to UILayoutPriorityRequired
@@ -50,21 +60,21 @@ extension UIView
     @discardableResult
     public func autoPin(
         _ attribute: NSLayoutAttribute,
-        relatedBy relation: NSLayoutRelation = .equal,
-        toItem view2: Any? = false,
-        toAttribute attr2: NSLayoutAttribute? = nil,
+        relatedBy: NSLayoutRelation = .equal,
+        toItem: Any? = false,
+        toAttribute: NSLayoutAttribute? = nil,
         multiplier: CGFloat = 1,
-        constant c: CGFloat = 0,
+        constant: CGFloat = 0,
         priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint
     {
         guard let superview = self.superview else {
-            sw_fatalError("Must be added to a superview")
+            sw_fatalError("View must be contained within a superview")
         }
         
-        let view2 = view2 is Bool ? superview : view2
-        let attr2 = view2 == nil ? .notAnAttribute : (attr2 ?? attribute)
+        let toItem = toItem is Bool ? superview : toItem
+        let toAttribute = toItem == nil ? .notAnAttribute : (toAttribute ?? attribute)
         
-        let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relation, toItem: view2, attribute: attr2, multiplier: multiplier, constant: c)
+        let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: relatedBy, toItem: toItem, attribute: toAttribute, multiplier: multiplier, constant: constant)
         
         constraint.priority = priority
         
@@ -78,6 +88,7 @@ extension UIView
     /// Calls .autoPin for array of attributes
     ///
     /// Examples:
+    /// ```
     /// view.autoPin([.top, .bottom])
     /// -> view.autoPin(.top)
     /// -> view.autoPin(.bottom)
@@ -85,10 +96,11 @@ extension UIView
     /// view.autoPin([.leading, .trailing], toItem: someOtherView, constant: 25)
     /// -> view.autoPin(.leading, toItem: someOtherView, constant: 25)
     /// -> view.autoPin(.trailing, toItem: someOtherView, constant: 25)
+    /// ```
     ///
     /// - parameter attributes: Array of attributes
-    /// - parameter relatedBy:  relation. Defaults to .equal
-    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    /// - parameter relatedBy:  Defaults to .equal
+    /// - parameter toItem:     Second view. If not provided, defaults to superview. If nil, stays nil
     /// - parameter multiplier: Defaults to 1
     /// - parameter constant:   Defaults to 0
     ///
@@ -96,15 +108,15 @@ extension UIView
     @discardableResult
     public func autoPin(
         _ attributes: [NSLayoutAttribute],
-        relatedBy relation: NSLayoutRelation = .equal,
-        toItem view2: Any? = false,
+        relatedBy: NSLayoutRelation = .equal,
+        toItem: Any? = false,
         multiplier: CGFloat = 1,
-        constant c: CGFloat = 0) -> [NSLayoutConstraint]
+        constant: CGFloat = 0) -> [NSLayoutConstraint]
     {
         var constraints = [NSLayoutConstraint]()
         
         for attribute in attributes {
-            constraints.append(self.autoPin(attribute, relatedBy: relation, toItem: view2, multiplier: multiplier, constant: c))
+            constraints.append(self.autoPin(attribute, relatedBy: relatedBy, toItem: toItem, multiplier: multiplier, constant: constant))
         }
         
         return constraints
@@ -113,7 +125,7 @@ extension UIView
     /// Calls .autoPin for .top, .trailing, .bottom, .leading constraints
     ///
     /// - parameter edges:      Edges to item
-    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    /// - parameter toItem:     Second view. If not provided, defaults to superview. If nil, stays nil
     ///
     /// - returns: Newly created constraints (discardable)
     @discardableResult
@@ -130,6 +142,9 @@ extension UIView
     }
     
     /// Calls .autoAttach and sets .top, .trailing, .bottom, .leading constraints
+    ///
+    /// - parameter superview:  Superview to attach to
+    /// - parameter edges:      Edges to item
     public func autoAttachAndPinEdges(to superview: UIView, edges: UIEdgeInsets = .zero)
     {
         self.autoAttach(to: superview) {
@@ -139,7 +154,7 @@ extension UIView
     
     /// Calls .autoPin for .centerX, .centerY constraints
     ///
-    /// - parameter toItem:     second view. If not provided, defaults to superview, if nil stays nil
+    /// - parameter toItem:     Second view. If not provided, defaults to superview. If nil, stays nil
     ///
     /// - returns: Newly created constraints (discardable)
     @discardableResult
@@ -152,6 +167,8 @@ extension UIView
     }
     
     /// Calls .autoAttach and sets .centerX, .centerY constraints
+    ///
+    /// - parameter superview:  Superview to attach to
     public func autoAttachAndCenter(in superview: UIView)
     {
         self.autoAttach(to: superview) {
