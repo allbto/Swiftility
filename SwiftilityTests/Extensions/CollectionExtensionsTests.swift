@@ -15,9 +15,9 @@ class CollectionExtensionsTests: XCTestCase
     func testMapOptional()
     {
         let arr: [Int?] = [1, nil, 0, 12, nil, 0, 2]
-        let arrCleaned = arr.mapOptional({ $0 })
+        let arrCleaned = arr.optionalMap({ $0 })
 
         XCTAssert(arrCleaned == [1, 0, 12, 0, 2])
-        XCTAssert(arrCleaned.mapOptional({ $0 > 1 ? $0 : nil }) == [12, 2])
+        XCTAssert(arrCleaned.optionalMap({ $0 > 1 ? $0 : nil }) == [12, 2])
     }
 }
