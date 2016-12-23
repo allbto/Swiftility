@@ -30,11 +30,36 @@ var a = ["Hello", "World", "123"]
 a.remove("123")
 a -> ["Hello", "World"]
 
-// Map + remove nil value. Doesn't flatern if multiple level of array like flatMap
+// Map + remove nil values. Doesn't flatten if multiple level of array like flatMap does
 ["Hello", "World", nil, "Sup?", nil].optionalMap { $0?.uppercased() } -> ["HELLO", "WORLD", "SUP?"]
 ```
 
 ## UIKit
+
+#### UIView
+
+AutoLayout Helpers
+
+```swift
+let subview = UIView()
+
+subview.autoAttach(to: superview) {
+    $0.autoPin(.centerX)
+    $0.autoPin(.top, constant: 25)
+    $0.autoPin([.width, .height], toItem: nil, constant: 50)
+}
+
+==
+
+superview.addConstraints([
+    NSLayoutConstraint(item: subview, attribute: .centerX, relatedBy: .equal, toItem: superview, attribute: .centerX, multiplier: 1, constant: 0),
+    NSLayoutConstraint(item: subview, attribute: .top, relatedBy: .equal, toItem: superview, attribute: .top, multiplier: 1, constant: 25),
+    NSLayoutConstraint(item: subview, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50),
+    NSLayoutConstraint(item: subview, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+])
+```
+
+[More Info](UIKit/UIView/UIViewAutoLayoutExtensions.swift)
 
 #### UIColor
 
