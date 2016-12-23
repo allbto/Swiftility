@@ -25,13 +25,13 @@ extension UIView
     /// ```
     ///
     /// - parameter superview:  Superview to attach to
-    /// - parameter builder:    Optional constraints builder
+    /// - parameter builder:    Constraints builder
     ///
-    public func autoAttach(to superview: UIView, builder: ((_ view: UIView) -> Void)? = nil)
+    public func autoAttach(to superview: UIView, builder: (_ view: UIView) -> Void)
     {
         self.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(self)
-        builder?(self)
+        builder(self)
     }
     
     /// Creates a NSLayoutConstraint and adds it to `self.superview`.
