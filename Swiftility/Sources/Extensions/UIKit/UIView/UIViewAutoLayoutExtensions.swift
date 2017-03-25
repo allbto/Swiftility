@@ -13,7 +13,7 @@ extension UIView
     // MARK: AutoLayout
     
     /// Adds `self` as subview to `superview`, removes autosizing mask constraints
-    /// and calls constraints `builder` if needed
+    /// and calls constraints `builder`
     ///
     /// Example usage:
     /// ```
@@ -32,6 +32,24 @@ extension UIView
         self.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(self)
         builder(self)
+    }
+    
+    /// Adds `self` as subview to `superview`, removes autosizing mask constraints
+    ///
+    /// Example usage:
+    /// ```
+    /// let label = UILabel()
+    /// label.autoAttach(to: someView)
+    /// label.autoPin(.centerX)
+    /// label.autoPin(.top, constant: 25)
+    /// ```
+    ///
+    /// - parameter superview:  Superview to attach to
+    ///
+    public func autoAttach(to superview: UIView)
+    {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        superview.addSubview(self)
     }
     
     /// Creates a NSLayoutConstraint and adds it to `self.superview`.
