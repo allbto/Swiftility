@@ -12,7 +12,7 @@ extension UIApplication
 {
     // MARK: - Settings
     
-    public func openSettings(options: [String : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
+    public func openSettings(options: [String: Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
     {
         let url = URL(string: UIApplicationOpenSettingsURLString)!
         
