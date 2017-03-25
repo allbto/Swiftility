@@ -12,20 +12,15 @@ extension UIApplication
 {
     // MARK: - Settings
     
-    @available(iOS, introduced: 2.0, deprecated: 10.0, message: "Please use openSettings:options:completionHandler: instead")
-    public func openSettings()
-    {
-        let url = URL(string: UIApplicationOpenSettingsURLString)!
-        
-        self.openURL(url)
-    }
-    
-    @available(iOS 10.0, *)
     public func openSettings(options: [String : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil)
     {
         let url = URL(string: UIApplicationOpenSettingsURLString)!
         
-        self.open(url, options: options, completionHandler: completion)
+        if #available(iOS 10, *) {
+            self.open(url, options: options, completionHandler: completion)
+        } else {
+            self.openURL(url)
+        }
     }
     
     // MARK: - Push notifications
