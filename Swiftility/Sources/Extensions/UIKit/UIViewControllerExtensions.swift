@@ -174,8 +174,6 @@ extension UIViewController
         
         self.sw_viewDidLoad()
         
-        self.sw_setupViews()
-        
         let observers = self.sw_setupPermanentNotificationObservers()
         if !observers.isEmpty {
             _permanentNotificationObservers = observers
@@ -228,11 +226,6 @@ extension UIViewController
     open func sw_setupPermanentNotificationObservers() -> [NSObjectProtocol]
     {
         return [] // To be overriden
-    }
-    
-    open func sw_setupViews()
-    {
-        // To be overriden
     }
     
     // MARK: - Utils
