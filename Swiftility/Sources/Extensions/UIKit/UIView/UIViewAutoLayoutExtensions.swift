@@ -121,6 +121,7 @@ extension UIView
     /// - parameter toItem:     Second view. If not provided, defaults to superview. If nil, stays nil
     /// - parameter multiplier: Defaults to 1
     /// - parameter constant:   Defaults to 0
+    /// - parameter priority:   Defaults to UILayoutPriorityRequired
     ///
     /// - returns: Newly created constraints (discardable)
     @discardableResult
@@ -129,12 +130,13 @@ extension UIView
         relatedBy: NSLayoutRelation = .equal,
         toItem: Any? = false,
         multiplier: CGFloat = 1,
-        constant: CGFloat = 0) -> [NSLayoutConstraint]
+        constant: CGFloat = 0,
+        priority: UILayoutPriority = UILayoutPriorityRequired) -> [NSLayoutConstraint]
     {
         var constraints = [NSLayoutConstraint]()
         
         for attribute in attributes {
-            constraints.append(self.autoPin(attribute, relatedBy: relatedBy, toItem: toItem, multiplier: multiplier, constant: constant))
+            constraints.append(self.autoPin(attribute, relatedBy: relatedBy, toItem: toItem, multiplier: multiplier, constant: constant, priority: priority))
         }
         
         return constraints
