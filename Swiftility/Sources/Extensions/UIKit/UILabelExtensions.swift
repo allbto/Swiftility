@@ -10,13 +10,13 @@ import Foundation
 
 extension UILabel
 {
-    /// Init label with font textColor and textAlignement
+    /// Init label with font, textColor and textAlignement
     ///
     /// - Parameters:
     ///   - font: Label font
-    ///   - textColor: default UILabel appearence textColor
+    ///   - textColor: Label color
     ///   - textAlignment: default .left
-    public convenience init(font: UIFont, textColor: UIColor = UILabel.appearance().textColor, textAlignment: NSTextAlignment = .left)
+    public convenience init(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment = .left)
     {
         self.init()
         
