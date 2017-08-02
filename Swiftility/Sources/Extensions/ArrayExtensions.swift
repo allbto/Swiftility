@@ -33,6 +33,7 @@ extension Array
      
      - returns: index of the removed element or nil if not found
      */
+    @discardableResult
     public mutating func remove<U: Equatable>(_ object: U) -> Int?
     {
         for (index, objectToCompare) in self.enumerated() {
