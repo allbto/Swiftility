@@ -12,12 +12,11 @@ extension TimeZone {
     public static var gmt: TimeZone { return TimeZone(secondsFromGMT: 0)! }
 }
 
-extension Date
-{
+extension Date {
+    
     // MARK: - Convenience
     
-    public static func from(_ date: String, format: String, locale: Locale = .current, timeZone: TimeZone = .current) -> Date?
-    {
+    public static func from(_ date: String, format: String, locale: Locale = .current, timeZone: TimeZone = .current) -> Date? {
         let formatter = DateFormatter()
         
         formatter.dateFormat = format
@@ -27,8 +26,7 @@ extension Date
         return formatter.date(from: date)
     }
     
-    public func format(_ format: String, locale: Locale = .current, timeZone: TimeZone = .current) -> String
-    {
+    public func format(_ format: String, locale: Locale = .current, timeZone: TimeZone = .current) -> String {
         let formatter = DateFormatter()
         
         formatter.dateFormat = format
@@ -38,16 +36,11 @@ extension Date
         return formatter.string(from: self)
     }
     
-    public func date(byAdding value: Int, component: Calendar.Component, calendar: Calendar = .current) -> Date?
-    {
-        var components = DateComponents()
-        
-        components.setValue(value, for: component)
-        
-        return calendar.date(byAdding: components, to: self)
+    public func date(byAdding value: Int, _ component: Calendar.Component, calendar: Calendar = .current) -> Date? {
+        return calendar.date(byAdding: component, value: value, to: self)
     }
     
-    public func date(bySetting component: Calendar.Component, value: Int, calendar: Calendar = .current) -> Date? {
+    public func date(bySetting component: Calendar.Component, to value: Int, calendar: Calendar = .current) -> Date? {
         return calendar.date(bySetting: component, value: value, of: self)
     }
     
@@ -67,4 +60,5 @@ extension Date
         
         return formatter.string(from: self)
     }
+    
 }
