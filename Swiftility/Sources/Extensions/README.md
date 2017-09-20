@@ -6,7 +6,6 @@
 #### String
 
 ```swift
-"Hello!".length                 -> 6
 "Hello!"[0]                     -> "H"
 "Hello!"[0 ..< 3]               -> "Hel"
 

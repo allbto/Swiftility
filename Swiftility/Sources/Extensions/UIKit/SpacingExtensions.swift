@@ -11,7 +11,7 @@ import UIKit
 private func _attributedSpacingString(_ text: String?,
     characterSpacing: CGFloat,
     lineSpacing: CGFloat,
-    ownAttributes: [String : Any]?,
+    ownAttributes: [NSAttributedStringKey : Any]?,
     range: NSRange?) -> NSAttributedString?
 {
     // If text is nil update label text and leave
@@ -29,7 +29,7 @@ private func _attributedSpacingString(_ text: String?,
     
     // Add character spacing if needed
     if characterSpacing != 0 {
-        attributedString.addAttribute(NSKernAttributeName, value: characterSpacing, range: range)
+        attributedString.addAttribute(.kern, value: characterSpacing, range: range)
     }
     
     // Add line spacing if needed
@@ -38,7 +38,7 @@ private func _attributedSpacingString(_ text: String?,
         
         paragraphStyle.lineSpacing = lineSpacing
         
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:range)
+        attributedString.addAttribute(.paragraphStyle, value:paragraphStyle, range:range)
     }
     
     return attributedString
@@ -61,7 +61,7 @@ extension UITextView
     public func setTextWithSpacing(_ text: String?,
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
-        ownAttributes: [String : Any]? = nil,
+        ownAttributes: [NSAttributedStringKey : Any]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
         preserveColor: Bool = true,
@@ -71,13 +71,13 @@ extension UITextView
         let alignment = self.textAlignment
         
         // Set font if needed
-        if preserveFont && attrs[NSFontAttributeName] == nil {
-            attrs[NSFontAttributeName] = self.font
+        if preserveFont && attrs[.font] == nil {
+            attrs[NSAttributedStringKey.font] = self.font
         }
         
         // Set color if needed
-        if preserveColor && attrs[NSForegroundColorAttributeName] == nil {
-            attrs[NSForegroundColorAttributeName] = self.textColor
+        if preserveColor && attrs[.foregroundColor] == nil {
+            attrs[.foregroundColor] = self.textColor
         }
         
         // Assign text
@@ -92,7 +92,7 @@ extension UITextView
     /// self.setTextWithSpacing with own text
     public func setSpacing(_ characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
-        ownAttributes: [String : Any]? = nil,
+        ownAttributes: [NSAttributedStringKey : Any]? = nil,
         range: NSRange? = nil,
         preserveFont: Bool = true,
         preserveColor: Bool = true,
@@ -125,7 +125,7 @@ extension UILabel
         characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
-        ownAttributes: [String : Any]? = nil,
+        ownAttributes: [NSAttributedStringKey : Any]? = nil,
         range: NSRange? = nil)
     {
         let alignment = self.textAlignment
@@ -143,7 +143,7 @@ extension UILabel
     public func setSpacing(characterSpacing: CGFloat = 0,
         lineSpacing: CGFloat = 0,
         preserveAlignment: Bool = true,
-        ownAttributes: [String : Any]? = nil,
+        ownAttributes: [NSAttributedStringKey : Any]? = nil,
         range: NSRange? = nil)
     {
         self.setTextWithSpacing(self.text,

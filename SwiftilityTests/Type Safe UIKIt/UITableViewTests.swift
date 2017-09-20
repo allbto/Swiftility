@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import Swiftility
 
 class UITableViewTests: XCTestCase
@@ -26,9 +27,9 @@ class UITableViewTests: XCTestCase
         
         // Dequeue cell that doesn't exists
 
-        expectFatalError("Dequeue cell that doesn't exists") {
+        expect {
             _ = tableView.dequeueReusableCell() as TestNonExistingCell
-        }
+        }.to(throwAssertion())
         
         // Dequeue cell that exists
 
@@ -52,9 +53,9 @@ class UITableViewTests: XCTestCase
         
         // Dequeue cell that doesn't exists
 
-        expectFatalError("Dequeue cell that doesn't exists") {
+        expect {
             _ = tableVC.tableView.dequeueReusableCell() as TestNonExistingCell
-        }
+        }.to(throwAssertion())
 
         // Dequeue cell that exists
 
@@ -63,9 +64,9 @@ class UITableViewTests: XCTestCase
         
         // Dequeue cell that doesn't exists forIndexPath
         
-        expectFatalError("Dequeue cell that doesn't exists") {
+        expect {
             _ = tableVC.tableView.dequeueReusableCell(for: IndexPath(row: 0, section: 0)) as TestNonExistingCell
-        }
+        }.to(throwAssertion())
         
         // Dequeue cell that exists forIndexPath
         

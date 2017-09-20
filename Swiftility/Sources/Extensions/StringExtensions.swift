@@ -11,38 +11,35 @@ import Foundation
 // MARK: - Operations
 extension String
 {
-    /// Get only String length
-    public var length: Int { return self.characters.count }
-    
     // MARK: - Subscript
     
     /// Get Character at index
-    public subscript (i: Int) -> Character {
+    public subscript (i: String.IndexDistance) -> Character {
         return self[self.index(self.startIndex, offsetBy: i)]
     }
-    
+
     /// Get Character as String at index
-    public subscript (i: Int) -> String {
+    public subscript (i: String.IndexDistance) -> String {
         return String(self[self.index(self.startIndex, offsetBy: i)])
     }
-    
-    /// Get substring at range
-    public subscript (r: Range<Int>) -> String {
+
+    /// Get Substring at range
+    public subscript (r: Range<String.IndexDistance>) -> Substring {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-            
+
             return self[startIndex..<endIndex]
         }
     }
-    
+
     // MARK: - Utils
     
     public func truncated(_ length: Int) -> String
     {
-        guard length >= 0 && length < self.length else { return self }
+        guard length >= 0 && length < self.count else { return self }
         
-        return self[0 ..< length]
+        return String(self[0..<length])
     }
     
     /// Returns trimmed string (remove newlines and whitespaces at the beginning and the end)
@@ -130,14 +127,14 @@ extension String
         options: NSStringDrawingOptions = .usesLineFragmentOrigin,
         context: NSStringDrawingContext? = nil) -> CGSize
     {
-        let attributes = [NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.font: font]
         
         return self.size(withAttributes: attributes, constraintSize: constraintSize, options: options, context: context)
     }
     
     /// Conveniance call to NSString.boundingRect
     public func size(withAttributes
-        attributes: [String: Any],
+        attributes: [NSAttributedStringKey: Any],
         constraintSize: CGSize,
         options: NSStringDrawingOptions = .usesLineFragmentOrigin,
         context: NSStringDrawingContext? = nil) -> CGSize

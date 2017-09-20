@@ -12,19 +12,6 @@ import XCTest
 
 class StringExtensionsTests: XCTestCase
 {
-    func testLength()
-    {
-        let str = "123"
-        
-        XCTAssert(str.length == 3)
-        XCTAssert(str.length == str.characters.count)
-        
-        let strEmoji = "😀😬🙏👽"
-        
-        XCTAssert(strEmoji.length == 4)
-        XCTAssert(strEmoji.length != str.utf16.count)
-    }
-    
     func testSubscript()
     {
         let str = "012345"

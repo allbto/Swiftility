@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import Swiftility
 
 class UICollectionViewTests: XCTestCase
@@ -48,9 +49,9 @@ class UICollectionViewTests: XCTestCase
         
         // Dequeue non existing cell
         
-        expectFatalError("Dequeue non existing cell") {
+        expect {
             _ = collectionView!.dequeueReusableCell(for: IndexPath(row: 1, section: 0)) as TestNonExistingCollectionViewCell
-        }
+        }.to(throwAssertion())
     }
 
     // TODO: Add test for reusableSupplementaryView

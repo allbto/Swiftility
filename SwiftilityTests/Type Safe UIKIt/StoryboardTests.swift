@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import Swiftility
 
 class StoryboardTests: XCTestCase
@@ -16,9 +17,9 @@ class StoryboardTests: XCTestCase
     func testStoryboardSafeTypeInstantiation()
     {
         // Test view controller that doesn't exist
-        expectFatalError("Instantiate view controller that doesn't exist") {
+        expect {
             _ = self.storyboard.instantiateViewController() as TestNonExistingVC
-        }
+        }.to(throwAssertion())
         
         // Test view controller that does exist
         let existingVC: TestVC = storyboard.instantiateViewController()
@@ -48,9 +49,9 @@ class StoryboardTests: XCTestCase
     func testInitialViewController()
     {
         // Test initial view controller that doesn't exist
-        expectFatalError("Instantiate initial view controller that doesn't exist") {
+        expect {
             _ = self.storyboard.instantiateInitialViewController() as TestNonExistingVC
-        }
+        }.to(throwAssertion())
         
         // Test initial view controller that does exist
         let existingVC: TestVC = storyboard.instantiateInitialViewController()

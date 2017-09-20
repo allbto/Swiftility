@@ -32,7 +32,7 @@ extension UITableView
     public func dequeueReusableCell<T: UITableViewCell>() -> T
     {
         guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self)) as? T else {
-            sw_fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return cell
@@ -51,7 +51,7 @@ extension UITableView
         }
         
         guard let typedCell = cell as? T else {
-            sw_fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the tableView(\(self))")
         }
         
         return typedCell

@@ -48,7 +48,7 @@ extension UIStoryboard
     public func instantiateInitialViewController<T: UIViewController>() -> T
     {
         guard let vc = self.instantiateInitialViewController() as? T else {
-            sw_fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
+            fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return vc
@@ -67,7 +67,7 @@ extension UIStoryboard
         }
         
         guard let typedVc = vc as? T else {
-            sw_fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
+            fatalError("\(String(describing: T.self)) could not be instantiated because it was not found in storyboard: \(self)")
         }
         
         return typedVc

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import Swiftility
 
 final class UIViewAutoLayoutExtensionsTests: XCTestCase
@@ -34,9 +35,9 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
     {
         XCTAssert(view.superview == nil)
         
-        expectFatalError {
+        expect {
             self.view.autoPin(.top)
-        }
+        }.to(throwAssertion())
     }
     
     func testAutoPinSimple()
@@ -54,7 +55,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint.secondAttribute, .top)
         XCTAssertEqual(constraint.multiplier, 1)
         XCTAssertEqual(constraint.constant, 0)
-        XCTAssertEqual(constraint.priority, UILayoutPriorityRequired)
+        XCTAssertEqual(constraint.priority, .required)
         
         constraint = view.autoPin(.bottom)
         
@@ -65,7 +66,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint.secondAttribute, .bottom)
         XCTAssertEqual(constraint.multiplier, 1)
         XCTAssertEqual(constraint.constant, 0)
-        XCTAssertEqual(constraint.priority, UILayoutPriorityRequired)
+        XCTAssertEqual(constraint.priority, .required)
     }
     
     func testAutoPinFull()
@@ -74,7 +75,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         let otherView = UIView()
         
         view.autoAttach(to: superview) {
-            constraint = $0.autoPin(.top, relatedBy: .greaterThanOrEqual, toItem: otherView, toAttribute: .bottom, multiplier: 2, constant: 25, priority: UILayoutPriorityDefaultLow)
+            constraint = $0.autoPin(.top, relatedBy: .greaterThanOrEqual, toItem: otherView, toAttribute: .bottom, multiplier: 2, constant: 25, priority: .defaultLow)
         }
         
         XCTAssertEqual((constraint.firstItem as! UIView), view)
@@ -84,7 +85,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint.secondAttribute, .bottom)
         XCTAssertEqual(constraint.multiplier, 2)
         XCTAssertEqual(constraint.constant, 25)
-        XCTAssertEqual(constraint.priority, UILayoutPriorityDefaultLow)
+        XCTAssertEqual(constraint.priority, .defaultLow)
     }
 
     func testAutoPinNotAnAttribute()
@@ -104,7 +105,7 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
         XCTAssertEqual(constraint.multiplier, 1)
         XCTAssertEqual(constraint.constant, 0)
-        XCTAssertEqual(constraint.priority, UILayoutPriorityRequired)
+        XCTAssertEqual(constraint.priority, .required)
 
         XCTAssertEqual((constraint2.firstItem as! UIView), view)
         XCTAssertEqual(constraint2.firstAttribute, .height)
@@ -113,6 +114,6 @@ final class UIViewAutoLayoutExtensionsTests: XCTestCase
         XCTAssertEqual(constraint2.secondAttribute, .notAnAttribute)
         XCTAssertEqual(constraint2.multiplier, 1)
         XCTAssertEqual(constraint2.constant, 0)
-        XCTAssertEqual(constraint2.priority, UILayoutPriorityRequired)
+        XCTAssertEqual(constraint2.priority, .required)
     }
 }

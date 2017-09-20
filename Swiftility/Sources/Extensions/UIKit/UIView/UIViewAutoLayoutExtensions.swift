@@ -83,10 +83,10 @@ extension UIView
         toAttribute: NSLayoutAttribute? = nil,
         multiplier: CGFloat = 1,
         constant: CGFloat = 0,
-        priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint
+        priority: UILayoutPriority = .required) -> NSLayoutConstraint
     {
         guard let superview = self.superview else {
-            sw_fatalError("View must be contained within a superview")
+            fatalError("View must be contained within a superview")
         }
         
         let toItem = toItem is Bool ? superview : toItem
@@ -131,7 +131,7 @@ extension UIView
         toItem: Any? = false,
         multiplier: CGFloat = 1,
         constant: CGFloat = 0,
-        priority: UILayoutPriority = UILayoutPriorityRequired) -> [NSLayoutConstraint]
+        priority: UILayoutPriority = .required) -> [NSLayoutConstraint]
     {
         var constraints = [NSLayoutConstraint]()
         

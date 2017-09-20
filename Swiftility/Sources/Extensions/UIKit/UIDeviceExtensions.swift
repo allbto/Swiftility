@@ -46,7 +46,7 @@ extension UIDevice
 
     public var deviceSize: DeviceSize {
         guard let size = DeviceSize(rawValue: self.size.height) else {
-            sw_fatalError("Size not handled")
+            fatalError("Size not handled")
         }
 
         return size

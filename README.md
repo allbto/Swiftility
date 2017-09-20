@@ -22,6 +22,9 @@ pod "Swiftility"
 
 ```swift
 import Swiftility
+
+// In app delegate for example
+Swiftility.initialize()
 ```
  
 # Features

@@ -42,7 +42,7 @@ extension FromNib
         let bundle: Bundle = nib?.bundle ?? self.ownNib.bundle ?? Bundle.main
         
         guard let view = bundle.loadNibNamed(nibName, owner: owner, options: options)?.first as? Self else {
-            sw_fatalError("\(String(describing: self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(describing: self))")
+            fatalError("\(String(describing: self)) could not be instantiated because it was not found on this bundle or the nib (\(nibName)) did not contain \(String(describing: self))")
         }
         
         return view

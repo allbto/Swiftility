@@ -61,7 +61,7 @@ extension String
 {
     public func match(regex pattern: Regex) -> Bool
     {
-        let range: NSRange = NSMakeRange(0, self.length)
+        let range: NSRange = NSMakeRange(0, self.count)
         
         if let regex = pattern.regex {
             return !regex.matches(in: self, options: pattern.matchingOptions, range: range).isEmpty
@@ -81,7 +81,7 @@ extension String
     
     public func matches(forRegex pattern: Regex) -> [[String]]
     {
-        let range: NSRange = NSMakeRange(0, self.length)
+        let range: NSRange = NSMakeRange(0, self.count)
         let nsString = self as NSString
         
         if let regex = pattern.regex {
@@ -91,7 +91,7 @@ extension String
                 var ranges = [String]()
                 
                 for i in 0 ..< $0.numberOfRanges {
-                    let range = $0.rangeAt(i)
+                    let range = $0.range(at: i)
                     
                     guard range.location != NSNotFound else { break }
                     
@@ -117,7 +117,7 @@ extension String
     public func replace(regex: Regex, template: String) -> String
     {
         if self.match(regex: regex) {
-            let range: NSRange = NSMakeRange(0, self.length)
+            let range: NSRange = NSMakeRange(0, self.count)
             
             if let reg = regex.regex {
                 return reg.stringByReplacingMatches(in: self, options: regex.matchingOptions, range: range, withTemplate: template)

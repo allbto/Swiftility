@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import Swiftility
 
 class NibTests: XCTestCase
@@ -25,9 +26,9 @@ class NibTests: XCTestCase
     {
         // Instantiate non existing nib
         
-        expectFatalError {
+        expect {
             _ = TestNonExistingCell.instantiateFromNib(NibContainer("TestNonExistingCell", bundle: Bundle(for: StoryboardTests.self)))
-        }
+        }.to(throwAssertion())
         
         // Instantiate existing nib
 

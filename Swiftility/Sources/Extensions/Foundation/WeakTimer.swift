@@ -69,7 +69,7 @@ private final class WeakTimer: NSObject
 
     // MARK: - Actions
     
-    func invokeCallback()
+    @objc func invokeCallback()
     {
         callback()
     }

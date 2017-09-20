@@ -153,7 +153,7 @@ extension UIViewController
     
     // MARK: - Life cycle
     
-    override open class func initialize()
+    internal static func _setupSwizzle()
     {
         guard self === UIViewController.self else { return }
         

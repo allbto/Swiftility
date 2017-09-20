@@ -49,7 +49,7 @@ extension UICollectionView
         }
         
         guard let typedCell = cell as? T else {
-            sw_fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the collectionView(\(self))")
+            fatalError("\(String(describing: T.self)) cell could not be instantiated because it was not found on the collectionView(\(self))")
         }
         
         return typedCell
@@ -58,7 +58,7 @@ extension UICollectionView
     public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind elementKind: String, for indexPath: IndexPath) -> T
     {
         guard let view = self.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
-            sw_fatalError("\(String(describing: T.self)) supplementary view of kind \(elementKind) could not be instantiated because it was not found on the collectionView(\(self))")
+            fatalError("\(String(describing: T.self)) supplementary view of kind \(elementKind) could not be instantiated because it was not found on the collectionView(\(self))")
         }
         
         return view
