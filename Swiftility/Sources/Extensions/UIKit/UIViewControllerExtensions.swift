@@ -216,14 +216,14 @@ extension UIViewController
     // MARK: - Open methods
     
     /// Notification observers setup when view appears and removed when view disappears
-    open func sw_setupActiveNotificationObservers() -> [NSObjectProtocol]
+    @objc open func sw_setupActiveNotificationObservers() -> [NSObjectProtocol]
     {
         return [] // To be overriden
     }
     
     /// Notification observers setup on view load and removed on deinit
     /// Don't forget to call self.sw_removePermanentObservers() on class deinit
-    open func sw_setupPermanentNotificationObservers() -> [NSObjectProtocol]
+    @objc open func sw_setupPermanentNotificationObservers() -> [NSObjectProtocol]
     {
         return [] // To be overriden
     }
