@@ -8,9 +8,9 @@
 
 import UIKit
 
-enum Swiftility {
+public enum Swiftility {
     
-    static func initialize() {
+    public static func initialize() {
         UIViewController._setupSwizzle()
     }
     
