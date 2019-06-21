@@ -193,10 +193,6 @@ let cell = collectioView.dequeueReusableCell(for: someIndexPath) as MyCell
 # Extensions
 
 See [Extensions page](Swiftility/Sources/Extensions)
- 
-# Author
-
-Allan Barbato, allan.barbato@gmail.com
 
 # License
 
